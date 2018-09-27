@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（jQuery做个轮播）2018-07-22</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（jQuery做个轮播）2018-07-22</h1>
+        <div class="show-content">
+          <h1>DOM作业讲解</h1><p>1.全局变量可耻，不能用（容易相互覆盖，避免使用）</p><p>2.可以用<b>局部变量</b>，方法：用封装函数的方法</p><p><b>=&gt;3.立即调用函数（立即执行函数）</b>：声明一个函数，立即调用函数: <b>function(){}.call()</b></p><p><b>=&gt;4.立即调用函数 </b>刷新后浏览器会报错，解决方法 ES6 前让浏览器知道它是<b>立即执行函数</b></p><p>由于var 全局作用 ES6引入let，let 跳不出其作用域</p><hr><p><b>1.HTML、CSS、JS 内容、样式与行为分离</b></p><p><b>为什么？好像理所当然，对于这种问题，用如果不</b></p><p>img 元素如果知道图片的宽高，应该设定 width 或者height 来站位，防止图片加载慢而导致的<b>重排</b>现象 重排（图片重新排列，浪费性能，是优化的一种）</p><p><b>align-items: flex-start;</b></p><p><b>overflow: hidden; （溢出隐藏）用来隐藏窗口外的内容</b></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(CSS)2018-06-14</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">(CSS)2018-06-14</h1>
+        <div class="show-content">
+          <p><b>CSS (Cascading Style Sheets):层叠样式表</b></p><p><b>CSS2.1</b></p><p>应用最广泛</p><p><b>CSS 3<br></b></p><p>从<b> 2011 年</b>（已经7年了）开始 CSS 被分为多个模块单独升级，统称为 CSS 3。这些模块有：</p><p>CSS 3文档 <a href="https://www.google.com/search?q=css+spec&amp;oq=css+spec&amp;aqs=chrome..69i57j69i60l5.1235j0j7&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">搜索 CSS spec</a> CSS specifications（CSS 规范）</p><h1>CSS 学习资源</h1><p>Google: 关键词 MDN</p><p><a href="https://css-tricks.com/" target="_blank">CSS Tricks</a></p><p><a href="https://www.google.com/search?q=%E9%98%AE%E4%B8%80%E5%B3%B0+css" target="_blank">Google: 阮一峰 css</a></p><p><a href="http://www.zhangxinxu.com/wordpress/category/css/page/25/" target="_blank">张鑫旭的 240 多篇 CSS 博客</a></p><p><a href="https://tympanus.net/codrops/category/playground/" target="_blank">Codrops 炫酷 CSS 效果</a></p><p><a href="http://www.ituring.com.cn/book/1695" target="_blank">CSS揭秘</a></p><p><a href="http://cndevdocs.com/" target="_blank">CSS 2.1 中文 spec</a></p><p><a href="http://adamschwartz.co/magic-of-css/" target="_blank">Magic of CSS</a> 免费在线书</p><hr><h1>1. 引入 CSS 的三/四种方式</h1><p>如何在html里引入CSS样式，有如下三种，第四种不常用，是在css文件中引入另一个css文件的方法</p><p>内联 <b>style </b>属性</p><p><b>style</b> 标签</p><p>外部文件 <b>css link</b></p><p><b>@import url(./b.css); </b>（在css文件中引入另一个css文件）</p><hr><p><b><a href="http://zh.learnlayout.com/toc.html" target="_blank">CSS布局</a></b>的一些概念</p><p>背下来：如何写让导航栏列表变成横的</p><p>给所有的子元素加 <b>float:left</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ef4aadee77723993.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">float</div>
+</div><p>给父元素加 <b>clearfix 类 </b>（其目的是去掉 <b>float:left </b>产生的bug）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-d7be5e5d7ed3302e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">bug</div>
+</div><p><b>clearfix 类</b>写法如下</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0b746da3ed8fa6cb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">clearfix 写法</div>
+</div><p>考点：一般用Computed 查看默认样式的大小</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-c2818a800df95aba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">默认字体16</div>
+</div><p><b>color: inherit（color 继承）</b></p><p><b>display: block 使元素变成块级元素<br></b></p><p><b>font-family：字体</b></p><p><b>font-size：大小</b></p><p><b>font-weight：宽度等</b></p><hr><p><b>wallhaven：</b>壁纸天堂 （可以找背景图片）</p><p><b>Iconfont：</b>阿里巴巴矢量图</p><h1>知识点：</h1><p><b>块级元素高度</b>由其 内部<b>文档流元素</b> 的高度总和决定，决定不代表相等</p><p><b>文档流：</b>文档内元素的流动方向：内联元素从左往右，宽度不够另起一行继续；块级元素，每一块占一行，从上到下依次往下</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-118aadec1a4bc9c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">英文不分开</div>
+</div><p>可以用到<b> word-break：break-all </b>使其可换行，中文网站一般用这个，英文网站用<b> word-break：break-word </b>因为单词分开就不是原来意思了。</p><hr><h1><b>记：</b></h1><p><b>max-wigth：</b>最大宽度，好处是自适应</p><p><b>margin-left：auto；margin-right：auto；</b>就能使<b>div</b>水平居中</p><p><b>vertical-align：top；</b><b> </b>使图标离边框上下边距离一致</p><p><b>column</b>属性</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e17036abcc9aa125.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

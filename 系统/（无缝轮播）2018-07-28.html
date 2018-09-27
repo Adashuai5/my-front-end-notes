@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（无缝轮播）2018-07-28</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（无缝轮播）2018-07-28</h1>
+        <div class="show-content">
+          <p>轮播 网站：http://idangero.us/swiper/demos/</p><p>链式操作的精髓是：返回传入的值，便于继续</p><hr><h1>DOM 事件</h1><p>DOM Level 0 是指 DOM 1 标准出来前的API</p><p>DOM Level 2 增加了 单独的 DOM Level 2 events，到现在仍在使用DOM Level 2版本的 DOM events</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-b9948659fa63e6da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>DOM Level 1是这样的</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-f9940d78a18dc7ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>DOM 1 的 onclick 的缺点是唯一性，无法同时绑定2个属性；onclick容易覆盖模型</p><p>所以DOM 2 引入了队列属性：先引入的属性先触发</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-d4a8292032cda833.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>jQuery里的 <b>$btn.one('click',fn) </b>其实就是函数处理事件后加上 <b>removeEventListener</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-caeb799ea7a16a93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>事件模型</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-02827a8208a99063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>事件模型图解：先捕获（true）后冒泡（false）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ebb9a3c106604db7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>特例：如果点击的是元素本身，则显示的是书写顺序</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

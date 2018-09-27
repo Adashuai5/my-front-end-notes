@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一些命令行入门学习的知识和细节</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">一些命令行入门学习的知识和细节</h1>
+        <div class="show-content">
+          <h1>命令行？</h1><p>命令行：只有命令，方便</p><p>windows：图形界面</p><p>一个程序员应该学会命令行</p><p>下面是一些简单的知识</p><hr><p>命令行里“目录”（对应windows里的“文件夹”）</p><p>命令行一些符号</p><p><b>~</b>：用户目录</p><p><b>/</b> ：整个硬盘</p><p><b>. </b>：当前目录</p><p><b>.. </b>：副目录</p><p><b>&amp; </b>：提示符号，可以改变</p><p><b>clear</b> ：清屏</p><hr><p>输入<b>ls -l </b>（查看路径）回车得到如下</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-bb2e7ac4f4e616ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">路径</div>
+</div><p>其中：</p><p><b>d</b> ：<b>directory</b>表示  目录(文件夹)</p><p><b>r</b> ：<b>read</b>表示  可读</p><p><b>w</b>：<b>write</b>表示  可写</p><p><b>x</b> ：表示 可执行</p><p><b>- </b>：表示 不可以</p><p>第一组 <b>rwx</b> 表示管理员权限，第二组 <b>rwx</b> 表示 用户所在组的权限，第三组 <b>rwx</b> 是访问权限</p><p><b>Administer</b> 表示用户；<b>197121</b> 表示用户所在组</p><hr><p>可以用 <b>touch + 文件名</b> 创建文件</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-c9580aa61009e522.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">用touch创建文件1.txt</div>
+</div><p><b>echo</b> 和 <b>touch </b>均可用来创建文件</p><p>区别是 <b>echo</b> 可以向创建的文件里追加内容<b> touch</b> 只用来创建文件且可以改变文件更新时间</p><hr><p><b>命令行快捷键</b></p><p>↑ ↓ 上一命令 / 下一命令</p><p>!! 上一命令占位符</p><p><b>Tab</b>自动补全路径</p><p><b>Alt+.</b>上一命令的最后一个参数</p><p><b>&amp;&amp;</b>前面的执行成功了，再执行后面的</p><p><b>||</b>前面的执行失败了，就执行后面的</p><p><b>;</b>前面执行完了，不管成功失败，就执行后面的</p><p><b>&gt;</b>重定向</p><p><b>| </b>管道</p><hr><p><b>如何使用其他命令行</b></p><p>常用命令网上很多，谷歌一下就有，那么一些不常用的命令如何知道有哪些用法和其含义</p><p>命令行中查看选项手册<b>man</b>：<b>manual</b></p><p>windows中用<b>--help</b></p><p>手册内容太长不想看（用此）<a href="https://github.com/tldr-pages/tldr#tldr" target="_blank">tldr</a>：<b>too long didn't read</b></p><p>还可以用这个网页，命令行<a href="https://explainshell.com/" target="_blank">释义</a></p><p>点开界面如下</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0bc203c06c932a7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">explainshell主界面</div>
+</div><p>在搜索框输入要查询的命令</p><p>如 <b>ls</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a733fcf7a6a0a3a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">ls释义</div>
+</div><p><b>list directory contents</b> 列出目录内容</p><p>有些命令可以有参数，如<b> ls</b> 有<b>-l -a</b>等 </p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-156ca27401e98309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">ls参数-la</div>
+</div><p>是不是很方便？再试试其他的，比如 <b>mv</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e5d1b5db9555a3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">mv释义</div>
+</div><p><b>move (rename) files </b>移动（重命名）文件</p><p>以及 <b>cat</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-356bafdb4d657c15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">cat释义</div>
+</div><p><b>concatenate files and print on the standard output </b>连接文件并打印到标准输出设备上</p><p>必要时可以参考教程<a href="http://www.runoob.com/linux/linux-comm-cat.html" target="_blank">cat 菜鸟教程</a></p><hr><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

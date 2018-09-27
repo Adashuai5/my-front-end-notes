@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理解HTTP</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">理解HTTP</h1>
+        <div class="show-content">
+          <h1><b>什么是HTTP</b></h1><p><b>HTTP（HyperText Transfer Protocol）</b>超文本传输协议 <a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%8D%8F%E8%AE%AE%E6%A6%82%E8%BF%B0" target="_blank">维基百科</a></p><p><b>HTTP 的作用就是指导浏览器和服务器如何进行沟通</b></p><p><b>Client （浏览器）→ HTTP（请求）→Server（80端口）→HTTP响应→Client（浏览器）</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e2b8fabd058d2313.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">HTTP请求与响应</div>
+</div><p>浏览器负责发起请求</p><p>服务器在 80 端口接收请求</p><p>服务器负责返回内容（响应）</p><p>浏览器负责下载响应内容</p><hr><h1><b>HTTP 请求</b></h1><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-3255f775c068ece3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">请求的格式</div>
+</div><p>请求最多包含四部分（图中1、2、3、4），最少包含三部分。（也就是说第四部分可以为空）</p><p>第三部分永远都是一个回车（\n）</p><p><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95" target="_blank">动词</a>有 GET/POST/PUT/PATCH/DELETE/HEAD/OPTIONS 等</p><p>这里的路径包括「查询参数」，但不包括「锚点」</p><p>如果你没有写路径，那么路径默认为 /</p><p>第 2 部分中的 Content-Type 标注了第 4 部分的格式</p><h1><b>用 Chrome 发请求</b></h1><p>打开 Network（F12）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ac46ff3c447bfe4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">network</div>
+</div><p>地址栏输入网址，如www.baidu.com</p><p>在 Network 点击，查看 request，点击「view source」</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a26b808214a7f891.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">百度请求</div>
+</div><p>可以看到请求的前三部分了</p><p>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</p><hr><h1><b>HTTP 响应</b></h1><p>请求了之后，应该都能得到一个响应，除非断网了，或者服务器宕机了</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0a2a709c31b4f71e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">响应的格式</div>
+</div><p>状态码是服务器对浏览器说的话</p><p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81#1xx%E6%B6%88%E6%81%AF" target="_blank">1xx消息</a>——请求已被服务器接收，继续处理</p><p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81#2xx%E6%88%90%E5%8A%9F" target="_blank">2xx成功</a>——请求已成功被服务器接收、理解、并接受</p><p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81#3xx%E9%87%8D%E5%AE%9A%E5%90%91" target="_blank">3xx重定向</a>——需要后续操作才能完成这一请求</p><p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81#4xx%E8%AF%B7%E6%B1%82%E9%94%99%E8%AF%AF" target="_blank">4xx请求错误</a>——请求含有词法错误或者无法被执行</p><p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81#5xx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF" target="_blank">5xx服务器错误</a>——服务器在处理某个正确请求时发生错误</p><p>状态解释没什么用</p><p>第 2 部分中的 Content-Type 标注了第 4 部分的格式</p><p>第 2 部分中的 Content-Type 遵循 MIME 规范</p><h1><b>用 Chrome 查看响应</b></h1><p>打开 Network</p><p>输入网址</p><p>选中第一个响应</p><p>查看 Response Headers，点击「view source」</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-c1ef5f68fe12bac5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">百度响应</div>
+</div><p>你会看到响应的前两部分</p><p>查看 Response 或者 Preview，你会看到响应的第 4 部分</p><hr><p><b>也可以用命令行发请求并得到响应</b></p><p>用到<b>curl</b>命令，具体可以命令行<a href="https://explainshell.com/" target="_blank">释义</a>（命令行及命令行释义可以看我相关<a href="https://www.jianshu.com/p/dcf636cbe6af" target="_blank">blog</a>）</p><p>如：<b>curl -s -v -H  -- "https://www.baidu.com"</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-fb73225d2f20d079.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">curl示例</div>
+</div><p><b>请求的内容为</b></p><p>&gt; GET / HTTP/1.1</p><p>&gt; Host: www.baidu.com</p><p>&gt; User-Agent: curl/7.59.0</p><p>&gt; Accept: */*</p><p>&gt;</p><p><b>响应的内容为</b></p><p>&lt; HTTP/1.1 200 OK</p><p>&lt; Accept-Ranges: bytes</p><p>&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform</p><p>&lt; Connection: Keep-Alive</p><p>&lt; Content-Length: 2443</p><p>&lt; Content-Type: text/html</p><p>&lt; Date: Thu, 07 Jun 2018 13:54:43 GMT</p><p>&lt; Etag: "58860411-98b"</p><p>&lt; Last-Modified: Mon, 23 Jan 2017 13:24:33 GMT</p><p>&lt; Pragma: no-cache</p><p>* Server bfe/1.0.8.18 is not blacklisted</p><p>&lt; Server: bfe/1.0.8.18</p><p>&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/</p><p>&lt;</p><p>还有很多可以尝试的<b>curl</b>命令</p><p>可以参考<a href="http://man.linuxde.net/curl" target="_blank">链接</a></p><hr><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p><p>一些参考：</p><p><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank">HTTP-维基百科</a></p><p><a href="http://man.linuxde.net/curl" target="_blank">curl命令</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（canvas笔记）2018-06-25</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（canvas笔记）2018-06-25</h1>
+        <div class="show-content">
+          <h1>mouse事件</h1><p>理解mouse 事件，当我们的鼠标在文档上点击时，浏览器接收指令有如下三种</p><p>鼠标按下：document.onmousedown =function(){｝</p><p>鼠标移动：document.onmousemove =function(){｝</p><p>鼠标松开：document.onmouseup =function(){｝</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-7424533c311faf1f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">mouse事件</div>
+</div><p>做一个有画笔的画布，代码如下</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e605b7c59d38aa2b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">画布</div>
+</div><h1>如何使画布占据整个页面</h1><p>canvas 是inline-block元素，有默认属性，且其和 img属性一样无法更改，但有width和height属性。无法用CSS属性让 canvas 占据整个页面，因为设定宽高只是让它放大而已，就像放大图片一样。</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-f7ab425321a2e66f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>上图是使canvas的css属性 的<b>width = 100vw;height = 100vh;</b>后画布的效果，虽然视觉上产生了占据整个页面的效果，但其实只是画布放大了，画画的时候鼠标与画的线位置偏离，且线已经放大了</p><p>可以用JS来给画布设置页面宽高</p><p>下面是其中一种JS获取页面宽高的方法</p><p><b>var pageWidth = document.documentElement.clientWidth；var pageHeight= document.documentElement.clientHeight；</b></p><p>然后让画布宽高等于页面宽高</p><p><b>canvas.width = pageWidth；canvas.height = pageHeight</b></p><p>但是有一个问题，当页面发生改变时，画布无法及时调整</p><p>可以用<b>window.onresize</b>属性解决这一问题</p><p><b>window.onresize = function(){</b></p><p><b>var pageWidth = document.documentElement.clientWidth；var pageHeight= document.documentElement.clientHeight；<br></b></p><p><b>canvas.width = pageWidth；canvas.height = pageHeight</b></p><p><b>｝</b></p><p><b>但是给canvas加上述属性后，会出现滚动条</b></p><p><b>解决方法：<br></b></p><p>一、设置canvas元素的CSS属性 —— <i>display:block;</i></p><p>二、设置HTML或body的CSS属性 —— <i>overflow:hidden;</i></p><p>三、设置canvas元素的CSS属性——vertical-align:top; //默认是baseline</p><h1><b>手机端</b></h1><p>由于<b>手机宽度980</b>的历史遗留问题 需要给html加一个 <b>viewport </b>的 <b>meta </b>属性</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-7f2785b2b641d8c2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">viewport</div>
+</div><p><b>与 mouse事件对应，触屏设备为 touch事件</b></p><p><b>如何分析设备是否支持touch事件</b></p><h1>特性检测</h1><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-78c50409c3ebd62a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">如图</div>
+</div><p>touch事件的<b>clientx</b>和<b>clienty </b>并不直接给出，而是在<b>touches[0]</b>下隐藏，如图所示</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-daec13cc8cb3605f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">TouchEvent</div>
+</div><p>原因是触屏端可以有多个触点（你可以用多个手指同时触屏你的手机），用<b>touches</b>这一<b>hash</b>可以有效分辨不同触点</p><h1>如何保存画布</h1><p><b>
+
+download.onclick = function(){ </b></p><p><b> var url = canvas.toDataURL("image/png");var a = document.createElement('a'); document.body.appendChild(a);a.href = url;a.download = "mypaint";a.target = '_blank'    a.click()</b></p><p><b>}</b></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(继续简历)2018-07-14</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">(继续简历)2018-07-14</h1>
+        <div class="show-content">
+          <p><b>有哪些动画</b></p><p><b>1.sticky navbar 粘性的导航栏</b></p><p><b>2.auto highlight navbar 自动高量导航栏</b></p><p><b>3.auto scroll smoothly 自动平滑滚动</b></p><p><b>4.menu 菜单栏</b></p><p><b>5.auto hide aside 自动隐藏侧边栏</b></p><p><b>6.seamless slides 无缝轮播</b>    </p><p><b>7.loading animation 登录动画</b></p><p><b>8.animate when screen</b></p><hr><p>git commit -v 是在git commit 时候用vim 添加描述</p><p>而 <b>git commit --amend -v</b> 是在上一个git commit 里更改描述，这样子就只有一次 git commit 了</p><hr><p>有两种滚动方法</p><p>1.滚动事件：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/scroll" target="_blank">onscroll</a></p><p>通过MDN 搜索 API</p><p>window.scrollY</p><p>2.滚动鼠标事件</p><hr><p>写JS方法：JS只改变 class 其他东西一概不动</p><hr><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-b38653e9b960b36c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>为何出现这种情况</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e9e954a29a8e629c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>这里的 li 是浮动定位，它的宽度是内部文档流元素宽度，ul 是绝对定位元素，也是能缩多廋缩多廋。我们需要给它一个强制不换行的属性<b>white-space：nowrap；</b></p><hr><p>如何知道一个东西是否为文本？<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank">nodeType</a></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-1316b9e7be58cc7d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">记住1和3</div>
+</div><p>nodeType === 1 表示节点（或nodeType === ELEMENT_NODE）；nodeType === 3 表示文本（或nodeType === TEXT_NODE）</p><hr><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-616ae20bef072db5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>为了作出下拉菜单效果，首先采用以下代码</p><blockquote>
+<p>let aTags = document.getElementsByClassName('menuTigger')</p>
+<p>       for (let i = 0; i &lt; aTags.length; i++) {</p>
+<p>               aTags[i].onmouseenter = function (x) {</p>
+<p>                       let a=x.currentTarget</p>
+<p>                       let brother = a.nextSibling</p>
+<p>                       while(brother.tagName !== 'UL'){</p>
+<p>                                brother = brother.nextSibling;</p>
+<p>                       }</p>
+<p>                       brother.classList.add('active')</p>
+<p>               }</p>
+<p>               aTags[i].onmouseleave = function (x) {</p>
+<p>                       let a=x.currentTarget</p>
+<p>                       let brother = a.nextSibling</p>
+<p>                       while(brother.tagName !== 'UL'){</p>
+<p>            brother = brother.nextSibling;</p>
+<p>                       }</p>
+<p>                       brother.classList.remove('active')</p>
+<p>               }</p>
+<p>       }</p>
+</blockquote><p>发现移到下拉菜单，下拉菜单无法停留问题</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-79b61c3320fe0b73.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>应该监听父元素 li</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-657da423e0bd2830.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>发现鼠标移到下拉菜单 a 下面的 hover 就没了，所以要给 a 标签也加上 active，既然如此，不如直接给父元素 li 加 active，那就不用找 ul，直接用下方一句代码就好了</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-6f0a6584d4d8edb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>解决没有下拉菜单的 li 对应的 a 没有下面的线</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-2dc79831c88ab727.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor" target="_blank">cursor</a> CSS属性定义鼠标指针悬浮在元素上方显示的鼠标光标</p><p>函数给你传的第一个参数可以调用 <b>preventDefault </b>来阻止默认动作</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-8ddc6e85f7df9500.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>a.href 是带HTTP协议的；a.getAttribute('href') 是用户写的href</p><hr><p><b>setTimeout（function（）） （延迟时间设定）</b></p><p><b>window.onscroll = function（）（在用户滑动屏幕时触发函数）</b></p><p><b>window.scrollY （获取窗口高度）</b></p><p><b>document.querySelectorAll（） （接受一个选择器，返回选择器所有元素）</b></p><p><b>document.querySelector（） （接受一个选择器，返回选择器第一个元素）</b></p><p><b>onmouseenter = function（） （鼠标进入某元素时触发函数）</b></p><p><b>onmouseleave = function（）（鼠标离开某元素时触发函数）</b></p><p><b>preventDefault （阻止默认动作）</b></p><p><b>getAttribute（） （获取用户在标签上写的原文）</b></p><p><b>offsetTop （）（元素距离页面顶部的像素数）</b></p><p><b>window.scrollTo（x，y） （滑动到某个位置）</b></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

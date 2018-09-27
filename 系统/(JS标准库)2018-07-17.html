@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(JS标准库)2018-07-17</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">(JS标准库)2018-07-17</h1>
+        <div class="show-content">
+          <p>什么是标准库：<b>JS内存</b>里的 <b>栈（Stack）</b>里的 <b>global/window 对象</b> 由 标准库 和 非标准库 组成</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-3037592dbef88493.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>当我 <b>var a = Array(3) </b>时事实上是存了什么</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-08e738cfa699c6ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>而当我 <b>var a = Array(3,3) </b>时却与 <b>var a = Array(3)</b> 不同</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0f45d54e1555f665.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>Array() 的用法只有上面两个，声明一个<b> var a = Array(3)</b>；或声明多个</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-2bcae03a00ff84e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><b>new Array() </b>也一样，因为 Array() 是对象啊</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-512975fce461e2ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><b>具名函数function f(){} / 匿名函数function (){} </b></p><p>在大括号中应该要有 return 没 return 浏览器会自动加上 return undefined</p><p><b>new Function ([<i>arg1</i>[,<i>arg2</i>[, ...<i>argN</i>]],]<i>functionBody</i>) </b></p><p>第二种是MDN里的方法，<b>var x = Function()</b> 要大写，MDN里中括号表示可以省略，上面意识是可以只有函数公式，也可以只写<b> <i>functionBody </i></b>和一个 <i><b>arg</b></i></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-371f0757a6302c25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>JS 中数组的本质</p><p>人类理解：数组就是数据的有序集合</p><p>JS理解：数据就是原型链中有 Array.prototype 的对象</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-4a440bc27c47cb0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><h1>伪数组</h1><p>1.有 0,1,2,3,4,5...n,length 这些 key 的对象</p><p>2.原型链中没有 Array.prototype</p><p>这样的对象就是伪数组</p><p>目前知道的伪数组有</p><p>arguments 对象</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-b717c467c1b73d73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>document.querySelectAll('div') 返回的对象</p><h1>数组的 API</h1><p>1.Array.prototype.forEach</p><p>遍历数组</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-4c7276e4a53af566.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">我们写的源代码</div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e7947c4093effc2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">例子</div>
+</div><p>Array.prototype.forEach 的三个参数：value、key、自己</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e4031fd3890f3990.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>2.Array.prototype.sort</p><p>不用记x-y为正还是y-x为正，忘记了试试就行</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-59272fafcc7bc6fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>3.Array.prototype.join</p><p>a.join(',') 能把Array变成字符串</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ca2ec5d2c2fb9d69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>4.Array.prototype.concat</p><p>concatenate：连结的</p><p>一般用法，合并两个数组</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a48c71569612ca26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>特殊用法：用 var b = a.concat([]) 复制一个数组</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-efbba5cf677b3223.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>5.Array.prototype.map</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-25489e840da66bb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>与 forEach 一样可以用来遍历数组，区别是其可以返回一个新的函数倍的数组（映射），forEach 返回undefined；=&gt;为箭头函数，更简洁</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-178ca818f2a1bdb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">
+
+Array.prototype.map
+
+</div>
+</div><p>6.Array.prototype.filter</p><p>filter：过滤，与 map 区别是 map 返回数组位数不变，filter会变少</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-d505ca501a3b157b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>链式操作 先filter 后 map</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-bac8d4b98ceffabe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>7.Array.prototype.reduce</p><p>arr.reduce(callback[, initialValue])  对数组的每一个initialValue（初始值）进行 callback （回访）</p><p>数组 value 求和</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a608d2deebb88eb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>map 和 filter 可以用 reduce 表示</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-57be5e0291e0eacf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML常用的几个标签</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">HTML常用的几个标签</h1>
+        <div class="show-content">
+          <p><b>遇到新的标签属性等不会用可以用JS BIN尝试看看效果，就知道了</b></p><p><b>常见标签详解</b></p><h1>
+<b>1. iframe</b> <b>标签</b>
+</h1><p><b>嵌套页面</b></p><p>1.1. <b>iframe标签 </b>的<b> frameborder</b> 属性</p><p><b>iframe标签 </b>自带边界border，所以用这个属性可以去边界，如图</p><div class="image-package  " data-index="5">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-1031b6812b8aaf57.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">不加</div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-fa67255c8a244a71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">加</div>
+</div><p>1.2. <b>iframe标签 </b>的 <b>src</b>属性：主要用来加链接</p><p>1.3.<b> iframe标签 </b>的 <b>name</b>属性</p><p><b>name属性</b>与<b> a标签</b>一起使用有效，如图</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-d6e908d8da74ea14.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">name</div>
+</div><hr><h1><b>2. a 标签</b></h1><p><b>跳转页面（HTTP GET 请求）</b></p><p><b>target 属性<br></b></p><p><b>target="_blank _top _parent _self"</b>的区别，看意思就懂了分别是跳转 新空白页面；最首页（用于不止两个页面，跳到第一个页面）；父页面（不止两个页面，跳到当前页面父页面）；自身页面</p><p>命令行下载 http 服务工具</p><p><b>$npm i -g http-server</b></p><p>这样就不用自己写服务了，然后用下面命令打开服务器</p><p><b>$http-server -c -1</b></p><div class="image-package  " data-index="7">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-23d055b34597b717.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>打开服务器</p><p>下面的路径都可以访问文件夹所在网页文件，复制其中一个在浏览器上访问即可</p><p>如http://10.216.155.182:8080</p><div class="image-package  " data-index="8">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-5af1c1c11575c480.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">网站</div>
+</div><p>只有 <b>href="#"</b>没有<b>get</b>请求</p><p>此外 <b>a标签</b> 的 <b>href</b> 有以下几种方法</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-787bd332399011ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">href 常用</div>
+</div><h1>3.form 标签</h1><p><b>跳转页面（HTTP POST 请求）</b></p><p>3.1. <b>from标签 </b>需要加<b> （提交按钮）submit </b>来显示跳转，如图</p><div class="image-package  " data-index="4">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-aaa0d33e641cd112.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">有submit</div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-e664c2791e3c60dc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">无submit</div>
+</div><p>3.2. <b>from标签</b> 主要用来发起 post 请求（如登录时输入账号密码时候）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ca38a55f51850bee.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">from用于post</div>
+</div><p>在网页中点击提交，Network 中 post 请求中的第四部分 From Data如图</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-22538ebbc2c5f43d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">提交时</div>
+</div><p>若是HTTP协议，密码便是明文："222"，这就是为什么会有 HTTPS 出现</p><p>3.3. <b>from标签 </b>与<b>a标签 </b>一样也有<b> target</b></p><hr><h1><b>4. input标签和button标签</b></h1><p><b>input 要学的比较多，可以结合<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank">MDN文档</a>实例学习</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-fad8a6d86142a599.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">input type</div>
+</div><p><b>input type="button"</b>和<b> button </b>的区别</p><div class="image-package  " data-index="7">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-583d5833841661dc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">两者看起来完全一样  </div>
+</div><p>区别是 <b>input </b>是空元素，无法内联其他标签，而 <b>button </b>显然可以</p><p>注：若form表单只有一个 <b>button按钮 </b>而无<b>type</b>属性，<b>button</b>直接升级为 <b>submit</b>（跳转）</p><hr><h1>5.table标签</h1><p>较完整示例如图</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-410da64f04c3a907.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">table</div>
+</div><p>1. 很多人会忽略 <b>colgroup</b> 的使用，它可以用来给 table 的表列表加宽度等属性</p><p>2. thead tbody tfoot 三个标签可以省略，加上的好处是给了每一部分定义，即使他们顺序打乱，浏览器也可以很好得形成原列表</p><p>3. 上图中 table 的 border 有空隙可以用</p><p><b>border-collapse</b> 来去掉</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-b6ee3f969de3dc94.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">collapse</div>
+</div><hr><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

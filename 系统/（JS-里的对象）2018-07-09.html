@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（JS 里的对象）2018-07-09</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（JS 里的对象）2018-07-09</h1>
+        <div class="show-content">
+          <h1>简单类型与对象的区别</h1><p><b>可以用 var 基本类型 = new 对应基本类型的函数（） 的方法将基本类型转换为对象</b></p><p><b>四个全局函数</b></p><h2><b>1. Number</b></h2><p><b>var n = new Number(1) 创建一个 Number 对象，</b><b>里面含有不同函数</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-49f74433c16c9cb1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">var n = new Number(1)</div>
+</div><p><b>1 与 new Number(1) 的区别是什么？看内存图</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-34576fbe266f863b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">1 与 new Number(1) 的区别</div>
+</div><p>但是我们基本上不用 new Number() 的方法而直接用 var n = () 产生的1也可以直接用这些函数，原因是当初设计时 Brendan Eich 想要JS与Java想像而更简略，其内部含有临时转换</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a897f93909abf8d6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">JS之父的秒技</div>
+</div><h2><b>2.String</b></h2><p>var s = new String('hello') 创建一个 String 对象</p><p>'hello' 与 new String('hello') 的区别是什么？看内存图</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Useful_string_methods" target="_blank">常用API</a></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-85145c3f064ef1c3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">charAt()</div>
+</div><p>String.charAt(n) 等价于 String[n]</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a15d0096181696b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">charCodeAt()</div>
+</div><p>String.charCodeAt() 可以打出对应字母的Unicode编码 </p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-974772ccf2fa3814.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">String.tiString()  </div>
+</div><p>String.tiString()  转换整数为相应进制的字符串</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0782b71c7d08c0b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">String.trim()</div>
+</div><p>String.trim() 可以去掉字符串两边的空格</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ebef2a116b57ae7d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">String.concat()</div>
+</div><p>String.concat() 可以连接两个字符串，相当于命令行中的 cat</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-c8ad6c7d232d62f0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>String.slice() 有切开的意思，可以取到字符串中对应的内容</p><p>String.replace() 可以替换字符串中的相应字符</p><h2>3.Boolean</h2><p>var b = new Boolean(true) 创建一个 Boolean 对象</p><p>true 与 new Boolean(true) 的区别是什么？看内存图</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-54712f81badaecc4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>为什么只打印出 f2 的值而没有 f1？因为 f2 是对象，而对象的布尔均为 true ，所以 if(f2) 是 true 所以打印出 2</p><h2>4.Object 与 Object当然没区别</h2><blockquote>
+<p>var o1 = {}</p>
+<p>var o2 = new Object()</p>
+<p>o1 和 o2 没区别</p>
+</blockquote><p>但是 o1 !=== o2 ，为什么？内存图啊</p><hr><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-6339dac1683b84e9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><br></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-fdcd5d8f7727859f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

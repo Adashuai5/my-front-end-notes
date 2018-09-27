@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（函数）2018-07-19</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（函数）2018-07-19</h1>
+        <div class="show-content">
+          <blockquote>
+<p>console.log = function(x){</p>
+<p>    alert(x)</p>
+<p>    return undefind</p>
+<p>}</p>
+</blockquote><p>console.log() 的源码如上，因此打印的东西和返回的东西没关系。</p><h1>函数的 5 种声明方法</h1><h4>1.具名函数</h4><p>函数有一个name属性可以用来知道对应函数的名字</p><blockquote>
+<p> function f(x,y){</p>
+<p>     return x+y</p>
+<p> }</p>
+<p> f.name // 'f'</p>
+</blockquote><h4>2.匿名函数</h4><p>匿名函数要有声明的变量配合使用</p><p>匿名函数竟然有name</p><blockquote>
+<p> var f</p>
+<p> f = function(x,y){</p>
+<p>     return x+y</p>
+<p> }</p>
+<p> f.name // 'f'</p>
+</blockquote><h4>3.具名函数赋值</h4><p>特殊</p><p>具名函数赋值的 name 和 匿名函数一样是 function 后面的那个</p><blockquote>
+<p> var f</p>
+<p> f = function f2(x,y){ return x+y }</p>
+<p> f.name // 'f2'</p>
+<p> console.log(f2) // 报错</p>
+</blockquote><p>与具名函数的区别（语法一样，返回值却不一样，又一次体现了JS的不一致，事实上和作用域有关）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0d303b0e75841482.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><h4>4.window.Function</h4><p>一般大家都很少用这种</p><p>新生成的函数返回的 name 是 anonymous：匿名的</p><blockquote>
+<p> var f = new Function('x','y','return x+y')</p>
+<p> f.name // "anonymous"</p>
+</blockquote><h4>5.箭头函数</h4><blockquote>
+<p> var f = (x,y) =&gt; {</p>
+<p>     return x+y</p>
+<p> }</p>
+</blockquote><p>只有一句话可以省略大括号和 return（如下面第一行）；只有一个参数可以省括号（如下面第二行）</p><blockquote>
+<p>var sum = (x,y) =&gt; x+y</p>
+<p>var n2 = n =&gt; n*n</p>
+</blockquote><hr><p>刚刚我们已经提到了函数的 name 属性，复习一遍</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-5bc07e4f0ec14f6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><h1>如何调用函数</h1><p><b>f.call(asThis, input1,input2)</b></p><p>其中 asThis 会被当做 this，[input1,input2] 会被当做 arguments</p><p>禁止使用 f(input1, input2)，因为学会 .call 才能理解 this</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ea8b533a58a624c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><h1>this 和 arguments</h1><p><br></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-35f8a91f76d3ef89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>this 的存在只是为了迎合Java里面的 this 临时加的，用来表示第一个参数</p><p>'use strict' 可以使得浏览器不擅自改变原值</p><blockquote>
+<p>function f(){</p>
+<p>    'use strict'</p>
+<p>    console.log(this)</p>
+<p>    console.log(arguments)</p>
+<p>    return undefined</p>
+<p>}</p>
+<p>f.call(1,2,3) // this 为 1，arguments 为 [2,3]</p>
+</blockquote><hr><h1>什么是 call stack</h1><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-60685e8217bf01f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a27f5d7dd54d1961.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYSgpewogICAgY29uc29sZS5sb2coJ2EnKQogIHJldHVybiAnYScgIAp9CgpmdW5jdGlvbiBiKCl7CiAgICBjb25zb2xlLmxvZygnYicpCiAgICByZXR1cm4gJ2InCn0KCmZ1bmN0aW9uIGMoKXsKICAgIGNvbnNvbGUubG9nKCdjJykKICAgIHJldHVybiAnYycKfQoKYS5jYWxsKCkKYi5jYWxsKCkKYy5jYWxsKCk%3D!!!" target="_blank">普通调用</a></p><p><a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYSgpewogICAgY29uc29sZS5sb2coJ2ExJykKICAgIGIuY2FsbCgpCiAgICBjb25zb2xlLmxvZygnYTInKQogIHJldHVybiAnYScgIAp9CmZ1bmN0aW9uIGIoKXsKICAgIGNvbnNvbGUubG9nKCdiMScpCiAgICBjLmNhbGwoKQogICAgY29uc29sZS5sb2coJ2IyJykKICAgIHJldHVybiAnYicKfQpmdW5jdGlvbiBjKCl7CiAgICBjb25zb2xlLmxvZygnYycpCiAgICByZXR1cm4gJ2MnCn0KYS5jYWxsKCkKY29uc29sZS5sb2coJ2VuZCcp!!!" target="_blank">嵌套调用</a></p><p><a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gc3VtKG4pewogICAgaWYobj09MSl7CiAgICAgICAgcmV0dXJuIDEKICAgIH1lbHNlewogICAgICAgIHJldHVybiBuICsgc3VtLmNhbGwodW5kZWZpbmVkLCBuLTEpCiAgICB9Cn0KCnN1bS5jYWxsKHVuZGVmaW5lZCw1KQ%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" target="_blank">递归调用</a></p><p>stack overflow 栈溢出</p><hr><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-2172dc0a5cfd283c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫做闭包</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

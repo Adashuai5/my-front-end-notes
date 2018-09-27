@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS常用布局学习</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">CSS常用布局学习</h1>
+        <div class="show-content">
+          <p>最近开始学习CSS，了解了一些基础和常规写法。CSS的知识十分复杂，是值得不断发掘和完善的一个前端模块。对于新人来说，最好的方法就是尝试，去模仿，遇到问题再去深入，一点一点得增加对CSS的基础的理解。</p><p>CSS布局对于新人来说，是一个比较基础的难点，首先我们应该理解一些常用的布局属性</p><p><a href="http://zh.learnlayout.com" target="_blank">学习CSS布局</a> 通过这以网站，学习<b>'display'</b>，<b>'position'</b> 以及 <b>'float' </b>等属性，加深对其认识。</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-da5183cded1d63d5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p>下面介绍几种常用的布局方法</p><h1>1.左右布局</h1><p>1.1.用 <b>'float' </b>实现左右布局</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-36b825766bb976e4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">'float' 实现左右布局</div>
+</div><p>只要设定两个布局块的宽度总和为 '<b>container'(容器) </b>的宽，那么俩个class的float属性可均为 <b>'float:left;' </b></p><p>也可以用以下方法让右边块级元素自适应左边达到左右布局</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-95e2ada432bbbcee.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">自适应左右布局</div>
+</div><p>即给 <b>'right'</b> 的宽度加上 <b>'margin-left'</b></p><p>1.2.用<b> 'position' </b>实现左右布局</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-5711c22ce85c4def.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">'position' 实现左右布局</div>
+</div><p>父元素设置为<b>position:relative;</b></p><p>left设置固定宽度，设定为<b>绝对定位'position:absolute'</b>。</p><p>right设置为<b>相对定位'position:relative'</b>。</p><p>right设置左边距，<b>'margin-left' </b>为左侧栏的宽度。</p><h1>2.左中右布局</h1><p>2.1.用 <b>'float' </b>实现左右布局</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-4af2cbc2a81b81ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">'float' 实现左右布局</div>
+</div><p>其原理与 <b>'float' </b>左右布局一样，且也可以用自适应。</p><p>值得注意的是 <b>'middle' </b>所在块与 <b>'left' </b>所在块一样，要用 <b>'float:left;' </b></p><p>而 <b>'right'</b> 所在块可以用 <b>'float:left'</b> 或 <b>'float:right;'</b> 以及自适应。</p><p>2.2.用<b> 'position' </b>实现左中右布局</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-83bd3380ae9c53c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">'position' 实现左中右布局</div>
+</div><p>原理与前面类似，值得注意的是，我们要调整一下html的布局，保证 <b>'right' </b>列div在 <b>'middle' </b>列div前，不然会出现第三块换行显示的情况，此问题涉及<b>文档流</b></p><p><b>文档流：</b>文档内元素的流动方向：内联元素从左往右，宽度不够另起一行继续；块级元素，每一块占一行，从上到下依次往下</p><p>所以同理，2.1.中<b>'middle' </b>若用自适应，也要调整html与上面一样</p><h1>3.水平居中</h1><p>其实前面已经用到了水平居中的方法</p><p><b>margin: 0 auto;</b> 常用于块级元素</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-467bc19891cc934f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">margin: 0 auto; </div>
+</div><p>当然还有其他水平居中及垂直居中的方法，网上有很多相关博客。如<a href="http://louiszhai.github.io/2016/03/12/css-center/" target="_blank">16种方法实现水平居中垂直居中</a></p><hr><p>另外，如何实现将垂直元素变成水平，也可以用<b>'float:left;'</b></p><p>方法如下：</p><p>1.给所有的子元素加 <b>float:left</b></p><div class="image-package  " data-index="1">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ef4aadee77723993.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">float：left</div>
+</div><p>2.给父元素加 <b>clearfix 类 </b>（其目的是去掉<b>float:left </b>产生的bug，一定会有bug，因此一定要加上）</p><div class="image-package  " data-index="2">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-d7be5e5d7ed3302e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">bug</div>
+</div><p><b>clearfix 类</b>写法如下</p><div class="image-package  " data-index="3">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0b746da3ed8fa6cb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption">clearfix 写法</div>
+</div><hr><p>通过上述知识，相信你对<b>'display'</b>，<b>'position'</b> 以及 <b>'float'</b> 等属性已经有所认识。后续学习过程中了解了 <b>'flex'</b>属性（其实<a href="https://link.zhihu.com/?target=http%3A//zh.learnlayout.com/toc.html" target="_blank">学习CSS布局</a>里提到了，有兴趣可以看MDN文档，但是看文档很多时候不能快速理解）推荐看看大佬们的博客，这里推荐阮一峰老师关于<b>'flex'布局</b>的<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank">博客</a>，上述1，2种布局方式现已经不提倡，<b>'flex'</b>是个强大的属性，<b>'flex'布局</b>应作为布局的首选。</p><p><br></p><p>本文主要用于个人学习使用，如有侵权请联系我删除</p><p><br></p><p>主要参考：</p><p><a href="http://zh.learnlayout.com/toc.html" target="_blank">学习CSS布局</a></p><p><a href="https://leohxj.gitbooks.io/front-end-database/html-and-css-basic/css-layout.html" target="_blank">CSS常见布局</a></p><p><a href="https://www.jianshu.com/p/c6673f8a6a5a" target="_blank">DIV+CSS页面基本布局总结</a></p><p><a href="http://louiszhai.github.io/2016/03/12/css-center/" target="_blank">16种方法实现水平居中垂直居中</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

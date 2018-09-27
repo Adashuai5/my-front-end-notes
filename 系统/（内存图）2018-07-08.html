@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（内存图）2018-07-08</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（内存图）2018-07-08</h1>
+        <div class="show-content">
+          <p><b>JS 引擎将内存分为代码区和数据区</b></p><p><b>我们只研究数据区</b></p><p><b>数据区分为 Stack（栈内存） 和 Heap（堆内存）</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-32edf35b00fbadd9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><b>简单类型的数据直接存在 Stack 里</b></p><p><b>复杂类型的数据是把 Heap 地址存在 Stack 里</b></p><p><b>遇到问题就画图，不要分析</b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-30da05b195b5788d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><blockquote>
+<p>var a = 1</p>
+<p>var b = a</p>
+<p>b = 2</p>
+<p>请问 a 显示是几？ </p>
+</blockquote><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-17251353adb4429f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><blockquote>
+<p>var a = {name: 'a'}</p>
+<p>var b = a</p>
+<p>b = {name: 'b'}</p>
+<p>请问现在 a.name 是多少？ </p>
+</blockquote><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-54243c8e80323e06.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>图中ADDR代表地址，可以说 </p><blockquote>
+<p>
+
+var a = {name: 'a'}</p>
+<p>var b = a</p>
+<p>b.name = 'b'</p>
+<p>请问现在 a.name 是多少？</p>
+</blockquote><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-c07e30a378562e66.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><blockquote>
+<p>
+
+var a = {name: 'a'}</p>
+<p>var b = a</p>
+<p>b = null</p>
+<p>请问现在 a 是什么？</p>
+</blockquote><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-4062c0fac0a0d9f1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><h4>对象里面含本身</h4><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-d44c12729773b035.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><h4>一个面试题</h4><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-8ac558458553c443.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>考点：先确定 a.x 中 a 的 ADDR 为 34</p><hr><p>垃圾回收</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-70045063ff76e4b3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>IE6有bug 就算对象没被引用，也不会进行垃圾回收，除非浏览器全部关闭，或者页面关闭前用下图蓝色选中的代码</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ea2ad54f8a420183.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><h4>深复制是什么鬼</h4><blockquote>
+<p>var a = 1</p>
+<p>var b = a</p>
+<p>b = 2 //这个时候改变 b</p>
+<p>a 完全不受 b 的影响</p>
+<p>那么我们就说这是一个深复制</p>
+</blockquote><p>对于简单类型的数据来说，赋值就是深拷贝。</p><p>对于复杂类型的数据（对象）来说，才要区分浅拷贝和深拷贝。</p><p>这是一个浅拷贝的例子</p><blockquote>
+<p>var a = {name: 'frank'}</p>
+<p>var b = a</p>
+<p>b.name = 'b'</p>
+<p>a.name === 'b' // true</p>
+</blockquote><p>因为我们对 b 操作后，a 也变了</p><p>什么是深拷贝了，就是对 Heap 内存进行完全的拷贝。</p><blockquote>
+<p>var a = {name: 'frank'}</p>
+<p>var b = deepClone(a) // deepClone 还不知道怎么实现</p>
+<p>b.name = 'b'</p>
+<p>a.name === 'a' // true</p>
+</blockquote>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git入门——在本地使用git</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">git入门——在本地使用git</h1>
+        <div class="show-content">
+          <h1><b>什么是git</b></h1><p>git是世界上最好的分布式版本控制系统</p><p>什么意思？可以看廖雪峰的<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">git教程</a>前面部分了解其概念</p><hr><h1>如何在本地使用git</h1><p>首先，打开你的命令行，本次我使用的是Windows上的git bash，进入你的桌面 cd Desktop/</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-43b9dc80ef559196.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">进入桌面</div>
+</div><p>在桌面创建一个文件夹，如 git-demo-1 </p><p>mkdir git-demo-1</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0dc68b973297288f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">创建目录</div>
+</div><p><b>1. git init 初始化本地仓库 .git</b></p><p>进入这个目录：cd git-demo-1</p><p>然后输入命令：git init</p><p>这句命令会在 git-demo-1 里创建一个 .git 目录</p><p>可以用ls -la 观察这个目录</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-234bac65ee856269.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">git-init</div>
+</div><p><b>2. git status -sb 观察当前文件状态</b></p><p>在 git-demo-1 目录里创建一个文件如index.html</p><p>touch index.html</p><p>运行 git status -sb 可以看到文件前面有 ?? </p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-5e3a74ba0f7d5209.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">git status -sb</div>
+</div><p><b>3. git add 文件名或 git add.</b></p><p> ?? 表示 git 不知道如何对待这个新的文件</p><p>此时要用 git add 将文件添加到「暂存区」</p><p>git add index.html（若文件较多，一个个加麻烦，可直接用git add. 一次性将所有变动加到暂存区）</p><p>然后可以再 git status -sb 观察其状态</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-aae00cd046749ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">git add</div>
+</div><p>?? 变成了 A 即告诉 git 这些文件我要加到仓库里</p><p><b>4. git commit -m "信息" 将文件正式提交到本地仓库（.git）</b></p><p>同样你可以一个个提交文件 </p><p>git commit index.html -m '添加index.html'</p><p>或者一次提交所有文件</p><p>git commit . -m "添加了几个文件"</p><p>再运行 git status -sb</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0dc17938fa6c7440.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">提交文件到本地仓库 </div>
+</div><p>出现## master 说明你已经将文件上传成功了</p><p>这时你可以用 git log 看历史变动</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-497d1b90a4b1e1cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">历史变动</div>
+</div><p>至此，一次在本地使用 git 的过程就完成了</p><p>如果对已有文件有新的变动，我们只需要依次执行 git add xxx 和 git commit -m 'xxx' 两个命令即可</p><hr><p><b>总结一下就是</b></p><p><b>1. git init 初始化本地仓库 .git</b></p><p><b>2. git add 文件名或 git add.<br></b></p><p><b>3. git commit -m "信息" 将文件正式提交到本地仓库（.git）<br></b></p><p><b>有新的变动， git add xxx 和 git commit -m 'xxx' <br></b></p><p><b>过程中用 git status -sb 观察当前文件状态</b></p><p><b>最后可用 git log 看历史变动</b></p><hr><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p><p>一些参考：</p><p><a href="http://www.runoob.com/git/git-tutorial.html" target="_blank">git教程</a></p><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank">常用 Git 命令清单</a></p><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖大大-git</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

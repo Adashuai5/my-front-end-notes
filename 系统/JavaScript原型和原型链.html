@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript原型和原型链</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">JavaScript原型和原型链</h1>
+        <div class="show-content">
+          <p>JavaScript中除了基本类型外的数据类型，都是对象。但是由于其没有 类（class，ES6引入了class，但与我们今天要讲的没有冲突）的概念，如何将所有对象联系起来就成立一个问题，于是就有了原型和原型链的概念。</p><hr><blockquote><p>每个实例对象（object ）都有一个私有属性（称之为 __proto__）指向它的原型对象（prototype）。该原型对象也有一个自己的原型对象 ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。</p></blockquote><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-c9e28000b43ca445.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption"></div>
+</div><p>上面是<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank">MDN里有关原型链知识</a>的摘录，什么意思？让我们来解释一下</p><p>事实上 JavaScript 所有数据都可以以对象的形式表现：由于函数是对象，我们可以用构造函数的方法使得 Number、Boolean、String变成对象。</p><p>下面以 Number 为例 （其他类型也一样）</p><p>可以用 var 基本类型 = new 对应基本类型的函数() 的方法创建一个新函数</p><p>var n = new Number() 创建一个 Number 函数，其是一个对象</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-62536de6cd21ab12.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption"></div>
+</div><p>这里的 n 就是 Number 的实例，可以看到 n 里面有一个 __proto__ 指向 Number() 这个函数，Number() 即为 n 的原型对象(prototype) ；</p><p>而 Number() 函数有一个 __proto__ 指向 Object() 函数 ，Object() 即为 Number() 的原型对象；</p><p>Object() 函数里存在 hasOwnProrerty 证明其已经到达最后的属性层，再往后就是对象的最终原型对象 null。</p><p>即</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-fc991a402727ca56.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">原型链</div>
+</div><p><b>以上一整个原型与原型层层相链接的过程即为原型链</b></p><p>其可以将公用属性存放在同一原型层中，实现共享、节省内存空间等。</p><blockquote><p>当您访问实例的属性时，JavaScript首先会检查它们是否直接存在于该对象上，如果不存在，则会[[Prototype]]中查找。这意味着你在prototype中定义的所有内容都可以由所有实例有效共享，你甚至可以稍后更改部分prototype，并在所有现有实例中显示更改（如果需要）。</p></blockquote><hr><p>通过以上例子我们可以得到下面两个“公式”</p><p><b>var 对象 = new 函数()</b></p><p><b>对象.__proto__ === 对象的构造函数.prototype</b></p><p>我们已经知道</p><p><b>var n = new Number()</b></p><p><b>n.__proto__ === Number.prototype //true</b></p><p>那么 <b>Number.__proto__</b> ？</p><p>Number 的原型对象是Function，即 Number 是 Function 的实例</p><p>即有 <b>Number.__proto__ === Function.prototype </b></p><p>那么同理</p><p><b>var object = new Object()</b></p><p><b>object.__proto__ === Object.prototype</b></p><p><b>Object.__proto__ === Function.prototype</b></p><p>再进一步推断</p><p><b>var function = new Function()<br></b></p><p><b>function.__proto__ === Function.prototype</b></p><p><b>Function.__proto__ === Function.prototype</b></p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-b6a6447f260e8db4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption"></div>
+</div><hr><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p><p><br></p><p>参考及推荐：</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank">继承与原型链</a></p><p><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank">Javascript继承机制的设计思想</a></p><p><a href="https://juejin.im/post/599d69fc6fb9a0248f4a7b31" target="_blank">白话原型和原型链</a></p><p><a href="https://github.com/mqyqingfeng/Blog/issues/2" target="_blank">JavaScript深入之从原型到原型链 #2</a></p><p><a href="http://book.jirengu.com/fe/%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.html" target="_blank">饥人谷课件-原型链和继承</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(伪类 及 generator)2018-06-16</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">(伪类 及 generator)2018-06-16</h1>
+        <div class="show-content">
+          <p><b>::before 与 ::after </b></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-cdb225d33bd266f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">伪类</div>
+</div><p>搜索 关键字 加 generator </p><p>如 <b><a href="http://www.colorzilla.com/gradient-editor/" target="_blank">CSS Gradient generator</a> （css渐变发生器）</b></p><p><b><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API" target="_blank">CSS Animations</a>（css动画）</b></p><p>如何解决加了width：50%；后无法在两个宽度的元素中加边距的情况</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-59ef82994c34a9b4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">如图</div>
+</div><p>可以用：<b>box-sizing:border-box; </b>要么就在原元素上再加个div（比较麻烦）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-805e62fb0a15847c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">box-sizing:border-box;</div>
+</div><p><b>：nth-child（even）</b>（选中偶数子元素）</p><p><b>：nth-child（odd）</b>（选中奇数子元素）</p><p><b>：nth-child（1） </b>===<b> ：first-child</b></p><p><b>display：inline-block; </b>会有bug一般可以用<b> vertical-align:top;</b> 解决</p><p><b>cursor: pointer; </b>把文本指针变成手型指针</p><hr><p><a href="https://c.m.163.com/news/a/DDJFF6P905118DFD.html?spss=newsapp&amp;fromhistory=1" target="_blank">常用工具</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

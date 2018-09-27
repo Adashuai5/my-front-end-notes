@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有关 JavaScript 里的数据类型小记</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">有关 JavaScript 里的数据类型小记</h1>
+        <div class="show-content">
+          <h1>JavaScript数据类型</h1><p>JavaScript 语言含七种数据类型，分别是是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）以及Symbol。推荐阮大大的<a href="https://javascript.ruanyifeng.com/#grammar" target="_blank">JavaScript 标准参考教程</a> 作为全面的教材学习这些数据类型。下面是我的一些笔记，主要为了便于我自己配合教材复习。</p><p><b>1.Number（数字）</b></p><p>整数和小数：1 + .1 -&gt; 1.1</p><p>科学记数法：1.23e2 -&gt; 123</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-f997d844134a9e23.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">进制</div>
+</div><p>二进制：0b11 -&gt; 3</p><p>八进制：011（为避免混淆，后来 ES5 添加了 0o11 语法）-&gt; 9</p><p>十六进制：0x11 -&gt; 17</p><p><b>2.String（字符串）</b></p><p>字符串就是零个或多个排在一起的字符，放在单引号或双引号之中</p><p>字符串默认写在一行（模仿命令行，命令行你按回车换行试试），那么就有了转义的概念</p><p>转义，主要用到反斜杠。</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-56d4723b694d4fdd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">用转义换行</div>
+</div><p>用上面的方法就可以使得字符串换行了。但是反斜杠的后面必须是换行符，而不能有其他字符（比如空格），否则会报错。</p><p>空格看不见啊，所以这种换行方法不推荐，推荐下面这种</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-b385311d639224c5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">+号换行</div>
+</div><p>ES6新增（`）//位于键盘左上角，使得字符串可以直接换行，并且看不见的回车占一个字符长度</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-83684bae6af76015.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">`字符串`</div>
+</div><p>另外转义符（\）还可以表现其他特殊字符</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-9c2f42639fac7065.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">其他特殊字符</div>
+</div><p><b>3.Boolean（布尔值）</b></p><p>以数理逻辑学先驱 <a href="https://zh.wikipedia.org/wiki/%E4%B9%94%E6%B2%BB%C2%B7%E5%B8%83%E5%B0%94" target="_blank">乔治.布尔</a> [著有 <a href="https://zh.wikipedia.org/wiki/%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0" target="_blank">布尔代数</a> （我们常用的与或非逻辑）]名字命名</p><p>布尔值代表“真”和“假”两个状态。“真”用关键字 true 表示，“假”用关键字 false 表示。布尔值只有这两个值。true == 1，false == 0</p><p>JavaScript 中的与（&amp;&amp;）和或（||）</p><p>a &amp;&amp; b 在 a 和 b 都为 true 时，取值为 true；否则为 false</p><p>a || b 在 a 和 b 都为 false 时，取值为 false；否则为 true</p><p>判断布尔值时，JavaScript 将下列值转为 false</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-12bf2615a0ebb737.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">转为false的6个值</div>
+</div><p><br></p><p><b>4.null（零的）和 </b><b>5.undefined（未定义）</b></p><p>这俩个都表示没有值，是JavaScript特有的。</p><p>null 表示空值，即该处的值现在为空；undefined 表示“未定义”</p><p><b>区别：</b></p><p>null 转为数值时为0；undefined 转为数值时为 NaN</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-5fecd4e5e79e06c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption"></div>
+</div><p>（规范）如果一个变量没有被赋值，那么这个变量的值就是 undefiend</p><p>（习俗）如果你想表示一个还没赋值的对象，就用 null（老司机看到就懂你意图）。</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-34a2db56c00f3de3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">没有赋值的对象</div>
+</div><p>如果你想表示一个还没赋值的字符串/数字/布尔/symbol，就用 undefined（但是实际上你直接 var xxx 一下就行了，不用写 var xxx = undefined）</p><p><b>6.Symbol（符号）</b></p><p>symbol 是ES6 引入的一种新的数据类型，其用来生成一个全局唯一的值。详细可看方老师的这篇<a href="https://zhuanlan.zhihu.com/p/22652486" target="_blank">文章</a></p><p><b>7.Object（对象）</b></p><p>上述数据类型是较为简单类型（基本类型），而 object 是复杂类型，其由这些简单类型组成。</p><p>下面例子中声明了一个名为 person 的对象，大括号里含有4个“键值对”（key-value），键值对之间可以用 ‘ , ’ 分隔（ES5版本以后）</p><p>对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），符合标识符规定也可不加引号。</p><blockquote>
+<p>var person = {</p>
+<p>name : 'David',</p>
+<p>age : 18,</p>
+<p>married : true,</p>
+<p>'child' : {          name: 'Jack'      }</p>
+<p>}</p>
+</blockquote><p>例子中的 object 包含了布尔值、字符串、数值等；由于其中的key都符合标识符规定，因此引号可以省略；object 里面可以有 object。</p><p>可以用 object['key'] 取到对应的 value，这里的 key 一定要加 ' ' ，若写作object[key] 其意思就变了；当 key 符合标识符规定时，object['key'] 也可以写作 object.key</p><p>如 person['name'] 和 person.name 都可以David</p><p><b>delete object['key'] 和 'key' in object</b></p><p>你可以用 delete object['key'] 删除 一个“键值对” ，可以用 'key' in object 来查看对应的键是否存在与对象中</p><p>如当你 delete person['age'] 后</p><p>当你 person.age 会返回 undefined 意思是没有此 value ，而 'age' in person 会返回 false</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-8a329189be7578d2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">delete person['age']</div>
+</div><p>这时 person 里面已经没有 age : 18 这个“键值对”了</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-7df70f6ff2d4d66d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">console.log (person)</div>
+</div><p>这与令 person.age = undefined 不同，这种情况下 key 依然存在</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-14f166a408212d7b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">person.age = undefined</div>
+</div><hr><p><b>typeof 操作符</b></p><p>我们可以用<b> </b>typeof 操作符来得到JavaScript 语言的每一个值的数据类型，这些数据类型会用字符串表示</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-70286cf51f312178.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">typeof</div>
+</div><p>可以看到，JS的数据类型在 typeof 时，大多返回其真实类型，但有俩个特例</p><p>第一个是 function ，它并不是JS的数据类型，但当你声明一个函数，然后去 typeof 它，它返回 "function"</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-c00821ff897a0249.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">typeof 函数返回"function"</div>
+</div><p>第二个是 null</p><div class="image-package">
+<img name="" src="http://upload-images.jianshu.io/upload_images/7094266-fae7a9344ee220ea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">typeof null 返回 "object"</div>
+</div><p>这是历史遗留问题</p><blockquote><p>1995年的 JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑null，只把它当作object的一种特殊值。后来null独立出来，作为一种单独的数据类型，为了兼容以前的代码，typeof null返回object就没法改变了。</p></blockquote><hr><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p><p><br></p><p>主要参考及文中出现链接：</p><p><a href="http://javascript.ruanyifeng.com/" target="_blank">JavaScript 标准参考教程（alpha）</a></p><p><a href="https://zhuanlan.zhihu.com/p/22652486" target="_blank">方应杭：「每日一题」JS 中的 Symbol 是什么？​</a></p><p><a href="http://es6.ruanyifeng.com/#docs/symbol" target="_blank">ECMAScript 6入门</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

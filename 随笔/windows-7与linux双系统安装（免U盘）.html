@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>windows 7与linux双系统安装（免U盘）</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">windows 7与linux双系统安装（免U盘）</h1>
+        <div class="show-content">
+          <p>之前一直看到linux系统的安利，决定在原windows 7系统下装个linux系统来学习。网上找了大量教程，遇到了各种各样的问题，花费了很长时间，终于成功。由于身边没有U盘，选择了免U盘安装的便捷方法。本次选择的linux系统版本为使用量最多的ubuntu。下面分享安装的过程中的问题及解决方法。</p><p><b>系统环境：</b></p><p>windows 7（win10相同）</p><p><b>准备工具：</b></p><p>1.EasyBCD，一款用来配置与调整启动配置数据的软件，本次我使用的是2.3版本。</p><p>2.Ubuntu 系统，<a href="https://link.zhihu.com/?target=https%3A//cn.ubuntu.com/download/" target="_blank">官网下载</a>，选择自己喜欢的版本，本次我选用的是Ubuntu 17.04版本。</p><p><b>windows分区：</b></p><p>从windows 系统磁盘中分出40-100G空间作为linux系统存储空间</p><p>1.桌面右键我的电脑，点击管理-&gt;磁盘管理</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-08c675192441c530.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>2.选择一个可用空间多的盘，右击选 压缩卷。压缩相应大小空间，本次我选用的是80G，即81920（可自行按实际情况选择40-100G）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-1e878e73901c0b1b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>3.压缩完成后生成的盘为为分配，选择新建简单卷，一直点下一步就可以了。</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-651995342bc7e591.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>4.若出现无法新建简单卷的情况，如下（未出现即分区成功，可直接看下一过程）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-45a5f96809ab9018.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>主分区和逻辑分区已满情况：磁盘主分区加上逻辑分区（绿色框区域）超过4个区，就会出现这种情况。（想了解可看<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/qiushisoftware/article/details/19337945" target="_blank">遇到此情况原因</a>）</p><p>由于我原本的逻辑分区空间不足，我选择的办法是将某个主分区转换成逻辑分区，这样就相当于将磁盘转化到3.的盘的状态，即主分区和逻辑分区不超过4个。用到的软件是DiskGenius <a href="https://link.zhihu.com/?target=http%3A//www.diskgenius.cn/download.php" target="_blank">下载地址</a></p><p>选中原来想分区的主分区盘 右击-&gt;转化为逻辑分区即可</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-09adb29a2c6cc10d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>然后重复步骤3就能成功</p><p><b>Ubuntu：</b></p><p>将下载好的Ubuntu iOS镜像文件放到电脑某个盘根目录下，本次我选择的是F盘，然后解压到当前目录下（选个文件少的盘，安装完成后这些解压文件和镜像都没用了，文件多的话删除的时候比较蛋疼，好在解压下来的文件一般有相同的修改日期，可作为删除参考依据）。保证解压后的这些文件和Ubuntu iOS镜像文件在同一个盘的根目录下，要不然安装过程中可能出现找不到系统文件的情况。</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-0d9f66878975eea7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-8f38604e93644e1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><b>EasyBCD：</b></p><p>打开EasyBCD，选择添加新条目。在下半部分框里点击ISO项，名称随便填，路径选择你的ubuntu ISO镜像所在的地方。模式从磁盘运行。选完后，添加条目</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-fc7fd3391c25169b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>然后点击编辑引导菜单，就可以看到刚才添加的条目了。选择倒计时，如果Use Metro bootloader没有勾选上，勾选下。完成后保存设置。</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-16069c81c35d9de9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><b>进入Ubuntu安装：</b></p><p>主要安装过程我参考了<a href="https://link.zhihu.com/?target=https%3A//www.jianshu.com/u/563525e5cc40" target="_blank">_牙牙</a>的简书 <a href="https://link.zhihu.com/?target=https%3A//www.jianshu.com/p/417c1001a559" target="_blank">地址</a> 所给方法进行（由于图片无法截取，只能贴其博客了，大家可以按其博客从“4.关机重启，会出现两个选项，选Ubuntu iOS，单击进入安装引导过程“开始）</p><p>当我进行到这一步时候</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-fc2b00988be311dd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>出现了“因为不能卸载以下挂载点上分区：/cdrom”的提示框（找不到图了，遇到应该会懂）此时不要点继续（我点了继续然后安装了一晚上没动静），点后退。</p><p>解决方法是在此界面时选择试用 Ubuntu</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-7e0728cbb8a2de16.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:200px;min-width:200px;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>进入后按快捷键ctrl+alt+T进入终端</p><p>输入sudo umount -l /cdrom 回车即可继续进行安装Ubuntu（‘-l’中‘l’是小写的L）</p><p>若还是未安装成功，多尝试几遍，有与上述不一致的问题多google，每个电脑情况不同，但是遇到问题基本上前人都解决过了，一定能有效解决。（ <b>Ctrl+Alt+Del</b>可以立即终结电脑的异常状态，因此安装未成功可用此快捷键快速重启）</p><p>相信你一定能愉快得开始玩耍linux系统的。</p><p>本文主要用于个人学习使用，如有侵权请联系我删除。</p><p><b>主要参考博客：</b></p><p><a href="https://link.zhihu.com/?target=https%3A//www.jianshu.com/p/417c1001a559" target="_blank">win10下装ubuntu双系统（免U盘）</a></p><p>其他参考链接已在文中注明。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

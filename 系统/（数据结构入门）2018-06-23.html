@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>（数据结构入门）2018-06-23</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">（数据结构入门）2018-06-23</h1>
+        <div class="show-content">
+          <h1>1.哈希表（Hash Table）<br>
+</h1><p><b>基数排序 (Radix Sort)</b> 是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。</p><p>计数排序（复杂度 O(n+max)）优于比较排序。</p><p>桶排序是多个桶的快速排序。</p><p>计数排序桶多浪费空间，但是速度快；桶排序桶数自由，但需要二次排序；基数排序适用于大数据的排序。</p><p>三种排序都用到了Hash</p><h1>2.队列（Queue）</h1><p>先进先出</p><p><b>var q = [ ]</b>//声明一个队列</p><p><b>q.push('张三')</b></p><p><b>1 </b>//让张三来排队</p><p><b>q.push('李四')</b></p><p><b>2 </b>//让李四来排队</p><p><b>q.shift()</b></p><p><b>"张三" </b>//张三先出列</p><p><b>q.shift() </b></p><p><b>"李四" </b>//李四后出列</p><p>基数排序事实上在出桶时是队列</p><h1>3.栈（Stack）</h1><p>先进后出</p><p><b>var stack = [ ]</b>//声明一个栈</p><p><b>stack.push('第一层')</b></p><p><b>1</b></p><p><b>stack.push('第二层')</b></p><p><b>2</b></p><p><b>stack.pop() </b>//pop：弹出</p><p><b>"第二层梦"</b> //第二层梦先弹出</p><p><b>stack.pop()</b></p><p><b>"第一层梦"</b> //第一层梦后弹出</p><hr><p>Hash是一个数组，队列和栈都可以用数组实现</p><h1>4.链表（Linked List）</h1><p>链表主要为理解树做准备</p><p>链表图解（用hash 实现）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-a06d65bf72e70281.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">链表</div>
+</div><p>其较于数组的优势是，数组想要删掉中间某个数十分麻烦，而链表只需改变链（中间箭头）的指向</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-89a6e166a66c6637.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">去掉a2</div>
+</div><p>如图a1的下一个为a3，a2被删除了，十分方便。</p><p>但链表的缺点是，用函数表示时候，取到第an个数，需要链<b>a.next(n-1)</b>次，与数组只需a[n]表示显得十分不便，因此在JS里不常用。</p><p><b>head </b>表头即a1所在表；<b>node</b> 除表头外的其他表</p><h1>5.树（tree）</h1><p>这里用HTML示例</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-ac21dd2239e7161e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">html标签的树</div>
+</div><p>树是多链的链表</p><p>层数：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；（上图为3）</p><p>深度：对于任意节点n,n的深度为从根到n的唯一路径长，根的深度为0；（上图为2）</p><p>节点个数：所有节点个数。（上图为9，无子节点的节点称为叶子节点）</p><p><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank">二叉树（</a><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank">Binary tree</a>）</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-cc5f35cb793d64d8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">二叉树</div>
+</div><p>满二叉树：叶子满的二叉树</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-6ef9964bb535e209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">满二叉树</div>
+</div><p>完全二叉树：除最后一层外，若其余层都是满的，并且最后一层或者是满的，或者是在<b>右边缺少连续若干节点</b>，此二叉树称为完全二叉树。</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-bb044b9e3d8b5179.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">这种不是完全二叉树</div>
+</div><p>上图情况右边有节点，因此不是完全二叉树</p><p>完全二叉树和满二叉树可以用数组实现</p><p><b><a href="http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/" target="_blank">堆排序 (Heap Sort)</a></b></p><p>堆（二叉堆）可以视为一棵完全的二叉树，完全二叉树的一个“优秀”的性质是，除了最底层之外，每一层都是满的，这使得堆可以利用数组来表示（普通的一般的二叉树通常用链表作为基本容器表示），每一个结点对应数组中的一个元素。</p><p>伪代码如下</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-63a2a055290d576b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">堆排序</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
