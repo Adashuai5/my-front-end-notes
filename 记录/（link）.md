@@ -25,3 +25,5 @@ Dplayer
 
 [JavaScript 全栈工程师培训教程](http://www.ruanyifeng.com/blog/2016/11/javascript.html)
 [英文教程 Front-End Developer Handbook 2018](https://frontendmasters.com/books/front-end-handbook/2018/what-is-a-FD.html)
+
+[饥人谷搜索 PSD](https://xiedaimala.com/courses/544b9100-f08e-4ea0-b4e1-5e0955276002#/common)

@@ -88,3 +88,19 @@ transform:  translateY(ty)       /* see <length> for possible values */
 ```
 在Y轴平移指定距离
 #input
+
+##CSS动画
+CSS generator (CSS 动态效果的搜索方法)
+- [@keyframes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes) 通过在动画序列中定义关键帧
+```
+// 转圈
+@keyframes a{
+  0%{transform: rotato(0deg);}
+  100%{transform: rotato(0deg);}
+}
+animation:a 1s infinite liner;
+```
+- [transition](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+```
+transition:all 1s；
+```
