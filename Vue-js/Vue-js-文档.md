@@ -86,6 +86,7 @@ new Vue({
 })
 // => "a is: 1"
 ```
+生命周期钩子的 this 上下文指向调用它的 Vue 实例
 ##生命周期
 ![待深入](https://upload-images.jianshu.io/upload_images/7094266-e96014e0aa70dfee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -109,7 +110,7 @@ v-html 指令可以设定数据为 HTML
 可以通过使用 v-bind 指令添加 HTML 特性
 ####使用 JavaScript 表达式
 对于所有的数据绑定，Vue.js 都提供了完全的 JavaScript 表达式支持
-表达式可在所属 Vue 实例的数据作用域下作为 JavaScript 被解析。注意每个绑定都只能包含单个表达式，否则不会生效。
+表达式可在所属 Vue 实例的数据作用域下作为 JavaScript 被解析。**注意每个绑定都只能包含单个表达式，否则不会生效。**
 ##指令
 指令 (Directives) 是带有 v- 前缀的特殊特性。指令特性的值预期是单个 JavaScript 表达式 (v-for 除外)。
 其作用是当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM
@@ -163,4 +164,170 @@ computed: {
 ```
 ##侦听器
 大多数情况下，计算属性能满足要求，但当需要响应数据变化时，如当需要在数据变化时执行异步或开销较大的操作时，我们需要设置监听器
+
+---
 #Class 与 Style 绑定
+v-bind 绑定 class 列表 和 style（样式）时，表达式结果的类型除了字符串，Vue.js 针对性得提供了 对象或数组。
+##绑定 Class
+####class 绑定对象
+我们可以传给 v-bind:class 一个对象，可以在对象中传入多个属性来动态切换多个 class
+此外，v-bind:class 指令也可以与普通的 class 属性共存。
+对象属性可以内联、也可以直接写 对象名，而将属性写在 data 中，同时可以绑定一个返回对象的**计算属性**
+####class 绑定数组
+同样可以把一个数组传给 v-bind:class，以应用一个 class 列表 
+根据条件切换列表中的 class，可以用三元表达式
+还可以在数组语法中使用对象语法
+####class 用在组件上
+你声明了这个组件
+```
+Vue.component('my-component', {
+  template: '<p class="foo bar">Hi</p>'
+})
+```
+在使用它的时候添加一些 class
+```
+<my-component class="baz boo"></my-component>
+```
+```
+<p class="foo bar baz boo">Hi</p>
+```
+同样
+```
+<my-component v-bind:class="{ active: isActive }"></my-component>
+```
+`isActive` 为 truthy 时，HTML 将被渲染成为
+```
+<p class="foo bar active">Hi</p>
+```
+##绑定内联样式
+####style 对象语法
+方法
+```
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
+```
+data: {
+  activeColor: 'red',
+  fontSize: 30
+}
+```
+与绑定 class 对象一样，内联样式也可以直接绑定样式对象以及结合**计算属性**使用
+####数组语法
+`v-bind:style` 的数组语法可以将多个样式对象应用到同一个元素上：
+```
+<div v-bind:style="[baseStyles, overridingStyles]"></div>
+```
+####自动添加前缀
+当 `v-bind:style` 使用需要添加[浏览器引擎前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)的 CSS 属性时，如 `transform`，Vue.js 会自动侦测并添加相应的前缀
+####多重值从 2.3.0 起你可以为 `style` 绑定中的属性提供一个包含多个值的数组，常用于提供多个带前缀的值，例如：
+```
+<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
+```
+这样写只会渲染数组中最后一个被浏览器支持的值。在本例中，如果浏览器支持不带浏览器前缀的 flexbox，那么就只会渲染 `display: flex`
+
+---
+#条件渲染
+##v-if
+v-if 是一个指令，所以必须将它添加到一个元素上
+但是如果想切换多个元素呢？此时可以把一个 <template> 元素当做不可见的包裹元素，并在上面使用 v-if。最终的渲染结果将不包含 <template> 元素
+v-else
+v-else 元素必须紧跟在带 v-if 或者 v-else-if 的元素的后面，下同
+v-else-if(2.1.0)
+充当 v-if 的“else-if 块”，可以连续使用
+####用 `key` 管理可复用的元素
+Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染这样使 Vue 更快，而在 v-if 下其作用是允许用户在不同的登录方式之间切换。我们可以通过添加一个具有唯一值的 key 属性来去掉这个功能
+##v-show
+另一个用于根据条件展示元素的选项是 v-show 指令。用法大致一样
+```
+<h1 v-show="ok">Hello!</h1>
+```
+v-show 不支持 <template> 元素，也不支持 v-else
+## `v-if` vs `v-show`
+- `v-if` 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。
+- `v-if` 也是**惰性的**：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。
+- 相比之下，`v-show` 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
+- 一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
+**当 v-for 和 v-if 同时使用时，前者优先级高，但不推荐这种做法**
+
+---
+#列表渲染
+##用 v-for 把数组对应为一组元素
+在 v-for 块中，我们拥有对父作用域属性的完全访问权限。v-for 还支持一个可选的第二个参数为当前项的索引
+```
+<ul id="example-2">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+```
+![](https://upload-images.jianshu.io/upload_images/7094266-514602a1f8fadc8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+可以用 of 替代 in 作为分隔符
+##[一个对象的 v-for](https://cn.vuejs.org/v2/guide/list.html#%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84-v-for "一个对象的 v-for")
+
+##v-for 的 key
+建议尽可能在使用 v-for 时提供 key
+当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素
+[就地复用](https://www.zhihu.com/question/61078310/answer/361261031)
+```
+<div v-for="item in items" :key="item.id">
+  <!-- 内容 -->
+</div>
+```
+##数组更新检测
+####变异方法
+Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：
+*   `push()`
+*   `pop()`
+*   `shift()`
+*   `unshift()`
+*   `splice()`
+*   `sort()`
+*   `reverse()`
+####替换数组
+变异方法 (mutation method)，顾名思义，会改变被这些方法调用的原始数组。相比之下，也有非变异 (non-mutating method) 方法，例如：`filter()`, `concat()` 和 `slice()` 。这些不会改变原始数组，但**总是返回一个新数组**。当使用非变异方法时，可以用新数组替换旧数组
+Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的、启发式的方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作
+##注意事项
+由于 JavaScript 的限制，Vue 不能检测以下变动的数组：
+1.  当你利用索引直接设置一个项时，例如：`vm.items[indexOfItem] = newValue`
+2.  当你修改数组的长度时，例如：`vm.items.length = newLength`
+```
+var vm = new Vue({
+  data: {
+    items: ['a', 'b', 'c']
+  }
+})
+vm.items[1] = 'x' // 不是响应性的
+vm.items.length = 2 // 不是响应性的
+```
+第一类问题：两种解决方法
+```
+// Vue.set(object, key, value)
+Vue.set(vm.items, indexOfItem, newValue)
+vm.$set(vm.items, indexOfItem, newValue)
+// Array.prototype.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+vm.items.splice(indexOfItem, 1, newValue)
+```
+第二类问题：
+```
+vm.items.splice(newLength)
+```
+## [对象更改检测注意事项](https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E6%9B%B4%E6%94%B9%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9 "对象更改检测注意事项")
+与上述情况相同，对于已经创建的实例，Vue 不能动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, key, value) 方法向嵌套对象添加响应式属性。
+有时你可能需要为已有对象赋予多个新属性，比如使用 Object.assign() 或 _.extend()。在这种情况下，你应该用两个对象的属性创建一个新的对象。
+```
+vm.userProfile = Object.assign({}, vm.userProfile, {
+  age: 27,
+  favoriteColor: 'Vue Green'
+})
+```

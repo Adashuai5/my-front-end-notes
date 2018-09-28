@@ -27,3 +27,6 @@ Dplayer
 [英文教程 Front-End Developer Handbook 2018](https://frontendmasters.com/books/front-end-handbook/2018/what-is-a-FD.html)
 
 [饥人谷搜索 PSD](https://xiedaimala.com/courses/544b9100-f08e-4ea0-b4e1-5e0955276002#/common)
+
+[SSH](http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html)
+[黑苹果](https://github.com/huangyz0918/Hackintosh-Installer-University)
