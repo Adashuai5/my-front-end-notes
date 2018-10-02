@@ -1,7 +1,13 @@
 [英文](https://vuejs.org/)
 [中文](https://cn.vuejs.org/index.html)
 #介绍
-一套用于构建用户界面的渐进式框架，
+一套用于构建用户界面的渐进式框架。
+数据驱动：响应用户抄作，反应到后台，数据更新到 model ，model 和view 双向绑定（MVVM）
+**特征**
+1.轻量级
+2.双向数据绑定
+3.指令
+4.组件化
 ##声明式渲染
 命令式渲染 ： 命令我们的程序去做什么，程序就会跟着你的命令去一步一步执行
 声明式渲染 ： 我们只需要告诉程序我们想要什么效果，其他的交给程序来做。
@@ -247,7 +253,7 @@ v-show 不支持 <template> 元素，也不支持 v-else
 - `v-if` 也是**惰性的**：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。
 - 相比之下，`v-show` 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。
 - 一般来说，`v-if` 有更高的切换开销，而 `v-show` 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 `v-show` 较好；如果在运行时条件很少改变，则使用 `v-if` 较好。
-**当 v-for 和 v-if 同时使用时，前者优先级高，但不推荐这种做法**
+**当 v-for 和 v-if 同时使用时，前者优先级高，但不推荐这种做法，[详情](https://cn.vuejs.org/v2/style-guide/#%E9%81%BF%E5%85%8D-v-if-%E5%92%8C-v-for-%E7%94%A8%E5%9C%A8%E4%B8%80%E8%B5%B7-%E5%BF%85%E8%A6%81)**
 
 ---
 #列表渲染
@@ -323,11 +329,83 @@ vm.items.splice(indexOfItem, 1, newValue)
 vm.items.splice(newLength)
 ```
 ## [对象更改检测注意事项](https://cn.vuejs.org/v2/guide/list.html#%E5%AF%B9%E8%B1%A1%E6%9B%B4%E6%94%B9%E6%A3%80%E6%B5%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9 "对象更改检测注意事项")
-与上述情况相同，对于已经创建的实例，Vue 不能动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, key, value) 方法向嵌套对象添加响应式属性。
-有时你可能需要为已有对象赋予多个新属性，比如使用 Object.assign() 或 _.extend()。在这种情况下，你应该用两个对象的属性创建一个新的对象。
+**与上述情况相同，对于已经创建的实例，Vue 不能动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, key, value) 方法向嵌套对象添加响应式属性。
+有时你可能需要为已有对象赋予多个新属性，比如使用 Object.assign() 或 _.extend()。在这种情况下，你应该用两个对象的属性创建一个新的对象。**
 ```
 vm.userProfile = Object.assign({}, vm.userProfile, {
   age: 27,
   favoriteColor: 'Vue Green'
 })
 ```
+##显示过滤/排序结果
+通过**计算属性**过滤或排序数组
+```
+<li v-for="n in evenNumbers">{{ n }}</li>
+
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+computed: {
+  evenNumbers: function () {
+    return this.numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+在计算属性不适用的情况下 (例如，在嵌套 v-for 循环中) 你可以使用一个 method 方法
+```
+<li v-for="n in even(numbers)">{{ n }}</li>
+
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+methods: {
+  even: function (numbers) {
+    return numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+##一段取值范围 v-for
+v-for 也可以取整数。在这种情况下，它将重复多次模板
+```
+<div>
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+
+1 2 3 4 5 6 7 8 9 10
+```
+##`v-for` on a `<template>`
+类似于 `v-if`，你也可以利用带有 `v-for` 的 `<template>` 渲染多个元素。
+##v-for 和 v-if 一起
+v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。
+##[一个组件的 v-for](https://cn.vuejs.org/v2/guide/list.html#%E4%B8%80%E4%B8%AA%E7%BB%84%E4%BB%B6%E7%9A%84-v-for)
+---
+#事件处理
+v-on
+##监听事件
+
+#表单输入绑定
+v-model
+#组件基础
+##基本示例
+```
+// 定义一个名为 button-counter 的新组件
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+```
+组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 <button-counter>。我们可以在一个通过 new Vue 创建的 Vue 根实例中，把这个组件作为自定义元素来使用
+因为组件是可复用的 Vue 实例，所以它们与 new Vue 接收相同的选项，例如 data、computed、watch、methods 以及生命周期钩子等。**例外是像 el 这样根实例特有的选项。**
+##组件的复用
+可以将组件进行任意次数的复用，每用一次组件，就会有一个它的新实例被创建
+**`data` 必须是一个函数**
+如果 Vue 没有这条规则，点击一个按钮就可能会影响到其它所有实例
+

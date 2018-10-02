@@ -33,6 +33,15 @@
 ```
 #Flex 布局
 [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+```
+display:inline-flex; // 会造成下列bug
+```
+![bug](https://upload-images.jianshu.io/upload_images/7094266-e820277fef3949a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+解决方法：改变 [vertical-align](https://developer.mozilla.org/zh-CN/docs/Web/CSS/vertical-align) 的默认值：baseline
+```
+vertical-align: middle;
+```
 #position:fixed
 #transform
 CSS transform 属性允许你修改CSS视觉格式模型的坐标空间。使用它，元素可以被转换（translate）、旋转（rotate）、缩放（scale）、倾斜（skew）
@@ -96,7 +105,7 @@ CSS generator (CSS 动态效果的搜索方法)
 // 转圈
 @keyframes a{
   0%{transform: rotato(0deg);}
-  100%{transform: rotato(0deg);}
+  100%{transform: rotato(360deg);}
 }
 animation:a 1s infinite liner;
 ```
