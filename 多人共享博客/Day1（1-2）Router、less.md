@@ -1,6 +1,11 @@
 本项目做一款多人共享博客，包含首页、用户文章列表、登录、注册、个人管理、编辑、发布等功能。
-使用 Vue.js 技术栈：vue-cli/vue2/axios/vue-router/vuex/es6/npm
+使用 Vue.js 技术栈：**vue-cli/vue2/axios/vue-router/vuex/es6/npm**
 ##前后端接口约定：[测试](https://xiedaimala.com/tasks/0e61bf37-d479-481b-a43e-8d7dd6069f93/#/text_tutorial/606cfb19-ca16-4fec-8564-75c1979871d6)
+- GET 获取数据
+- POST 提交或者创建
+- PATCH 修改数据，部分修改
+- DELETE 删除数据
+- PUT 修改数据，整体替换原有数据
 ---
 出现 npm miss node_modules 问题
 [换源](https://www.jianshu.com/p/f311a3a155ff)

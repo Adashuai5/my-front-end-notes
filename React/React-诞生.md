@@ -42,3 +42,4 @@ function render(){
 ```
 **可以用 BABEL 转换**![](https://upload-images.jianshu.io/upload_images/7094266-1ae5122bc5e4c6dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)**jsbin 有 JSX(React)**![](https://upload-images.jianshu.io/upload_images/7094266-342d0d47735be448.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+[最终代码](https://jsbin.com/zuleyep/edit?html,js,output)
