@@ -30,3 +30,6 @@ Dplayer
 
 [SSH](http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html)
 [黑苹果](https://github.com/huangyz0918/Hackintosh-Installer-University)
+
+[Windows 软件网站](https://love.appinn.com/)
+[我的翻译 需改进](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:visited)
