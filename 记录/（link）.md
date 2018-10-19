@@ -32,4 +32,5 @@ Dplayer
 [黑苹果](https://github.com/huangyz0918/Hackintosh-Installer-University)
 
 [Windows 软件网站](https://love.appinn.com/)
-[我的翻译 需改进](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:visited)
+
+[当然我在扯淡](http://www.yinwang.org/)
