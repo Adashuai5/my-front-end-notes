@@ -1,3 +1,4 @@
+[探索 ES6](http://es6-org.github.io/exploring-es6/)
 推荐先使用 const，如果后面需要变动，用 let 。
 
 a = 1 // 含义不明 - 不用

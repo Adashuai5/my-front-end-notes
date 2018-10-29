@@ -1,3 +1,4 @@
+保持好奇心
 **[软件架构入门](http://www.ruanyifeng.com/blog/2016/09/software-architecture.html)
 架构，又名软件架构，是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计。
 [少刷知乎](https://mp.weixin.qq.com/s/3qCOlpbjYX2dx66JkRDoaA)
