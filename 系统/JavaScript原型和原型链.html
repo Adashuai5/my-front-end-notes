@@ -57,7 +57,7 @@
       <div class="post">
         <h1 class="title">JavaScript原型和原型链</h1>
         <div class="show-content">
-          <p>JavaScript中除了基本类型外的数据类型，都是对象。但是由于其没有 类（class，ES6引入了class，但与我们今天要讲的没有冲突）的概念，如何将所有对象联系起来就成立一个问题，于是就有了原型和原型链的概念。</p><hr><blockquote><p>每个实例对象（object ）都有一个私有属性（称之为 __proto__）指向它的原型对象（prototype）。该原型对象也有一个自己的原型对象 ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。</p></blockquote><div class="image-package">
+          <p>JavaScript中除了基本类型外的数据类型，都是对象。但是由于其没有 类（class，ES6引入了class，但其只是语法糖）的概念，如何将所有对象联系起来就成立一个问题，于是就有了原型和原型链的概念。</p><hr><blockquote><p>每个实例对象（object ）都有一个私有属性（称之为 __proto__）指向它的原型对象（prototype）。该原型对象也有一个自己的原型对象 ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。</p></blockquote><div class="image-package">
 <img name="" src="http://upload-images.jianshu.io/upload_images/7094266-c9e28000b43ca445.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption"></div>
 </div><p>上面是<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank">MDN里有关原型链知识</a>的摘录，什么意思？让我们来解释一下</p><p>事实上 JavaScript 所有数据都可以以对象的形式表现：由于函数是对象，我们可以用构造函数的方法使得 Number、Boolean、String变成对象。</p><p>下面以 Number 为例 （其他类型也一样）</p><p>可以用 var 基本类型 = new 对应基本类型的函数() 的方法创建一个新函数</p><p>var n = new Number() 创建一个 Number 函数，其是一个对象</p><div class="image-package">
 <img name="" src="http://upload-images.jianshu.io/upload_images/7094266-62536de6cd21ab12.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption"></div>
