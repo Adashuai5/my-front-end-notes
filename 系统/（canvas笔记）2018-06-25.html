@@ -69,9 +69,7 @@
 <img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-78c50409c3ebd62a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">如图</div>
 </div><p>touch事件的<b>clientx</b>和<b>clienty </b>并不直接给出，而是在<b>touches[0]</b>下隐藏，如图所示</p><div class="image-package">
 <img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7094266-daec13cc8cb3605f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption">TouchEvent</div>
-</div><p>原因是触屏端可以有多个触点（你可以用多个手指同时触屏你的手机），用<b>touches</b>这一<b>hash</b>可以有效分辨不同触点</p><h1>如何保存画布</h1><p><b>
-
-download.onclick = function(){ </b></p><p><b> var url = canvas.toDataURL("image/png");var a = document.createElement('a'); document.body.appendChild(a);a.href = url;a.download = "mypaint";a.target = '_blank'    a.click()</b></p><p><b>}</b></p>
+</div><p>原因是触屏端可以有多个触点（你可以用多个手指同时触屏你的手机），用<b>touches</b>这一<b>hash</b>可以有效分辨不同触点</p><h1>如何保存画布</h1><p><b>download.onclick = function(){ </b></p><p><b> var url = canvas.toDataURL("image/png");var a = document.createElement('a'); document.body.appendChild(a);a.href = url;a.download = "mypaint";a.target = '_blank'    a.click()</b></p><p><b>}</b></p><hr><p>需求：载入动画--封面</p><p>画笔粗细高亮</p>
         </div>
       </div>
     </div>
