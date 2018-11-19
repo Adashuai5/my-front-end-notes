@@ -28,6 +28,7 @@ git push -f
 git rebase -i [startpoint]  [endpoint]
 ```
 **其中-i的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支HEAD所指向的commit(注：该区间指定的是一个前开后闭的区间)。**
+#注意提交顺序是上面的hard为前一次commit
 ```
 pick：保留该commit（缩写:p）
 reword：保留该commit，但我需要修改该commit的注释（缩写:r）
@@ -38,3 +39,4 @@ exec：执行shell命令（缩写:x）
 drop：我要丢弃该commit（缩写:d）
 ```
 [相关博客](https://juejin.im/entry/5ae9706d51882567327809d0)
+[HEAD 游离的问题](https://www.jianshu.com/p/1802aaf896a2)
