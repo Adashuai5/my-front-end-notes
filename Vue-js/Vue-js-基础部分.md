@@ -32,3 +32,13 @@ MVC=>MVP=>MVVM
 # 二
 访问 Vue 实例属性 --- app.$el
 访问 data 属性 --- app.属性名
+# 谈谈你对组件的理解
+
+参考答案：
+组件 (Component) 是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以表现为用 is 特性进行了扩展的原生 HTML 元素。所有的 Vue 组件同时也都是 Vue 的实例，所以可接受相同的选项对象 (除了一些根级特有的选项) 并提供相同的生命周期钩子。
+
+**自定义指令**一章跳过了
+
+---
+# render函数
+在render函数的方法中，参数必须是createElement，createElement的类型是function render函数的第一个参数可以是 String | Object | Function

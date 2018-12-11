@@ -1,6 +1,6 @@
 ```
 * { margin: 0; padding: 0; box-sizing: border-box; }
-*::afer { box-sizing: border-box; }
+*::after { box-sizing: border-box; }
 *::before { box-sizing: border-box; }
 ```
 伪元素
