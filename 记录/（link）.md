@@ -35,3 +35,7 @@ Dplayer
 [Windows 软件网站](https://love.appinn.com/)
 
 [当然我在扯淡](http://www.yinwang.org/)
+
+[WebAssembly]
+
+[前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85)
