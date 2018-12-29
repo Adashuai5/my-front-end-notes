@@ -341,3 +341,5 @@ git commit -v
 可以用工程化的方式放到 package.json 里面 
 新建 ''upload'' 属性，注意最后用 -f 而不是 -u是因为不是源码![](https://upload-images.jianshu.io/upload_images/7094266-4cdad2bd0d46a439.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 服务端跨域限制：由于原接口为 http 而不是 https![](https://upload-images.jianshu.io/upload_images/7094266-e6049c1f52bbe0ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)那么我们可以改成 https（当然要后端已提供 https 数据）![https](https://upload-images.jianshu.io/upload_images/7094266-408fd9d778d87f82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+---
+data 判空
