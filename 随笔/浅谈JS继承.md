@@ -63,7 +63,7 @@ Man.prototype = new Human()
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-4f15ba95a00b7a81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**直接用上述代码不行，因为在 new 的过程中，虽然new 内部实现了 `Man.prototype.__proto__ = Human.prototype` 这一个过程，但是由于 new 但 new 同时会在内部执行构造函数，而在执行过程中我们未传 name，因此上图中 Human 的 name 属性显示 undefined**
+**直接用上述代码不行，因为在 new 的过程中，虽然new 内部实现了 `Man.prototype.__proto__ = Human.prototype` 这一个过程，但是由于 new 同时会在内部执行构造函数，而在执行过程中我们未传 name，因此上图中 Human 的 name 属性显示 undefined**
 
 那么我们只要避免这个过程中 Human 执行就可以了
 ```
