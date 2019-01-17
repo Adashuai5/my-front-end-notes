@@ -29,6 +29,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 允许跨域
 axios.defaults.withCredentials = true;
 
+// 自己封装一个简单的 axios
 export default function request(url,type = 'GET',data = {}){
     return new Promise((resolve,reject) =>{
         let option = {
@@ -58,6 +59,7 @@ export default function request(url,type = 'GET',data = {}){
 **在需要的页面引入**
 由于封装使用的是 export default function 因此名字可以随便取，这里用了 requset
 ```
+// @ 就是 src 目录
 import request from '@/helpers/request.js'
 // 调用 request 的全局对象
 window.request = request

@@ -1,3 +1,7 @@
+## linux install
+```
+sudo apt install
+```
 ## open
 ```
 // Mac
@@ -6,8 +10,24 @@ open
 gnome-open
 ```
 ## FQ
+浏览器fq
 ```
-sslocal -c ssconf.json
+sslocal -c .ssconf.json // ss
+```
+命令行翻墙
+```
+proxychains4 -f ~/.proxychains.conf // pc
+```
+## Lnux ~/.bashrc
+**nano:** 是一个字符终端的文本编辑器，有点像DOS下的editor程序。它比[vi](http://man.linuxde.net/vi "vi命令")/vim要简单得多，比较适合Linux初学者使用。某些Linux发行版的默认编辑器就是nano。
+
+```
+nano ~/.bashrc
+```
+type 命令可以查看缩写命令对应的 alias
+启用配置
+```
+source ~/.bashrc
 ```
 ## 命令行小工具
 
@@ -24,3 +44,4 @@ source ~/Desktop/z.sh
 ```
 2.  fzf
     方便快速搜索文件或目录，[官网在此](https://github.com/junegunn/fzf#installation "null")
+ 

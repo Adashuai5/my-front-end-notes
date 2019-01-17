@@ -1,5 +1,4 @@
-[英文](https://vuejs.org/)
-[中文](https://cn.vuejs.org/index.html)
+[官方](https://vuejs.org/)
 #介绍
 一套用于构建用户界面的渐进式框架。
 数据驱动：响应用户操作，反应到后台，数据更新到 model ，model 和view 双向绑定（MVVM）

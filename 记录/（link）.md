@@ -38,4 +38,9 @@ Dplayer
 
 [WebAssembly]
 
-[前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85)
+[前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85)；
+
+codelf：查询命名
+[hugo](https://gohugo.io/documentation/): 基于 go 语言的静态网站框架。
+[RXjs](https://rxjs.dev/)
+[graphql](https://graphql.cn/): 用于 API 的查询语言
