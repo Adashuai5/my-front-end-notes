@@ -1,4 +1,4 @@
-#面向对象程序设计：Object-oriented programming(OOP)
+# 面向对象程序设计：Object-oriented programming(OOP)
 
 **命名空间：name space**
 什么是命名空间？我们来看看 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4) 的例子
@@ -69,7 +69,7 @@ var person2 = new Person();
 ```
 以 Person 为类（模版），person1 和 person2 是 Person 新的实例：person1、person2 可以调用函数 Person
 
-#为什么会有面向对象编程？
+# 为什么会有面向对象编程？
 你写了一个 person1 ，又写了一个 person2 ，然后又写了一个 person3 。。。
 它们有很多重复的代码：这些代码结构一致（如我们之前的 [MVC 设计模式](https://zhuanlan.zhihu.com/p/42366912)），简直浪费内存（内存条那么贵）
 **于是就有了 Person 这个构造函数作为对象的模板：把所有相同结构的代码用一个函数封装起来
@@ -275,7 +275,7 @@ window.Controller = function (options) {
 	controller.init(view, model)
 }.call()
 ```
-#关于 this
+# 关于 this
 我们以 C：controller 部分封装的代码的 this 为例：所有内容已经在代码中注明，我们来总结一下
 ```
 1.controller === object

@@ -1,4 +1,4 @@
-#我们用node来做一个简易服务器理解JSONP，从而了解在没有Ajax的时代的前端是如何绞尽脑汁做好页面交互的
+# 我们用node来做一个简易服务器理解JSONP，从而了解在没有Ajax的时代的前端是如何绞尽脑汁做好页面交互的
 有关node搭建服务器的学习可以参考我的[另一篇博客](https://www.jianshu.com/p/ba728fb4edb4)
 **node 服务器及页面完整代码 [参考](https://github.com/Adashuai5/node-demo/tree/master/JSONP-demo)**
 
@@ -89,7 +89,7 @@ if (path === '/pay' && method.toUpperCase() === 'POST') {
 ```
 这种方法，由于有了后台数据库（db文件）就能每次得到的新的数值都会存在里面，即使页面刷新也不会变，缺点：需要返回上一个页面才能看到现在的数值
 原因是：form表单提交后一定会刷新当前页面，并且会打开一个新的页面
-###想要不刷新当前页面的方法：
+### 想要不刷新当前页面的方法：
 **经典：用iframe**
 ```
 <form action="/pay" method="POST" target="result">

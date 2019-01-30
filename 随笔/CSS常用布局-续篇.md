@@ -1,6 +1,6 @@
 几个月前初学 CSS布局，写了一篇关于 [CSS常用布局学习](https://www.jianshu.com/p/59c9477816b8) 的博客，介绍了一些传统的依靠 position 和 float 等实现简单的布局方式的例子，这些布局只能简单得实现基本功能，十分不便。
 今天，作为引申，我们用同样例子，来使用上篇中简单提到的 flex 布局的方案实现。与此同时，我将推荐最近学习的 grid 布局，它十分强大，可以方便得解决各种布局方案，且十分便于理解。
-###Flex 实现左中右布局
+### Flex 实现左中右布局
 
 主要是在父元素中使用以下代码
 ```
@@ -9,7 +9,7 @@ flex-direction:row;
 ```
 相对于传统布局，是不是简便得多![Flex 左中右](https://upload-images.jianshu.io/upload_images/7094266-f0d2834c90f115a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###Flex 实现垂直居中
+### Flex 实现垂直居中
 ```
 display: flex;
 justify-content:center;
@@ -22,7 +22,7 @@ align-items:center;
 
 前面介绍的都是一维布局，但是在复杂的二维布局方面，无疑是为解决布局而创建的 CSS 网格布局更为专业
 学习网格布局事实上是学习对应英文的过程，所以英语好真的很有优势
-###Grid 布局实现左中右
+### Grid 布局实现左中右
 虽然有点大材小用，但是我们是为了和前面的布局方法做对比
 你只需用两行代码
 ```
@@ -30,7 +30,7 @@ display: grid;
 grid-template-columns: 30% 40% 30%; 
 ```
 grid 布局的代码更省，子元素不需要各自设定，直接在父元素上设定了![Grid 左中右](https://upload-images.jianshu.io/upload_images/7094266-beb5abb9ff73f97d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)当然这里的子元素要与对应的格子相配，即 30% 40% 30% 对应的是 div.container 里面的顺序
-###网格布局
+### 网格布局
 这里的 fr 为分数单位
 ```
 display: grid;

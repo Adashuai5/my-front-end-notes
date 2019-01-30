@@ -1,4 +1,4 @@
-#什么是[MVC](http://www.ruanyifeng.com/blog/2007/11/mvc.html)![](https://upload-images.jianshu.io/upload_images/7094266-bd2a358032410034.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+# 什么是[MVC](http://www.ruanyifeng.com/blog/2007/11/mvc.html)![](https://upload-images.jianshu.io/upload_images/7094266-bd2a358032410034.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 视图（View）：用户界面。
 控制器（Controller）：业务逻辑
 模型（Model）：数据保存
@@ -6,7 +6,7 @@
 View 传送指令到 Controller
 Controller 完成业务逻辑后，要求 Model 改变状态
 Model 将新的数据发送到 View，用户得到反馈
-#那么怎么做呢
+# 那么怎么做呢
 
 **1.模块化你的js代码**
 将同一模块的js代码放在同一个文件夹里并正确命名，用立即执行函数[相关博客](https://www.jianshu.com/p/d880bacbc0e9)封装代码，防止出现全局变量
@@ -268,7 +268,7 @@ smoothly-navigation.js 模块代码
     controller.init(view)
 }.call()
 ```
-#总结
+# 总结
 所有模块结构：
 **在立即执行函数内部**
 **有个 view** 

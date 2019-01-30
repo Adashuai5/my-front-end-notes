@@ -1,5 +1,5 @@
 [AJAX是什么鬼](https://www.jianshu.com/p/4591a66c50f5) 续篇
-#今天我们给AJAX封装一下
+# 今天我们给AJAX封装一下
 
 之前写了篇有关用原生JS写jQuery的[博客](https://www.jianshu.com/p/7e663286cb35)
 下面是相关主要代码

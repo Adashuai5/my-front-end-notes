@@ -1,4 +1,4 @@
-##Cookie：
+## Cookie：
 今天我们要说的当然不是甜品，而是在 HTTP 协议中使用到的 Cookie 知识
 `HTTP Cookie（也叫Web Cookie或浏览器Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。`
 
@@ -18,7 +18,7 @@ Cookie主要用于以下三个方面：
 **通过 HTTP 协议和 Cookie 技术的协同作用，服务器与客户端之间就可以既快速（HTTP 无状态）又可控（Cookie 有状态）得请求和响应并交互了。
 当然，由于 Cookie 的安全性等问题，有了 Session（服务器的一小块内存）本文不涉及**
 
-##在 node.js 服务端中设置响应头的 Set Cookie（以用户的 email 为例）代码示例 [API 详情](https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_response_setheader_name_value)
+## 在 node.js 服务端中设置响应头的 Set Cookie（以用户的 email 为例）代码示例 [API 详情](https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_response_setheader_name_value)
 ```
 response.setHeader('Set-Cookie',`sign_in_email = ${email}`)
 ```
@@ -30,7 +30,7 @@ response.setHeader('Set-Cookie',`sign_in_email = ${email}`)
 response.setHeader('Set-Cookie', [`sign_in_email = ${email}`, 'language=javascript']);
 ```
 在开发者工具里的 Application 界面里有 Cookies 我们可以随意设置其 cookie ![](http://upload-images.jianshu.io/upload_images/7094266-637c2da4867f4daf?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##Set-Cookie 字段还可以附加 Cookie 的属性 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie)
+## Set-Cookie 字段还可以附加 Cookie 的属性 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie)
 ![常用属性](https://upload-images.jianshu.io/upload_images/7094266-479fc61fdf79ed54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **多个属性之间用 ; 连接，下面代码添加了 Secure 和 HttpOnly 属性**
 ```

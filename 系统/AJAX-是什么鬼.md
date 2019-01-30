@@ -1,13 +1,13 @@
 之前写了一篇博客[理解JSONP 上](https://www.jianshu.com/p/2a2fe02917e7)关于AJAX出现之前如何发请求
 简单回顾一下：
-####1.用 form 可以发请求，缺点是会刷新页面或新开页面 
+#### 1.用 form 可以发请求，缺点是会刷新页面或新开页面 
 form发送get请求：![](https://upload-images.jianshu.io/upload_images/7094266-8a9a80cde134701d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 输入密码后，点击提交，打开开发者工具可以看到一个get请求，点开找到Request Headers点击**view source** ![](https://upload-images.jianshu.io/upload_images/7094266-2f497d2ed697fabb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 同样可以用form发送post请求，与get请求区别是post请求没有查询参数![](https://upload-images.jianshu.io/upload_images/7094266-2a9955c21d5904d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 post请求的第四部分 password在下面的 Form Data 的**view source** 里![](https://upload-images.jianshu.io/upload_images/7094266-c10130216b9836f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####2.用 a 可以发 get 请求，但是也会刷新页面或新开页面
+#### 2.用 a 可以发 get 请求，但是也会刷新页面或新开页面
 点击click就发送请求![](https://upload-images.jianshu.io/upload_images/7094266-e8ecdf0d63d5c019.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```
 <a id="ada" href="/ada">click</a>
@@ -16,7 +16,7 @@ post请求的第四部分 password在下面的 Form Data 的**view source** 里!
   ada.click()
 </script>
 ```
-####3.用 img 可以发 get 请求，它不会刷新页面，但是只能以图片的形式展示
+#### 3.用 img 可以发 get 请求，它不会刷新页面，但是只能以图片的形式展示
 ```
 <script>
   var image = document.createElement('img')
@@ -31,7 +31,7 @@ post请求的第四部分 password在下面的 Form Data 的**view source** 里!
 ```
 ![](https://upload-images.jianshu.io/upload_images/7094266-9b2b91b49a0575b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-####4.用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示
+#### 4.用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示
 ```
 <script>
   var link = document.createElement('link')
@@ -44,7 +44,7 @@ post请求的第四部分 password在下面的 Form Data 的**view source** 里!
 ![](https://upload-images.jianshu.io/upload_images/7094266-ff9dc05b89603af5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-####5.用 script 可以发 get 请求，但是只能以脚本的形式运行
+#### 5.用 script 可以发 get 请求，但是只能以脚本的形式运行
 ```
 <script>
   var script = document.createElement('script')
@@ -66,7 +66,7 @@ Jesse James Garrett 将如下技术取名叫做 AJAX（Asynchronous JavaScript a
 2.服务器返回 XML 格式的字符串
 3.JS 解析 XML，并更新局部页面***
 
-####同样我们用node服务器来尝试一下这三个条件(AJAX)
+#### 同样我们用node服务器来尝试一下这三个条件(AJAX)
 新建html
 ```
 <!DOCTYPE html>
@@ -251,13 +251,13 @@ myButton.addEventListener('click', (e) => {
 ![](https://upload-images.jianshu.io/upload_images/7094266-4f376b146466e10d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ---
-##同源政策
+## 同源政策
 同源政策规定，AJAX请求只能发给同源的网址，否则就报错。
 同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据。
 文章开头提到的 form 和 a 等发送请求是没有同源政策的，而AJAX是可以读取响应内容的。
 **因此只有 协议+端口+域名 一模一样（同源）才允许发 AJAX 请求**
 ---
-##如何规避同源政策？跨域
+## 如何规避同源政策？跨域
 有关JSONP跨域在文章开头提供我的博客举过例子
 这次我们用 **CORS 跨域**
 什么是 CORS:**Cross-Origin Resource Sharing(跨域资源共享)**

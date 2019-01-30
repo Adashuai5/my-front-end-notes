@@ -1,3 +1,5 @@
+TypeScript：javascript 的类型超集，由于 javascript 是弱类型（变量类型不确定）的语言，因此有了微软的 TypeScript 
+[强类型 JavaScript 的解决方案](http://www.ruanyifeng.com/blog/2015/02/strong-typing-javascript.html) 
 ![](https://upload-images.jianshu.io/upload_images/7094266-c333804c1f834140.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 node 无法直接运行 ts，需要用 ts-node
