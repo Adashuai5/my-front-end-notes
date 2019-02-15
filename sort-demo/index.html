@@ -12,13 +12,13 @@
 
     <script>
         // promis
-        let fn = function(){
-            return new Promise(function(resolve,reject){
-                setTimeout(()=>{
+        let fn = function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(() => {
                     resolve()
-                },300)
+                }, 300)
             })
-        } 
+        }
         fn().then().then()
         // 手写 ajax
         let requset = new XMLHttpRequest()
@@ -50,10 +50,13 @@
         fn() // 1
         console.log(n) // n is not defined
 
-        // 深拷贝 （日常使用）
-        var a = { ...{}
+        // 浅拷贝 （日常使用）
+        Object.assign(a, {})
+        var a = {
+            ...{}
         }
-        var b = JSON.parse(JSON.stringify(a))
+        // 深拷贝 （日常使用）
+        var b = JSON.parse(JSON.stringify(object))
         // 缺点：JSON 不支持函数、引用、undefined、RegExp、Date……
 
         // 数组去重
@@ -116,7 +119,6 @@
                 }
             })
         }
-        
     </script>
 </body>
 
