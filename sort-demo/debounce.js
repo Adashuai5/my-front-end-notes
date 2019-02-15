@@ -1,5 +1,5 @@
-// func是用户传入需要防抖的函数
-const debounce = (func, wait = 50) => {
+// fn是用户传入需要防抖的函数
+const debounce = (fn, wait = 50) => {
     // 缓存一个定时器id
     let timer = 0
     // 这里返回的函数是每次用户实际调用的防抖函数
@@ -8,7 +8,7 @@ const debounce = (func, wait = 50) => {
     return function (...args) {
         if (timer) clearTimeout(timer)
         timer = setTimeout(() => {
-            func.apply(this, args)
+            fn.apply(this, args)
         }, wait)
     }
 }

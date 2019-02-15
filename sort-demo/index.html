@@ -20,15 +20,16 @@
             })
         }
         fn().then().then()
+
         // 手写 ajax
-        let requset = new XMLHttpRequest()
+        let requset = new XMLHTTPRequest()
         requset.open('POST', '/xxx')
-        requset.onreadystatechage = () => {
+        requset.onreadystatechange = () => {
             if (requset.readyState === 4) {
                 console.log('res')
                 if (requset.status === 200) {
                     console.log('success')
-                } else if (requset.status >= 400) {
+                } else if (request.status >= 400) {
                     console.log('fail')
                 }
             }
