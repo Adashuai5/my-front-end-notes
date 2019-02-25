@@ -21,10 +21,23 @@ UDP 不止支持一对一的传输方式，同样支持一对多，多对多，�
 ### 头部
 ![TCP 头部](https://upload-images.jianshu.io/upload_images/7094266-957efab8a7d36b78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ### 状态机
+![](https://upload-images.jianshu.io/upload_images/7094266-afce51976c9243fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 HTTP 是**无连接的**，所以作为下层的 TCP 协议也是无连接的，看似 TCP 将两端连接了起来，其实只是**两端共同维护了一个状态**。
 TCP 的状态机是很复杂的，并且**与建立断开和连接时的握手**息息相关。
 一个重要的性能指标 **RTT**：该指标表示 **发送端发送数据到接收到对端数据所需的往返时间**
 #### 三次握手
+![](https://upload-images.jianshu.io/upload_images/7094266-4b59629d3c700edd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+```
+SYN：synchronous 建立联机
+ACK：acknowledgement 确认
+
+通讯双方建立一次tcp连接，需要经过三次步骤
+1、客户端发送syn包（syn=j）到服务器，并入SYN_SEND状态，等待服务器确认。
+2、服务器收入syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），既SYN+ACK包，此时服务器进入SYN_RECV状态。
+3、客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK（ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。
+（tcp在握手过程中并不携带数据，而是在三次握手完成之后才会进行数据传送）
+```
 在 TCP 协议中，主动 **发起请求** 的一端为**客户端**，**被动连接** 的一端称为**服务端**。不管是客户端还是服务端，TCP 连接建立完后**都能发送和接收数据**，所以 TCP 也是一个**全双工的协议**。
 
 起初，两端都为 CLOSED 状态。在通信开始前，双方都会创建 TCB。 服务器创建完 TCB 后遍进入 LISTEN 状态，此时开始等待客户端发送数据。
