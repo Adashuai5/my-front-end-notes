@@ -1,6 +1,26 @@
 本项目做一款多人共享博客，包含首页、用户文章列表、登录、注册、个人管理、编辑、发布等功能。
 使用 Vue.js 技术栈：**vue-cli/vue2/axios/vue-router/vuex/es6/npm**
-##前后端接口约定：[测试](https://xiedaimala.com/tasks/0e61bf37-d479-481b-a43e-8d7dd6069f93/#/text_tutorial/606cfb19-ca16-4fec-8564-75c1979871d6)
+## 前后端接口约定文档：[测试](https://xiedaimala.com/tasks/0e61bf37-d479-481b-a43e-8d7dd6069f93/#/text_tutorial/606cfb19-ca16-4fec-8564-75c1979871d6)
+```
+// 测试 POST /auth/register 用户注册
+# -d 是用来传递数据
+# 对于 POST 和 PUT 可以：  -X POST， 对于 GET，不加 -X
+curl -d "username=ada&password=123456" -X POST "http://blog-server.hunger-valley.com/auth/register"
+
+// 测试 POST /auth/login 用户登录
+# -i 可以展示响应头
+# 会发现响应头里有 setCookie 信息，得到 cookie
+
+curl -d "username=ada&password=123456" "http://blog-server.hunger-valley.com/auth/login" -i
+
+// 测试 GET /auth 判断用户是否登录
+#先通过登录接口获取 cookie，带上 cookie 就能测试登录
+
+curl "http://blog-server.hunger-valley.com/auth" -b "connect.sid=s%3AmeDbrn03UtTM8fqChaPQ20wmWlnKeHiu.e3uMtu7j1zQ1iNeaajCmxkYYGQ%2FyHV1ZsozMvZYWC6s"
+# -b 后面部分就是通过登录接口获取的 cookie
+
+// 其他测试类似
+```
 - GET 获取数据
 - POST 提交或者创建
 - PATCH 修改数据，部分修改
@@ -14,7 +34,10 @@
 ---
 ##[使用 vue-cli 创建项目模板](https://xiedaimala.com/tasks/fa5c2fff-9c15-4280-8710-643932e21acb/text_tutorials/8c280f59-dc36-4989-9de4-6c944caf412f)
 ##创建 Router（路由）
-
+```
+import Index from '@/pages/Index/template.vue'
+// 这里的 '@' 指代 src
+```
 1.components 是组件的意思
 我们的应该是页面
 在 src 目录下新建 pages 文件 逻辑上更好

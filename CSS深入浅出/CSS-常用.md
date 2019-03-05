@@ -31,7 +31,7 @@
     grid-row: 1;
 }
 ```
-#Flex 布局
+# Flex 布局
 [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 ```
 display:inline-flex; // 会造成下列bug
@@ -42,8 +42,8 @@ display:inline-flex; // 会造成下列bug
 ```
 vertical-align: middle;
 ```
-#position:fixed
-#transform
+# position:fixed
+# transform
 CSS transform 属性允许你修改CSS视觉格式模型的坐标空间。使用它，元素可以被转换（translate）、旋转（rotate）、缩放（scale）、倾斜（skew）
 ### 旋转
 ```
@@ -70,17 +70,17 @@ transform:  scaleY(sy)           /* a unitless <number>, e.g.  scaleY(0.3) */
 transform:  skew(ax[, ay])       /* one or two <angle>s, e.g.  skew(30deg,-10deg) */
 ```
 元素在X轴和Y轴方向以指定的角度倾斜。如果ay未提供，在Y轴上没有倾斜。
-###X方向倾斜
+### X方向倾斜
 ```
 transform:  skewX(angle)         /* an <angle>, e.g.  skewX(-30deg) */
 ```
 绕X轴以指定的角度倾斜
-###Y方向倾斜
+### Y方向倾斜
 ```
 transform:  skewY(angle)         /* an <angle>, e.g.  skewY(4deg) */
 ```
 绕Y轴以指定的角度倾斜
-###平移
+### 平移
 ```
 transform:  translate(tx[, ty])  /* one or two <length> values */
 ```
@@ -96,10 +96,14 @@ transform:  translateX(tx)       /* see <length> for possible values */
 transform:  translateY(ty)       /* see <length> for possible values */
 ```
 在Y轴平移指定距离
-#input
 
-##CSS动画
+---
+# [个人总结（css3新特性）](https://segmentfault.com/a/1190000010780991)
+## 动画[animation](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation)
 CSS generator (CSS 动态效果的搜索方法)
+### 语法
+animation：动画名称，一个周期花费时间，运动曲线（默认ease），动画延迟（默认0），播放次数（默认1），是否反向播放动画（默认normal），是否暂停动画（默认running）
+
 - [@keyframes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes) 通过在动画序列中定义关键帧
 ```
 // 转圈
@@ -109,7 +113,12 @@ CSS generator (CSS 动态效果的搜索方法)
 }
 animation:a 1s infinite liner;
 ```
-- [transition](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+## [transition](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)：过渡
+### 语法
+transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)
 ```
-transition:all 1s；
+div {
+    transition: <property> <duration> <timing-function> <delay>;
+    <!-- 过渡的属性名/ 过渡的时长/ 缓动效果/ 指定延迟 -->
+}
 ```

@@ -54,7 +54,6 @@ post请求的第四部分 password在下面的 Form Data 的**view source** 里!
 </script>
 ```
 当然还有其他方法
-
 ---
 有关AJAX的学习推荐[阮一峰博客](http://javascript.ruanyifeng.com/bom/ajax.html#toc0)
 **微软的突破**

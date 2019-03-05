@@ -203,6 +203,9 @@ script.onload= function(e){
     e.currentTarget.remove()
   }
 ```
+# 一个图片总结
+![](https://upload-images.jianshu.io/upload_images/7094266-ddef5ad56296599e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ---
 本文主要用于个人学习使用
 [理解JSONP 下](https://www.jianshu.com/p/38a72bd0e37d)

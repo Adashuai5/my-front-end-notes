@@ -1,43 +1,39 @@
-Vue 脚手架 3.x以上版本
-# 全局安装
+## Vue 脚手架 3.x以上版本
+全局安装
 ```
 yarn global add @vue/cli
 ```
-# 快速原型开发
+快速原型开发
 ```
 npm install -g @vue/cli-service-global
 ```
-# 创建项目
+创建项目
 ```
 vue create hello-world
-
 // 如果是在 Windows 上通过 minTTY 使用 Git Bash，交互提示符并不工作，需要执行下面命令
 winpty vue.cmd create hello-world
 ```
 ```
 cd hello-world
 ```
-## Project setup
+Project setup
 ```
 yarn install
 ```
-# 以下命令 run 可以省略
-### Compiles and hot-reloads for development
+（以下命令 run 可以省略）
+Compiles and hot-reloads for development
 ```
 yarn run serve
 ```
-
-### Compiles and minifies for production
+Compiles and minifies for production
 ```
 yarn run build
 ```
-
-### Run your tests
+Run your tests
 ```
 yarn run test
 ```
-
-### Lints and fixes files
+Lints and fixes files
 ```
 yarn run lint
 ```

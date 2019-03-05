@@ -1,4 +1,4 @@
-##UI 组件
+## UI 组件
 如 [ElementUI](http://element-cn.eleme.io/#/zh-CN)
 **npm 安装**
 ```
@@ -7,7 +7,7 @@ npm i element-ui -S
 **对照文档添加需要组件**
 
 可以直接在 vue 里面使用 下列 api![](https://upload-images.jianshu.io/upload_images/7094266-e877955c56203fff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##数据请求接口封装
+## 数据请求接口封装
 在 src 目录下新建 api 和 helpers 两个目录文件![](https://upload-images.jianshu.io/upload_images/7094266-6fcd488a5018138f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **./helpers 作用：**
 通用组件：可以在所以网页使用的文件夹
@@ -67,10 +67,10 @@ window.request = request
 然后就可以在页面中测试了![](https://upload-images.jianshu.io/upload_images/7094266-a263b9e0a0f94c3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-底层封装的好处：接口需要默认配置、方便、出错便于更改
+**底层封装的好处：接口需要默认配置、方便、出错便于更改**
 
 ---
-##api 接口封装
+## api 接口封装
 **./api/auth.js** 作用：底层接口数据封装
 ```
 import request from '@/helpers/request.js'

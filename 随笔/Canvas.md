@@ -16,3 +16,5 @@ div.onmousedown = (x)=>{
 }
 ```
 ![](https://upload-images.jianshu.io/upload_images/7094266-908d7b5a64dc1a73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+[canvas 制作画板笔记](https://zhuanlan.zhihu.com/p/56705339)
