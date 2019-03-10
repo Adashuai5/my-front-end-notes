@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 此方法局限性如下
+        // 打印出来是字符串
+        var array = [3, 2, 1, '1', 4, 2, '2']
+
+        // function unique(array) {
+        //     let hashArr = {}
+        //     for (let i = 0; i < array.length; i++) {
+        //         if (array[i] in hashArr) {
+
+        //         } else {
+        //             // console.log(array[i]);
+        //             hashArr[array[i]] = 'true';
+        //             console.log(hashArr)
+        //         }
+        //     }
+        //     let newArr = Object.keys(hashArr)
+        //     let obj = []
+        //     for (let j = 0; j < newArr.length; j++) {
+        //         obj.push(parseInt(newArr[j]))
+        //     }
+        //     return obj
+        // }
+
+        function unique() {
+            // res 用来储存结果
+            var res = []
+            for (var i = 0; i < array.length; i++) {
+                for (var j = 0; j < res.length; j++) {
+                    if (array[i] === res[j]) {
+                        break;
+                    }
+                }
+                // 如果 array[i] 是唯一的，那么执行完循环，j 等于 res.length
+                if (j === res.length) {
+                    res.push(array[i])
+                }
+            }
+            return res
+        }
+
+        console.log(unique(array));
+    </script>
+
+</body>
+
+</html>

@@ -417,3 +417,14 @@ axios.interceptors.response.use(function(response){
 var myInterceptor = axios.interceptors.request.use(function(){/*...*/});
 axios.interceptors.request.eject(myInterceptor);
 ```
+## axios 如何获取 cookie
+axios 默认是不让 ajax 请求头部携带cookie的，因此，在 main.js 中设置如下：
+```
+import axios from 'axios'
+axios.defaults.withCredentials=true; //让ajax携带cookie
+Vue.prototype.$axios = axios;
+```
+通过js原生接口来获取: 
+```
+let allCookies = document.cookie 
+```

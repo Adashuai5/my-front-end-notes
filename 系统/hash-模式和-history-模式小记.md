@@ -13,7 +13,7 @@ function matchAndUpdate () {
 window.addEventListener('hashchange', matchAndUpdate)
 ```
 ## history 模式
-14年后，因为 HTML5 标准发布。多了两个 API，pushState 和 replaceState，通过这两个 API 可以改变 url 地址且不会发送请求。同时还有 popstate 事件。通过这些就能用另一种方式来实现前端路由了，但原理都是跟 hash 实现相同的。用了 HTML5 的实现，单页路由的 url 就不会多出一个 #，变得更加美观。但因为没有 # 号，所以当用户刷新页面之类的操作时，浏览器还是会给服务器发送请求。为了避免出现这种情况，所以这个实现需要服务器的支持，需要把所有路由都重定向到根页面。
+14年后，因为 HTML5 标准发布。多了两个 API，pushState 和 replaceState，通过这两个 API 可以改变 url 地址且不会发送请求。同时还有 popstate 事件。通过这些就能用另一种方式来实现前端路由了，但原理都是跟 hash 实现相同的。用了 HTML5 的实现，单页路由的 url 就不会多出一个 #，变得更加美观。**但因为没有 # 号，所以当用户刷新页面之类的操作时，浏览器还是会给服务器发送请求。**为了避免出现这种情况，所以这个实现需要服务器的支持，需要把所有路由都重定向到根页面。
 ```
 function matchAndUpdate () {
    // todo 匹配路径 做 dom 更新操作
@@ -27,6 +27,7 @@ window.addEventListener('popstate', matchAndUpdate)
 ## hash 模式和 history 模式主要区别
 1.  使用 hash 模式，当 一个窗口的 hash （URL 中 # 后面的部分）改变时就会触发 hashchange 事件，而不会刷新页面，比如: 在页面内点击带有锚点的 a 标签，不会刷新页面。
 2.  使用 history，URL 没有了 #，一般都需要服务器端配置或支持 SSR，否则刷新页面服务器会返回 404。
+
 
 ## hash 模式以及为什么改变 hash 不刷新页面——[URL的井号‘#’](http://www.ruanyifeng.com/blog/2011/03/url_hash.html)
 ## 有关 [history 对象](https://javascript.ruanyifeng.com/bom/history.html#toc1)
