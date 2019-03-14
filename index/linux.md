@@ -44,4 +44,26 @@ source ~/Desktop/z.sh
 ```
 2.  fzf
     方便快速搜索文件或目录，[官网在此](https://github.com/junegunn/fzf#installation "null")
+
+## ~/.bashec 配置
+```
+source ~/Desktop/z.sh
+export PATH="$PATH:/c/
+
+ alias la='ls -a'
+ alias ll='ls -l'
+ alias gst='git status
+ alias gv='git commit 
+ alias ga='git add'
+ alias ga.='git add .'
+ alias gc='git commit'
+ alias gc.='git commit
+ alias gp='git push'
+ alias gpl='git pull'
+ alias open='start'
+ alias ada="echo 'ada 
+ alias t='tree'
+
+
+```
  

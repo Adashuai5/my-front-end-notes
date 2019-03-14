@@ -33,23 +33,37 @@
         //     return obj
         // }
 
+//         function unique() {
+//             // res 用来储存结果
+//             var res = []
+//             for (var i = 0; i < array.length; i++) {
+//                 for (var j = 0; j < res.length; j++) {
+//                     if (array[i] === res[j]) {
+//                         console.log(res[j])
+//                         break;
+//                     }
+//                 }
+//                 // 如果 array[i] 是唯一的，那么执行完循环，j 等于 res.length
+//                 if (j === res.length) {
+//                     res.push(array[i])
+//                 }
+//             }
+//             return res
+// }
+
+// IndexOf 配合 Array.sort()
         function unique() {
             // res 用来储存结果
             var res = []
-            for (var i = 0; i < array.length; i++) {
-                for (var j = 0; j < res.length; j++) {
-                    if (array[i] === res[j]) {
-                        break;
-                    }
-                }
-                // 如果 array[i] 是唯一的，那么执行完循环，j 等于 res.length
-                if (j === res.length) {
-                    res.push(array[i])
+            var sortedArray = array.concat().sort();
+            
+            for (var i = 0; i < sortedArray.length; i++) {
+                if(res.indexOf(sortedArray[i]) === -1){
+                    res.push(sortedArray[i])
                 }
             }
             return res
         }
-
         console.log(unique(array));
     </script>
 
