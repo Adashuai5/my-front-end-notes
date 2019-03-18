@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dragging</title>
+    <style>
+        #dragMe {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dragMe"></div>
+    <script>
+        var dragging = false
+        var position
+
+        dragMe.addEventListener('mousedown', function (e) {
+            dragging = true
+            position = [e.clientX, e.clientY]
+        })
+
+        document.addEventListener('mousemove', function (e) {
+            if (dragging === false) {
+                return
+            }
+            const x = e.clientX
+            const y = e.clientY
+            const deltaX = x - position[0]
+            const deltaY = y - position[1]
+            const left = parseInt(dragMe.style.left || 0)
+            const top = parseInt(dragMe.style.top || 0)
+            dragMe.style.top = top + deltaY + 'px'
+            dragMe.style.left = left + deltaX + 'px'
+            position = [x, y]
+        })
+        document.addEventListener('mouseup', function (e) {
+            dragging = false
+        })
+    </script>
+</body>
+
+</html>
