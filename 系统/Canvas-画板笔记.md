@@ -1,8 +1,8 @@
 # [Canvas](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes)
 
-# mouse事件
+# mouse 事件
 
-理解mouse 事件，当我们的鼠标在文档上点击时，浏览器接收指令有如下三种
+理解 mouse 事件，当我们的鼠标在文档上点击时，浏览器接收指令有如下三种
 
 ![mouse事件](https://upload-images.jianshu.io/upload_images/7094266-dc2293eeb3c2daa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```
@@ -101,3 +101,11 @@ download.onclick = function() {
 ![](https://upload-images.jianshu.io/upload_images/7094266-d83808b0f95398a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![优化后](https://upload-images.jianshu.io/upload_images/7094266-4a1e074a127a0f5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# Canvas 下载背景设置
+参考 [Setting the background color when generating images from Canvas.toDataURL](http://www.mikechambers.com/blog/2011/01/31/setting-the-background-color-when-generating-images-from-canvas-todataurl/)
+使用 [组合 Compositing
+](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Compositing)
+
+# 相关博客
+[canvas 制作画板笔记](https://zhuanlan.zhihu.com/p/56705339)

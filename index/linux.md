@@ -45,7 +45,7 @@ source ~/Desktop/z.sh
 2.  fzf
     方便快速搜索文件或目录，[官网在此](https://github.com/junegunn/fzf#installation "null")
 
-## ~/.bashec 配置
+## ~/.bashrc 配置
 ```
 source ~/Desktop/z.sh
 export PATH="$PATH:/c/
@@ -63,7 +63,6 @@ export PATH="$PATH:/c/
  alias open='start'
  alias ada="echo 'ada 
  alias t='tree'
-
-
+ alias lg= "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" 
 ```
  

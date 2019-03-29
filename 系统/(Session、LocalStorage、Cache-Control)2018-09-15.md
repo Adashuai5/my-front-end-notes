@@ -1,3 +1,5 @@
+![](https://upload-images.jianshu.io/upload_images/7094266-2dec29754959acf7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ##Cookie 和 票
 ![](https://upload-images.jianshu.io/upload_images/7094266-b8737221fb88886b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 首页 URL 相同但显示不同![](https://upload-images.jianshu.io/upload_images/7094266-c93da59a198af037.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
