@@ -1,6 +1,8 @@
 # 教程
 [阮一峰 git 教程](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 [Git 教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+# 清单
+[常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 # 自定义 git
 ```
 git config --global color.ui true
@@ -84,6 +86,9 @@ fixup：将该commit和前一个commit合并，但我不要保留该提交的注
 exec：执行shell命令（缩写:x）
 drop：我要丢弃该commit（缩写:d）
 ```
+```
+git rebase --abort 取消h'b
+```
 # 标签管理
 发布一个版本时，我们通常先在版本库中打一个标签（tag）
 Git 的标签虽然是版本库的快照，但其实它就是指向某个 commit 的指针
@@ -117,3 +122,4 @@ git push -f
 ---
 # github 历史图示
 github-history 功能：快速浏览 git push 历史
+ref

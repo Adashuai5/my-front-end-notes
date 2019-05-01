@@ -45,3 +45,6 @@ codelf：查询命名
 [RXjs](https://rxjs.dev/)
 [graphql](https://graphql.cn/): 用于 API 的查询语言
 [typingclub](https://www.typingclub.com/)
+
+[confluence:一个功能超多的在线编辑器]([https://www.atlassian.com/software/confluence](https://www.atlassian.com/software/confluence)
+)

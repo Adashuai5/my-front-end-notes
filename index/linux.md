@@ -48,20 +48,21 @@ source ~/Desktop/z.sh
 ## ~/.bashrc 配置
 ```
 source ~/Desktop/z.sh
-export PATH="$PATH:/c/
-
+export PATH="$PATH:/c/users/ada"
+export SASS_BINARY_SITE="https://npm.taobao.org/mirrors/node-sass"
+export PATH="$PATH:/c/GnuWin32/bin/"
  alias la='ls -a'
  alias ll='ls -l'
- alias gst='git status
- alias gv='git commit 
+ alias gst='git status'
+ alias gv='git commit' 
  alias ga='git add'
  alias ga.='git add .'
  alias gc='git commit'
- alias gc.='git commit
+ alias gc.='git commit .'
  alias gp='git push'
  alias gpl='git pull'
  alias open='start'
- alias ada="echo 'ada 
+ alias ada="echo 'ada'"
  alias t='tree'
  alias lg= "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit" 
 ```
