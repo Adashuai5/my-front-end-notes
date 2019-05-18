@@ -21,7 +21,20 @@ UAT服务器地址： 101.201.68.57
 
 
 ---
-
+分页
+```
+<div class="pagination-container t-right">
+        <el-pagination
+            @current-change="jumpPage"
+            @size-change="changeSizes"
+            :current-page="params.page"
+            :page-size="params.per_page"
+            :page-sizes="pageSizeType"
+            :total="pagination.total"
+            layout="total, sizes, prev, pager, next, jumper"
+        ></el-pagination>
+      </div>
+```
 
 edit-source 添加标签提示
 ```
