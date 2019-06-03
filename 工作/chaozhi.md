@@ -19,6 +19,7 @@ UAT服务器地址： 101.201.68.57
 用户名： root 
 密码： Dhx51657777 
 
+![image.png](https://upload-images.jianshu.io/upload_images/7094266-664f533637e301bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ---
 分页
@@ -35,7 +36,7 @@ UAT服务器地址： 101.201.68.57
         ></el-pagination>
       </div>
 ```
-
+[Vue+Element动态生成新表单并添加验证](https://blog.csdn.net/m0_37036014/article/details/84104903)
 edit-source 添加标签提示
 ```
 <el-tooltip class="item" effect="light" content="新建名片或导入名片，名片默认归属部门" placement="bottom">
