@@ -10,12 +10,12 @@ var twoSum = function (nums, target) {
         for (let j = i + 1; j < nums.length; j++) {
             if (nums[i] + nums[j] === target) {
                 newArr.push(i, j)
+                return newArr
             }
         }
     }
     return newArr
 }
-// 164 ms
 ```
 ## [26\. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 ```
@@ -32,5 +32,4 @@ var removeDuplicates = function (nums) {
     }
     return nums.length
 }
-// 376 ms
 ```
