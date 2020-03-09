@@ -48,3 +48,15 @@ codelf：查询命名
 
 [confluence:一个功能超多的在线编辑器]([https://www.atlassian.com/software/confluence](https://www.atlassian.com/software/confluence)
 )
+
+[互联网上的免费书籍](https://github.com/ruanyf/free-books)
+
+[现代 JavaScript 教程](https://zh.javascript.info/)
+
+[grep : 快速搜索](https://www.runoob.com/linux/linux-comm-grep.html)
+```
+grep -r "要查找的内容" ./
+```
+[如何写出可复用的 CSS](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/)
+
+[build-your-own-react](https://pomb.us/build-your-own-react/)

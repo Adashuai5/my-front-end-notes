@@ -63,5 +63,5 @@ setTimeout(()=>{},4)
 妈（Ma）咪 （Mi）
 - macrotasks 有 setTimeout setInterval setImmediate I/O UI渲染
 - microtasks 有 Promise process.nextTick Object.observe MutationObserver
-1. 先执行 Ma 再执行 Mi。
+1. 先执行 Mi 再执行 Ma。
 2. new Promise(fn).then(success) 期中 fn 是立即执行的，success 会被放入 Mi 任务。
