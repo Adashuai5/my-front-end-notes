@@ -1,6 +1,6 @@
 # Ada 的前端学习笔记
 
-这是我的前端笔记，主要是初学前端记录所有学习的细节，便于回顾，一直以简书为编辑器，会不定时整理一些内容发布并同步更新到[知乎](https://www.zhihu.com/people/leng-yue-gu-zhao/posts)
+这是我的前端笔记，主要是初学前端记录所有学习的细节，便于回顾，一直以简书为编辑器，会不定时整理一些内容发布并同步更新到 [知乎](https://www.zhihu.com/people/zhouyuanda/posts)
 
 # why github
 
