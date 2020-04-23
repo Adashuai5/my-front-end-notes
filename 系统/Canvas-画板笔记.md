@@ -96,7 +96,7 @@ download.onclick = function() {
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-7fd9851cada212ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-通过在 drawLine 的同时添加 drawCricle 的方法优化画笔形状
+通过在 drawLine 的同时添加 drawCircle 的方法优化画笔形状
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-d83808b0f95398a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

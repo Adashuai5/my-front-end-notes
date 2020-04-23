@@ -48,3 +48,21 @@ codelf：查询命名
 
 [confluence:一个功能超多的在线编辑器]([https://www.atlassian.com/software/confluence](https://www.atlassian.com/software/confluence)
 )
+
+[互联网上的免费书籍](https://github.com/ruanyf/free-books)
+
+[现代 JavaScript 教程](https://zh.javascript.info/)
+
+[grep : 快速搜索](https://www.runoob.com/linux/linux-comm-grep.html)
+```
+grep -r "要查找的内容" ./
+```
+[如何写出可复用的 CSS](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/)
+
+[build-your-own-react](https://pomb.us/build-your-own-react/)
+
+[提问的艺术](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)
+
+[InterviewMap](https://github.com/KieSun)
+
+[大前端面试宝典 - 图解前端](https://lucifer.ren/fe-interview/#/?id=%e5%a4%a7%e5%89%8d%e7%ab%af%e9%9d%a2%e8%af%95%e5%ae%9d%e5%85%b8-%e5%9b%be%e8%a7%a3%e5%89%8d%e7%ab%af)

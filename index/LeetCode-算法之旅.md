@@ -3,6 +3,7 @@
 
 ## [1\. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
+### 暴力解法 O(n2)
 ```
 var twoSum = function (nums, target) {
     let newArr = []
@@ -10,13 +11,34 @@ var twoSum = function (nums, target) {
         for (let j = i + 1; j < nums.length; j++) {
             if (nums[i] + nums[j] === target) {
                 newArr.push(i, j)
-                return newArr
             }
         }
     }
     return newArr
 }
 ```
+
+### 优化解法 O(n)
+
+```
+var twoSum = function (nums, target) {
+    let arr = []
+    let dif
+    let index
+    nums.forEach((item, key) => {
+        dif = target - item
+        if (arr[dif] !== undefined) {
+            index = [arr[dif], key]
+        }
+        arr[item] = key
+    })
+    return index
+};
+```
+
+![](https://upload-images.jianshu.io/upload_images/7094266-9b43759731fad11e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
 ## [26\. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 ```
 /**
