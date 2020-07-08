@@ -1,3 +1,12 @@
+### 特点 =>（对比之前）：
+
+1. 值的动态引用 => 值的拷贝
+
+2. 编译时输出接口（可以静态优化）=> 运行时加载
+
+3. 自动采用严格模式 => 无限制
+
+
 [ES6-Module](http://es6.ruanyifeng.com/#docs/module)
 
 在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS （服务器）和 AMD （浏览器）两种。
@@ -6,6 +15,11 @@
 ```
 // CommonJS模块
 let { stat, exists, readFile } = require('fs');
+// 等同于
+let _fs = require('fs');
+let stat = _fs.stat;
+let exists = _fs.exists;
+let readfile = _fs.readfile;
 ```
 这种加载称为“运行时加载”
 

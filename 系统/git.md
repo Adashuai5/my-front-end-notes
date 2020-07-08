@@ -1,5 +1,7 @@
 # 最佳实践
 
+[三年 Git 使用心得 & 常见问题整理](https://juejin.im/post/5ee649ff51882542ea2b5108#heading-0)
+
 [Git在实际开发中创建分支与分支合并到master的经验](http://www.tonitech.com/2399.html)
 
 # 教程
@@ -153,6 +155,8 @@ git push -f
 [相关博客](https://juejin.im/entry/5ae9706d51882567327809d0)
 [HEAD 游离的问题](https://www.jianshu.com/p/1802aaf896a2)
 ---
+[关于 git 大小写问题的解决办法](https://blog.csdn.net/u013707249/article/details/79135639?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase)
+
 
 # github 历史图示
 

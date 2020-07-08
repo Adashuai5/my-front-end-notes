@@ -103,6 +103,8 @@ module.exports = {
 
 未完待续。。。
 
+深入：[Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831?refer=ElemeFE)
+
 ---
 
 参考

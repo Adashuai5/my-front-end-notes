@@ -57,6 +57,14 @@ codelf：查询命名
 ```
 grep -r "要查找的内容" ./
 ```
+
+不支持交互式的命令行工具如何使用交互式应用：下载 winpty（git bash 自带）
+
+```
+// 示例
+winpty vue.cmd create XXX
+```
+
 [如何写出可复用的 CSS](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/)
 
 [build-your-own-react](https://pomb.us/build-your-own-react/)
@@ -66,3 +74,5 @@ grep -r "要查找的内容" ./
 [InterviewMap](https://github.com/KieSun)
 
 [大前端面试宝典 - 图解前端](https://lucifer.ren/fe-interview/#/?id=%e5%a4%a7%e5%89%8d%e7%ab%af%e9%9d%a2%e8%af%95%e5%ae%9d%e5%85%b8-%e5%9b%be%e8%a7%a3%e5%89%8d%e7%ab%af)
+
+[coding-interview-university（8个月到亚马逊）](https://github.com/jwasham/coding-interview-university)

@@ -1,7 +1,7 @@
 # 同步
 ```
 gist id: e1eda22d76bf7fd010d302292ccb8dc2
-token: ad11ec55797d265f4d982700ac75af9aeb50f7c8
+token: f7c93ec7b4969b8a72edf02df2a21d578002ce76
 # Setting Sync 快捷键：
 1. 上传： Shift + Alt + U (Sync: Update / Upload Settings)
 2. 下载： Shift + Alt + D (Sync: Download Settings)
