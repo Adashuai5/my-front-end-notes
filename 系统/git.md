@@ -32,6 +32,12 @@ git config --global color.ui true
 2. 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
 3. 忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。
 
+# [git 内部原理](https://www.bilibili.com/video/BV1RJ411X7kh)
+
+[PPT](https://www.lzane.com/slide/git-under-the-hood/#/2)
+
+[这才是真正的GIT——分支合并](https://www.lzane.com/tech/git-merge/)
+
 # git 的暂存区
 
 Git 的版本库里存了很多东西，其中最重要的就是称为 stage（或者叫 index）的暂存区，还有 Git 为我们自动创建的第一个分支 master，以及指向 master 的一个指针叫 HEAD 

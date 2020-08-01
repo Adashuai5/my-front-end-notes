@@ -101,6 +101,26 @@ module.exports = {
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-7df2a6d82c804a18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+3.  使用 HardSourceWebpackPlugin 缓存，提高构建速度
+
+HardSourceWebpackPlugin 为模块提供中间缓存，缓存默认的存放路径是: node_modules/.cache/hard-source
+
+```
+yarn add --dev hard-source-webpack-plugin
+```
+
+```
+// vue.config.js
+module.exports = {
+
+chainWebpack: config => {
+    // 提高构建速度的 webpack 插件
+    config
+      .plugin('hard-source-webpack-plugin')
+      .use(require('hard-source-webpack-plugin'))
+  },
+}
+```
 未完待续。。。
 
 深入：[Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831?refer=ElemeFE)

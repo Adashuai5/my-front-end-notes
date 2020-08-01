@@ -110,7 +110,7 @@ gcl=git clone
 open=start
 ada=echo ada is awesome
 t=tree
-lg=git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commitla=ls -a  
+lg=git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 la=ls -a
 ```
 
