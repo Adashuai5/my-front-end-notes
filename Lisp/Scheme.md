@@ -1,4 +1,4 @@
-[初识Lisp语法](http://www.xumenger.com/lisp-20170215/)
+[初识 Lisp 语法](http://www.xumenger.com/lisp-20170215/)
 
 Scheme 是 Lisp 的方言
 
@@ -10,10 +10,10 @@ Scheme 是 Lisp 的方言
 
 # 实现根号
 
-``` js
+```js
 // js
 function root(n) {
-  if(n<1) return new Error('need > 1')
+  if (n < 1) return new Error("need > 1");
   function guess(i, n) {
     if (Math.abs(n - i * i) < 0.001) return i;
     return guess((n / i + i) / 2, n);
@@ -22,7 +22,7 @@ function root(n) {
 }
 ```
 
-``` Lisp
+```Lisp
 // Lisp
 (define (root n)
   (guess 1 n))
@@ -38,7 +38,7 @@ function root(n) {
 
 实现阶乘
 
-!n = n * n-1 ... 1
+!n = n \* n-1 ... 1
 
 ## 递归
 

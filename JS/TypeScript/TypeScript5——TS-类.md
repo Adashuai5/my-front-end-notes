@@ -13,7 +13,7 @@
 3. 声明对象的函数属性
 4. 使用 constructor
 5. 声明类的属性（static）
-这些属性存在于类本身上面而不是类的实例上
+   这些属性存在于类本身上面而不是类的实例上
 6. 使用 this 代指当前对象（注意不要以为 this 永远都代指当前对象，JS 的 this 有更多功能，而且默认 this 为 window）
 
 ```
@@ -63,11 +63,11 @@ class Human extends Animal {
 
 # 修饰符
 
-## public 
+## public
 
 默认为 public，可以自由的访问程序里定义的成员
 
-## private 
+## private
 
 当成员被标记成 private 时，它就不能在声明它的类的外部访问 （相当于一个作用域）
 

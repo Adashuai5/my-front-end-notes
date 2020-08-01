@@ -11,8 +11,8 @@
 
 1. 封装：隐藏细节
 2. 两种封装方式：
-2.1. A => A 我给自己的代码封装一下，减轻思维负担
-2.2. A => B 我封装出 API 供人使用，多人合作，工业化
+   2.1. A => A 我给自己的代码封装一下，减轻思维负担
+   2.2. A => B 我封装出 API 供人使用，多人合作，工业化
 
 ### 封装并不是面向对象的特例
 
@@ -42,7 +42,7 @@ JS 通过 原型 [[prototype]]
 
 # JS 如何实现面向对象的这些形式
 
-浏览器内的 window 对象有一个 Object 属性， Object 自带prototype，prototype 指向所有实例的共同属性的一个对象（ES5 规范）
+浏览器内的 window 对象有一个 Object 属性， Object 自带 prototype，prototype 指向所有实例的共同属性的一个对象（ES5 规范）
 在实例生成时
 
 ![prototype](https://upload-images.jianshu.io/upload_images/7094266-d6eba37e5f1bac56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

@@ -1,9 +1,11 @@
-##项目结构、组件样式
+## 项目结构、组件样式
 
-####项目结构
-主要在 **router-view** 展示在app![](https://upload-images.jianshu.io/upload_images/7094266-5864bfe7a2d21451.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)相应路径引入各个页面的内容![](https://upload-images.jianshu.io/upload_images/7094266-5f7384989c572f13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-由于我们每个页面的 header 和 footer 都是一致的，所以可以不必写在每个页面，直接写在 App.vue **即所有共同模版可以放在APP.vue上**
+#### 项目结构
+
+主要在 **router-view** 展示在 app![](https://upload-images.jianshu.io/upload_images/7094266-5864bfe7a2d21451.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)相应路径引入各个页面的内容![](https://upload-images.jianshu.io/upload_images/7094266-5f7384989c572f13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+由于我们每个页面的 header 和 footer 都是一致的，所以可以不必写在每个页面，直接写在 App.vue **即所有共同模版可以放在 APP.vue 上**
 template 和 script 部分完整代码
+
 ```
 <template>
   <div id="app">
@@ -30,8 +32,10 @@ export default {
 };
 </script>
 ```
+
 有关 CSS 部分我们用到[ grid 布局](https://zhuanlan.zhihu.com/p/33030746)
 布局代码
+
 ```
 <style lang="less">
 // 让页面撑开
@@ -47,7 +51,7 @@ html,body,#app {
     "header header header"
     ". main ."
     "footer footer footer";
-  
+
   #header {
     grid-area: header;
     padding-left: 12%;
@@ -55,7 +59,7 @@ html,body,#app {
   }
 
   #main {
-    grid-area: main;  
+    grid-area: main;
   }
 
   #footer {
@@ -66,7 +70,9 @@ html,body,#app {
 }
 </style>
 ```
+
 还可以加响应式，别忘记 html 里面要加 viewpoint
+
 ```
 @media (max-width: 768px) {
   #app {
@@ -80,18 +86,22 @@ html,body,#app {
   }
 }
 ```
-####组件样式
+
+#### 组件样式
 **src 目录下的 assets 文件夹**
 创建 bass.less 用来放置共同基础 less 样式
 创建 common.less 用来放置共同底层 less 样式
 
 **./assets/bass.less**
+
 ```
 @themeColor:#ff3300;
 @bgColor:#149739;
 @textLighterColor:#999;
 ```
+
 **./assets/common.less**
+
 ```
 body {
     font:14px/1.6 Arial,"Microsoft YaHei","黑体","宋体",sans-serif;
@@ -116,14 +126,18 @@ body,
     border: none;
 }
 ```
-**在 APP.vue 的 CSS 里面引入
+
+\*\*在 APP.vue 的 CSS 里面引入
+
 ```
 @import url(./assets/common.less);
 ```
+
 **src 目录下的 components 文件夹**
 
 主要用来设置 header 和 footer 公共属性
 **./components/header.vue**
+
 ```
 <template>
   <header :class="{login: isLogin, 'no-login': !isLogin}">
@@ -138,7 +152,7 @@ body,
     <template v-if="isLogin">
       <h1>Let's share</h1>
       <i class="edit el-icon-edit"></i>
-      <img class="avatar" src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="">          
+      <img class="avatar" src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="">
     </template>
   </header>
 </template>
@@ -213,7 +227,9 @@ header.login {
 }
 </style>
 ```
+
 **./components/footer.vue**
+
 ```
 <template>
   <footer>
@@ -232,5 +248,6 @@ footer {
 }
 </style>
 ```
+
 调试工具
 Vue Devtools![](https://upload-images.jianshu.io/upload_images/7094266-4d8ab7bb9391d6a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

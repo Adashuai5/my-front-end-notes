@@ -1,4 +1,5 @@
 创建 hexo 个人博客
+
 ```
 // 常用
 hexo new "postName" # 新建文章
@@ -17,5 +18,6 @@ hexo d == hexo deploy
 hexo s -g # 生成并本地预览
 hexo d -g # 生成并上传
 ```
+
 [参考链接](https://www.jianshu.com/p/6dfc7cfdc7e0)
 [ff 教程](https://xiedaimala.com/tasks/24e32d28-9aeb-4010-a643-d97904e8101d/text_tutorials/26659cbd-bcaf-4e88-a2b2-9d7b753cf767)

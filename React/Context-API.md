@@ -1,4 +1,5 @@
 # 四层函数传递值
+
 ```
 // js
 function f1(n) {
@@ -31,7 +32,9 @@ function f4(n) {
 // 4 100
 // done
 ```
+
 将上面的 js 版本改为 react 版本
+
 ```
 import React from "react";
 import ReactDOM from "react-dom";
@@ -83,8 +86,11 @@ class App extends React.Component {
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 ```
+
 ## 如何不四层传值直接让 F4 获取到 n 的值
+
 通过一个全局的局部变量 x
+
 ```
 // js
 {
@@ -123,26 +129,32 @@ ReactDOM.render(<App />, rootElement);
 // 4 100
 // done
 ```
+
 # [React context](https://react.docschina.org/docs/context.html#when-to-use-context) 就是局部的全局变量
+
 [React-context 版本](https://codesandbox.io/s/busy-tree-drj7d)
 
-# 1.  Provider
-```    
+# 1. Provider
+
+```
 <nContext.Provider value="99">
   <F1 />
 </nContext.Provider>
 ```
-# 2.  Consumer
-```    
+
+# 2. Consumer
+
+```
 <nContext.Consumer>
   {(x) => <F4 n4 = {x} />}
 </nContext.Consumer>
 ```
+
 ## JSX 内容的真正涵义
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-cd917744ae7cb3f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### F1的四种写法
+### F1 的四种写法
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-c7445f91bb53a989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -161,11 +173,13 @@ ReactDOM.render(<App />, rootElement);
 ![props.children](https://upload-images.jianshu.io/upload_images/7094266-111bd688cf3186c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 那么下面代码就好懂了，就是执行{}里面的函数
-```    
+
+```
 <nContext.Consumer>
   {(x) => <F4 n4 = {x} />}
 </nContext.Consumer>
 ```
+
 ```
 import React from "react";
 import ReactDOM from "react-dom";
@@ -192,6 +206,7 @@ ReactDOM.render(<App />, rootElement);
 // function () {}
 // 我是一个箭头函数,我被调用了  100
 ```
+
 ## 通过 Context 实现子组件改变父组件值
 
 [value 为对象：子组件更改 value 的值](https://codesandbox.io/s/amazing-goldberg- vhuoo?fontsize=14&hidenavigation=1&theme=dark)
@@ -201,6 +216,3 @@ ReactDOM.render(<App />, rootElement);
 React 学习 React-redux 有了 context
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-e71c19448ee27dc9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-

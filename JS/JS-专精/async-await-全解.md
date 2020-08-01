@@ -3,9 +3,11 @@
 # Promise
 
 **async await 所有知识都来自 Promise**
+
 ```
 const result = await promise
 ```
+
 ES6 之前没有 Promise
 
 那时只有 如 setTimeout 宏任务
@@ -25,6 +27,7 @@ ES6 引入 Promise 才有 微任务
 该 API 很多浏览器不支持
 
 我们可以用 all 模拟
+
 ```
 Promise.all([
   Promise.reject(1)
@@ -61,7 +64,3 @@ Promise.allSettled2 = function(promiseList) {
 ```
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-229afce2515086a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-
-

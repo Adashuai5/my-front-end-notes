@@ -18,7 +18,7 @@
 
 当我们初次点击图标使其变成激活状态时，应该有交互动画：
 
-这里我参考了 [animate-css 的 bounce.css](https://github.com/animate-css/animate.css/blob/master/source/attention_seekers/bounce.css) 
+这里我参考了 [animate-css 的 bounce.css](https://github.com/animate-css/animate.css/blob/master/source/attention_seekers/bounce.css)
 
 ```
 // footer/index.scss
@@ -53,7 +53,7 @@
 }
 .bounce {
   animation-duration: 2s;
-  animation-name: top; 
+  animation-name: top;
 }
 ```
 
@@ -281,6 +281,7 @@ export const Drawing = React.memo(() => {
   "include": ["src", "typings"] // 主要是这里加了 typings
 }
 ```
+
 ```
 // typings/react-desktop.d.ts
 declare module "react-desktop/macOs" {
@@ -304,9 +305,9 @@ declare module "react-desktop/macOs" {
 /// <reference path="react-desktop.d.ts" />
 ```
 
-#### TitleBar 
+#### TitleBar
 
-我们继续看我们的 drawing/index.tsx，这里主要用到了 TitleBar 
+我们继续看我们的 drawing/index.tsx，这里主要用到了 TitleBar
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-743fed1cf7f3cde0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -472,7 +473,7 @@ const Modal = React.memo(
 
 这里我直接展示了完整代码，原本打算像第二篇讲动效那样介绍，但事实上两者思路十分相似，都是通过 useEffect 监听鼠标事件，那么我简单介绍下思路，便于理解：
 
-首先我们看到有三个 dom元素 domEl、dragEl 、moveEl：domEl 和参考文章中一样，主要是弹窗出现的 dom，我将它加在了 APP.tsx 内；dragEl 就代表了 应用主体 dom（这里就是 Drawing）；moveEl 则是应用组件内部可拖拽部分，一般是 TitleBar。
+首先我们看到有三个 dom 元素 domEl、dragEl 、moveEl：domEl 和参考文章中一样，主要是弹窗出现的 dom，我将它加在了 APP.tsx 内；dragEl 就代表了 应用主体 dom（这里就是 Drawing）；moveEl 则是应用组件内部可拖拽部分，一般是 TitleBar。
 
 由于模拟应用，我们需要记录应用当前位置，所以用到了 localStorage，initPosition 初始化应用位置，通过 -1 判断是否全屏。
 
@@ -530,6 +531,7 @@ export const useModal = () => {
   };
 };
 ```
+
 如何使用该组件我们上文已讲到，如果你忘了可以回看。
 
 至此，我们已经完成了开篇的过程分析了。
@@ -538,7 +540,7 @@ export const useModal = () => {
 
 本篇文章介绍了项目从点击 Dock 呈现应用到关闭应用的过程实现，里面有较多细节，值得反复回味与优化。
 
-此篇相对前两篇较长，能看到这里都是真爱（学习和我）。既然如此，不如给我点个赞吧🍮。
+此篇相对前两篇较长，能看到这里都是真爱（学习和我）。既然如此，不如给我点个赞吧 🍮。
 
 目前该项目已完成部分功能，包括简单设置，基础计算器，基础画板等，即使是这些已有功能也有很多需要完善的地方。
 

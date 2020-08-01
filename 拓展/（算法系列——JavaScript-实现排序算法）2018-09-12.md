@@ -5,11 +5,12 @@
 [slice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 
 # 快速排序
+
 ```
 function Quicksort(arr){
     if(arr<=1){
         return arr
-    } 
+    }
     var leftArr = []
     var rightArr = []
     for(let i=1;i<arr.length;i++){

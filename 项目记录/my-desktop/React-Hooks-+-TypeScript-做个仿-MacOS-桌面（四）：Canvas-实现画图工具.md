@@ -198,7 +198,6 @@ const exitPaint = useCallback(() => {
 
 ![image](https://upload-images.jianshu.io/upload_images/7094266-1f27cc994e37b30b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
 #### 封装 Iconfont 组件
 
 功能面板用到了很多图标，后续项目也会用到，因此我封装了一个 Iconfont 组件
@@ -260,7 +259,7 @@ export const Iconfont = ({
 ```
 import { Iconfont } from "../iconfont";
 import { CSSTransition } from "react-transition-group";
-  
+
 return (
     <React.Fragment>
       <canvas id="canvas" ref={canvasRef} height={height} width={width} />
@@ -333,6 +332,7 @@ const [isToolboxOpen, setToolboxOpen] = useState(true);
 const toolsMap = ["canvas_paint", "canvas_eraser"];
 const [eraserEnabled, setEraserEnabled] = useState(false);
 ```
+
 ```
 <div className="tools">
   {toolsMap.map((tool, index) => {
@@ -389,6 +389,7 @@ if (mousePosition && newMousePosition) {
   }
 }
 ```
+
 ---
 
 ##### sizes/colors 面板：
@@ -460,6 +461,7 @@ const onSizesChange = useCallback((e) => {
   setLineWidth(e.target.value);
 }, []);
 ```
+
 ---
 
 ##### options 面板：
@@ -476,6 +478,7 @@ const optionsMap = [
   "turn_right_flat",
 ];
 ```
+
 ```
 <div className="options">
   {optionsMap.map((option, index) => {
@@ -532,13 +535,14 @@ const [canvasHistory, setCanvasHistory] = useState<string[]>([]);
 
 我们在每次画笔或橡皮 mouseup 时，记录下 canvas 片段（saveFragment），值得注意的是，这里我们的 mouseleave 还应该是上文原来的 exitPaint（无 saveFragment）：
 
-``` 
+```
 const exitPaint = useCallback(() => {
   setIsPainting(false);
   setMousePosition(undefined);
   saveFragment();
 }, [saveFragment]);
 ```
+
 ```
 const saveFragment = useCallback(() => {
   setStep(step + 1);
@@ -790,6 +794,6 @@ const closeClearDialog = useCallback(
 
 ### 小结
 
-本篇文章梳理了仿 MacOS 桌面中画图工具的实现过程，代码及功能并不复杂但有很多值得注意的细节，希望通过该文章你能够掌握React Hooks 基本用法及对 Canvas 有一定了解。
+本篇文章梳理了仿 MacOS 桌面中画图工具的实现过程，代码及功能并不复杂但有很多值得注意的细节，希望通过该文章你能够掌握 React Hooks 基本用法及对 Canvas 有一定了解。
 
-如果你喜欢这篇文章，不要忘了给我点赞（收藏永远比点赞多，可以像B站一样三连啊哈哈）。🍮
+如果你喜欢这篇文章，不要忘了给我点赞（收藏永远比点赞多，可以像 B 站一样三连啊哈哈）。🍮

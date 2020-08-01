@@ -1,17 +1,23 @@
 气泡卡片
-#两种方式
+
+# 两种方式
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-d5ec65d7b51644e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 我们选用上面一种：当用户写出这样的代码，我们做到页面有一个按钮，点击出现 content 部分
 
 设置 inline-block 不让 button 占一行
+
 ```
 .popover {
     display: inline-block;
 }
 ```
-#思路
+
+# 思路
+
 slot 无法加 class 和监听等
+
 ```
 <template>
     <div class="popover" @click="xxx">
@@ -51,8 +57,11 @@ slot 无法加 class 和监听等
     }
 </style>
 ```
-##点击其他地方应该关闭
+
+## 点击其他地方应该关闭
+
 **1. 监听 body**
+
 ```
 xxx() {
     this.visible = !this.visible
@@ -65,11 +74,13 @@ xxx() {
     }
 }
 ```
+
 **问题：事件冒泡机制，点击 button 没 popover**
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-1ae2905550d02cdd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**2. 加上异步，同时改监听body为监听document本身**
+**2. 加上异步，同时改监听 body 为监听 document 本身**
+
 ```
 xxx() {
     this.visible = !this.visible
@@ -84,12 +95,14 @@ xxx() {
     }
 }
 ```
+
 **问题：每次点击都在 document 上监听却没关闭**
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-c6d35d8ebc49a2bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **3. 使用完立即移除监听器**
-但是 removeEventListener 需要知道监听器名字，因此把箭头函数改成 function x()，但是此时需要 bind(this) 避免this与函数外不一致
+但是 removeEventListener 需要知道监听器名字，因此把箭头函数改成 function x()，但是此时需要 bind(this) 避免 this 与函数外不一致
+
 ```
 document.addEventListener('click', function x() {
   this.visible = false
@@ -98,7 +111,9 @@ document.addEventListener('click', function x() {
   console.log('点击删除监听器');
 }.bind(this))
 ```
+
 **问题：popover 只出现一次**
+
 ```
 if (this.visible === true) {
     this.$nextTick(() => {
@@ -112,11 +127,13 @@ if (this.visible === true) {
     })
 }
 ```
+
 '新增 document click 监听器' 在删除后
 ![](https://upload-images.jianshu.io/upload_images/7094266-911d7dcf57ac3311.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **由于我们 bind(this) 了，被删除的监听器是 x，未正确删除 bind(this) 后的函数**
-**4. 另一种给移除监听器方式（不要bind）**
+**4. 另一种给移除监听器方式（不要 bind）**
+
 ```
 if (this.visible === true) {
     this.$nextTick(() => {
@@ -131,7 +148,9 @@ if (this.visible === true) {
     })
 }
 ```
+
 **问题：1.点击 popover 不应该隐藏**
+
 ```
 if (this.visible === true) {
     this.$nextTick(() => {
@@ -146,20 +165,26 @@ if (this.visible === true) {
     console.log('vm 隐藏 popover');
 }
 ```
+
 **2.由于冒泡，点击 button 关闭 popover 时会隐藏两次**
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-23db87ed635911f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **5. 阻止冒泡**
+
 ```
 <div class="popover" @click.stop="xxx">
     <div class="content-wrapper" v-if="visible" @click.stop>
 ```
-第一个 @click.stop 是阻止组件冒泡，解决问题2；第二个 @click.stop 是阻止 popover 冒泡，解决问题1
+
+第一个 @click.stop 是阻止组件冒泡，解决问题 2；第二个 @click.stop 是阻止 popover 冒泡，解决问题 1
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-64ca6fe547a22f6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#三个问题
-##1. overflow:hidden
+
+# 三个问题
+
+## 1. overflow:hidden
+
 如果用户在 w-popover 外层使用了 overflow:hidden，就会出现如下 bug
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-475efdeb1b71f753.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -169,23 +194,28 @@ if (this.visible === true) {
 ![](https://upload-images.jianshu.io/upload_images/7094266-4c970d1f5be09542.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **1.v-if 和 v-show 的区别**
-v-show 只改变样式，v-if 会影响元素是否存在着在 DOM树
+v-show 只改变样式，v-if 会影响元素是否存在着在 DOM 树
 
-**将contentWrapper 加到 body，这样做只影响元素位置，不影响其功能**
+**将 contentWrapper 加到 body，这样做只影响元素位置，不影响其功能**
+
 ```
 document.body.appendChild(this.$refs.contentWrapper)
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-7cb6619f6259c443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 v-show 会将元素显示在页面（只是变成 display:none），这样不好，还是用 v-if，我们在用户点击时再将元素 appendChild 到 body
 
-**2.slot 不能加 ref，外面包个span**
+**2.slot 不能加 ref，外面包个 span**
+
 ```
 <span ref="triggerWrapper">
     <slot></slot>
 </span>
 ```
+
 **3.添加四行代码**
+
 ```
 if (this.visible === true) {
     this.$nextTick(() => {
@@ -202,17 +232,21 @@ if (this.visible === true) {
     })
 }
 ```
+
 **为何加 window.scroll，防止在组件前有 div 将 button 顶出 window 等的情况，页面高度就应该是 getBoundingClientRect() + window.scroll**
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-81eec92baaee19fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**4.CSS作用域**
-我们将 content-wrapper 移出了 popover，其就不应该CSS就不应该包裹在popover内部
+**4.CSS 作用域**
+我们将 content-wrapper 移出了 popover，其就不应该 CSS 就不应该包裹在 popover 内部
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-0075d5f1e5e3f3c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##2. @click.stop
+
+## 2. @click.stop
+
 **@click.stop 虽然能够成功阻止当前冒泡，但是同时也将其他可添加的冒泡事件阻止的，这是一个非常不好的行为**
 **用判断 e.target 替代 @click.stop**
+
 ```
 methods: {
   onClick(event) {
@@ -238,7 +272,9 @@ methods: {
   }
 }
 ```
+
 重构上面代码
+
 ```
 methods: {
     positionConetent() {
@@ -274,11 +310,13 @@ methods: {
     }
 }
 ```
+
 打 log 发现，点 button 会关闭两次，冒泡未解决
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-6e5c00c6ab85f59e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 解决办法：让 popover 自己判断，即 popover 上加一个 ref
+
 ```
 <div class="popover" @click="onClick" ref="popover"></div>
 
@@ -291,6 +329,7 @@ if (this.$refs.contentWrapper &&
 ) { return }
 else {}
 ```
+
 新问题：忘记取消监听 document
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-2a34e06b77917b6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -299,7 +338,7 @@ else {}
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-bb6e224840502320.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-神奇的 Vue，当我们监听 document 时，this应该是 document，而在 Vue 里面不是
+神奇的 Vue，当我们监听 document 时，this 应该是 document，而在 Vue 里面不是
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-e4ff78b636510b1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -339,10 +378,13 @@ methods: {
     }
 }
 ```
-#总结思路
+
+# 总结思路
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-1ba7b8e3268bc532.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#CSS
+# CSS
+
 ```
 .content-wrapper {
         position: absolute;
@@ -372,18 +414,22 @@ methods: {
         }
     }
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-5b022d94b85f97cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 三角没有 shadow，用 drop-shadow 但是 filter 兼容性差一些
+
 ```
 filter: drop-Shadow(0 1px 1px rgba(0, 0, 0, 0.5));
 background: #fff;
 ```
+
 同时要设置 background，不然如下
 
 ![image.png](https://upload-images.jianshu.io/upload_images/7094266-3115575f34e5c3ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#四个方向的 popover
+# 四个方向的 popover
+
 用表驱动编程优化下面代码
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-0e1b21a0c18a2a92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -392,7 +438,7 @@ background: #fff;
 
 **slot 本身可以传 HTML，因此我们的组件可以实现在 popover 浮层添加链接、按钮等**
 
-**如何在popover浮层里添加关闭事件**
+**如何在 popover 浮层里添加关闭事件**
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-86a7b05e8e906f5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -401,9 +447,13 @@ background: #fff;
 ```
 <slot name="content" :close="close"></slot>
 ```
+
 ![使用方法](https://upload-images.jianshu.io/upload_images/7094266-7510042ca4fa1fe3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#测试
-**两个 ref：vm.\$refs.el.$refs**
+
+# 测试
+
+**两个 ref：vm.\$refs.el.\$refs**
+
 ```
 describe('Popover', () => {
     it('存在.', () => {
@@ -434,6 +484,7 @@ describe('Popover', () => {
     })
 })
 ```
+
 测试 trigger 失败
 自定义事件的可用性 [dispatchEvent](https://jsbin.com/bifoyinale/edit?html,js,output)
 自定义事件是可行的，但是

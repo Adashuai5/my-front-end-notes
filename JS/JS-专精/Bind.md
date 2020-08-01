@@ -5,6 +5,7 @@ bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函�
 ```
 function.bind(thisArg[, arg1[, arg2[, ...]]])
 ```
+
 # bind polyfill
 
 ## 第一版
@@ -77,7 +78,7 @@ new fn()
 // true
 ```
 
-因此可以通过  this.__proto__ === resultFn.prototype 来判断是否 bind 是否 new
+因此可以通过 this.**proto** === resultFn.prototype 来判断是否 bind 是否 new
 
 ```
 function _bind(callThis, ...args) {
@@ -110,8 +111,9 @@ function _bind(callThis, ...args) {
 ```
 
 问题：
-1. 不用 new 但是用类似的对象也能使得 this.__proto__ === resultFn.prototype 成立，此依据不够严谨
-2. ``该特性已经从 Web 标准中删除，虽然一些浏览器目前仍然支持它，但也许会在未来的某个时间停止支持，请尽量不要使用该特性``
+
+1. 不用 new 但是用类似的对象也能使得 this.**proto** === resultFn.prototype 成立，此依据不够严谨
+2. `该特性已经从 Web 标准中删除，虽然一些浏览器目前仍然支持它，但也许会在未来的某个时间停止支持，请尽量不要使用该特性`
 
 代替方案
 

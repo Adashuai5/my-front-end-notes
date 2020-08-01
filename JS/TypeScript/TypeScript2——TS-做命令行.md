@@ -1,9 +1,9 @@
 # [shebang](https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/10383546)
 
-新建 1.ts 
+新建 1.ts
 
 ```
-#!/usr/bin/env ts-node 
+#!/usr/bin/env ts-node
 console.log('hello world');
 ```
 
@@ -19,6 +19,7 @@ let a = process.argv
 console.log(a)
 console.log('hello world');
 ```
+
 现在运行 ./1.ts xxx
 
 如果报错
@@ -45,6 +46,7 @@ console.log(a + b)
 # 运行 ./add.ts 1 2
 // '12'
 ```
+
 vscode 可以通过 ctrl + 鼠标右键点击 argv ，进入 globals.d.ts 对应地方（我们刚刚下载 @types/node 生成的）
 
 ![argv 默认为 string](https://upload-images.jianshu.io/upload_images/7094266-3c13174dd7f9ff80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -52,6 +54,7 @@ vscode 可以通过 ctrl + 鼠标右键点击 argv ，进入 globals.d.ts 对应
 ## tsconfig.json
 
 可以通过扩展添加 ts 当前不支持的版本
+
 ```
 {
   "compilerOptions": {
@@ -59,7 +62,9 @@ vscode 可以通过 ctrl + 鼠标右键点击 argv ，进入 globals.d.ts 对应
   }
 }
 ```
+
 ## process.exit() 退出程序
+
 ```
 #!/usr/bin/env ts-node
 let aaa: number = parseInt(process.argv[2]);

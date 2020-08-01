@@ -2,7 +2,6 @@
 
 本篇文章我将梳理 Mac 的 Dock 动效的实现过程，你可以在我的项目 [代码（欢迎 watch 和 star）](https://github.com/Adashuai5/my-desktop)体验，同时本文完整代码均在 [sandbox](https://codesandbox.io/s/jovial-johnson-2rjnl?file=/src/Docker.tsx) 供你把玩。
 
-
 ### 基础结构搭建
 
 我们会在 app 文件下创建 footer，在其内部引入我们的 Docker 组件，我们找到几张图标 png ，以图标名组成 dockList 通过 require 引入在 Docker 内部，它们就是本次主角，同时通过使用 useRef 钩子给它们的父亲 div 绑定一个 ref，便于后续操作。
@@ -172,7 +171,6 @@ const mousemove = useCallback(
 后续我会慢慢优化，并在相应模块代码优化到一定程度时不定时更新系列文章。
 
 如果你喜欢这篇文章，不要忘了给我点赞。🍮
-
 
 **本文参考**：
 [Mac Dock 效果及原理（勾股定理）](https://www.cnblogs.com/milly/p/dock-effect.html)

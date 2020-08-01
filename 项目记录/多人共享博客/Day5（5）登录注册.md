@@ -1,8 +1,10 @@
 ## 登录和注册
+
 两者相似
 **以登录 login 为例**
 
 ./pages/Login/template.vue 代码
+
 ```
 <template>
   <div id="login">
@@ -20,8 +22,10 @@
 
 <style src="./template.less" lang="less"></style>
 ```
+
 **./pages/Login/template.js 代码**
 看似简单的步骤，事实上 vuex 以及帮我们做了很多
+
 ```
 import { mapActions } from 'vuex'
 // 用户输入的用户名和密码
@@ -51,7 +55,9 @@ export default {
   }
 }
 ```
+
 **./pages/Login/template.less 代码**
+
 ```
 @import url('../../assets/base.less');
 
@@ -60,7 +66,7 @@ export default {
   display: grid;
   justify-content: center;
   padding-top: 30px;
-  
+
   h4 {
     margin: 10px 0 5px;
   }
@@ -90,12 +96,14 @@ export default {
   }
 }
 ```
+
 以及 common.less 新增 input 相关 less 属性
+
 ```
 input {
     line-height: 40px;
     border: 1px solid #eaeaea;
-    border-radius: 4px; 
+    border-radius: 4px;
     padding: 0 4px;
     outline: none;
 }
@@ -103,4 +111,5 @@ input:focus {
     border-color: @themeLighterColor;
 }
 ```
+
 register 部分和 login 部分基本上是一致的，只是对应的路径和接口改成了 register

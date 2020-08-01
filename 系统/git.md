@@ -2,7 +2,7 @@
 
 [三年 Git 使用心得 & 常见问题整理](https://juejin.im/post/5ee649ff51882542ea2b5108#heading-0)
 
-[Git在实际开发中创建分支与分支合并到master的经验](http://www.tonitech.com/2399.html)
+[Git 在实际开发中创建分支与分支合并到 master 的经验](http://www.tonitech.com/2399.html)
 
 # 教程
 
@@ -28,19 +28,20 @@ git config --global color.ui true
 
 [gitignore 官方](https://github.com/github/gitignore)
 忽略文件的原则是：
+
 1. 忽略操作系统自动生成的文件，比如缩略图等；
-2. 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
+2. 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如 Java 编译产生的.class 文件；
 3. 忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。
 
 # [git 内部原理](https://www.bilibili.com/video/BV1RJ411X7kh)
 
 [PPT](https://www.lzane.com/slide/git-under-the-hood/#/2)
 
-[这才是真正的GIT——分支合并](https://www.lzane.com/tech/git-merge/)
+[这才是真正的 GIT——分支合并](https://www.lzane.com/tech/git-merge/)
 
 # git 的暂存区
 
-Git 的版本库里存了很多东西，其中最重要的就是称为 stage（或者叫 index）的暂存区，还有 Git 为我们自动创建的第一个分支 master，以及指向 master 的一个指针叫 HEAD 
+Git 的版本库里存了很多东西，其中最重要的就是称为 stage（或者叫 index）的暂存区，还有 Git 为我们自动创建的第一个分支 master，以及指向 master 的一个指针叫 HEAD
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-fc9e10aeb77010a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -49,6 +50,7 @@ Git 的版本库里存了很多东西，其中最重要的就是称为 stage（�
 ![](https://upload-images.jianshu.io/upload_images/7094266-2b168ca50ae9881f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 一些命令
+
 ```
 git remote // 查看远程库的信息
 git remote -v // 显示更详细的信息
@@ -75,12 +77,14 @@ git branch -D <name> // 要丢弃一个没有被合并过的分支，可以通�
 ```
 git log --graph --pretty=oneline --abbrev-commit // 图示、一行、缩写形式显示 git log
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-83523ba0414eb9bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 分支管理策略
 
-合并分支时，如果可能，Git会用 Fast forward （快进）模式。
-合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+合并分支时，如果可能，Git 会用 Fast forward （快进）模式。
+合并分支时，加上--no-ff 参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而 fast forward 合并就看不出来曾经做过合并。
+
 ```
 git merge --no-ff -m "<message>" <name>
 ```
@@ -88,7 +92,7 @@ git merge --no-ff -m "<message>" <name>
 # 多人协作
 
 ```
-// 查看远程库信息，使用 
+// 查看远程库信息，使用
 git remote -v；
 
 // 本地新建的分支如果不推送到远程，对其他人就是不可见的；
@@ -112,8 +116,10 @@ git branch --set-upstream branch-name origin/branch-name；
 ```
 git rebase -i [startpoint]  [endpoint]
 ```
-**其中-i的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint] [endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支HEAD所指向的commit(注：该区间指定的是一个前开后闭的区间)。**
-注意提交顺序是上面的hard为前一次commit
+
+**其中-i 的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint][endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支 HEAD 所指向的 commit(注：该区间指定的是一个前开后闭的区间)。**
+注意提交顺序是上面的 hard 为前一次 commit
+
 ```
 pick：保留该commit（缩写:p）
 reword：保留该commit，但我需要修改该commit的注释（缩写:r）
@@ -123,6 +129,7 @@ fixup：将该commit和前一个commit合并，但我不要保留该提交的注
 exec：执行shell命令（缩写:x）
 drop：我要丢弃该commit（缩写:d）
 ```
+
 ```
 git rebase --abort 取消h'b
 ```
@@ -131,6 +138,7 @@ git rebase --abort 取消h'b
 
 发布一个版本时，我们通常先在版本库中打一个标签（tag）
 Git 的标签虽然是版本库的快照，但其实它就是指向某个 commit 的指针
+
 ```
 git tag <name> // 创建标签，默认为 HEAD，也可以指定一个 commit id
 git tag // 查看所有标签
@@ -148,21 +156,25 @@ git push origin :refs/tags/<tagname> // 可以删除一个远程标签。
 
 ```
 git reflog
-git reset --hard 
+git reset --hard
 ```
+
 代码强制推送远程
+
 ```
 git push -f
 ```
-- 自己的分支回滚直接用reset
-- 公共分支回滚用revert
-- 错的太远了直接将代码全部删掉，用正确代码替代
-[git 远程仓库版本](https://blog.csdn.net/fuchaosz/article/details/52170105)
-[相关博客](https://juejin.im/entry/5ae9706d51882567327809d0)
-[HEAD 游离的问题](https://www.jianshu.com/p/1802aaf896a2)
----
-[关于 git 大小写问题的解决办法](https://blog.csdn.net/u013707249/article/details/79135639?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase)
 
+- 自己的分支回滚直接用 reset
+- 公共分支回滚用 revert
+- 错的太远了直接将代码全部删掉，用正确代码替代
+  [git 远程仓库版本](https://blog.csdn.net/fuchaosz/article/details/52170105)
+  [相关博客](https://juejin.im/entry/5ae9706d51882567327809d0)
+  [HEAD 游离的问题](https://www.jianshu.com/p/1802aaf896a2)
+
+---
+
+[关于 git 大小写问题的解决办法](https://blog.csdn.net/u013707249/article/details/79135639?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase)
 
 # github 历史图示
 

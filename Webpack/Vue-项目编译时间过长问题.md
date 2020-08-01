@@ -1,4 +1,3 @@
-
 随着公司项目不断增大，项目打包编译的时长也不断增加，尤其是在公司使用 jenkins 自动化部署以后更甚。由此我想到此问题可能是引入依赖过多而造成。通过 google 查看分析，终于找到相关问题并初步实践，方法如下：
 
 # 1. 使用 [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) 分析项目外部依赖大小
@@ -121,6 +120,7 @@ chainWebpack: config => {
   },
 }
 ```
+
 未完待续。。。
 
 深入：[Webpack 大法之 Code Splitting](https://zhuanlan.zhihu.com/p/26710831?refer=ElemeFE)

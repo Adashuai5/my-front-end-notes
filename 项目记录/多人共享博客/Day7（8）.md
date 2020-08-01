@@ -1,10 +1,11 @@
-####user 页面完善
+#### user 页面完善
 
 **vue 部分**
 其实和其他页面相似
 **特殊：
 1.v-for 更新： v-for 同样给个 key，但是用 blog.id：指定 key 的好处，让编译器更好得定位到指定元素，效率更高
 2.splitDate 函数的使用，将时间分离开来**
+
 ```
 <template>
   <div id="user">
@@ -36,8 +37,10 @@
 <script src="./template.js"></script>
 <style src="./template.less" lang="less"></style>
 ```
+
 **js 部分**
 同样与其他页面尤其是 detail 页面 js 类似
+
 ```
 import blog from '@/api/blog.js'
 
@@ -93,17 +96,23 @@ export default {
   }
 }
 ```
-####my 页面完善
-下面这行代码作用是修复页面刷新后分页码变为1的bug
+
+#### my 页面完善
+
+下面这行代码作用是修复页面刷新后分页码变为 1 的 bug
+
 ```
 // 在分页组件里面加入下面代码
 :current-page="page"
-```  
+```
+
 **删除键的优化**
+
 ```
 <!-- vue 部分：通过 preventDefault 阻止页面闪动 -->
 <a href="#" @click.prevent="onDelete(blog.id)">删除</a>
 ```
+
 ```
 // 引入 弹框组件
 onDelete(blogId) {
@@ -119,8 +128,10 @@ onDelete(blogId) {
     })
   })
 },
-``` 
+```
+
 这样子不好，失去了 promise 的本意：.then 里面嵌套 .then 了，而不是串联形式
+
 ```
 // 改成真正的 promise 形式
 onDelete(blogId) {
@@ -128,13 +139,15 @@ onDelete(blogId) {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     type: 'warning'
-  }).then(() => { 
+  }).then(() => {
     return blog.deleteBlog({ blogId })
     }) .then
     this.$message.success( '删除成功!')
 },
-```   
+```
+
 更简洁的异步方法
+
 ```
 async onDelete(blogId) {
   await this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
@@ -147,14 +160,18 @@ async onDelete(blogId) {
     this.$message.success('删除成功!')
 },
 ```
+
 但是删除成功后要刷新页面才能显示删除效果，优化方法是
 在上面代码后加入
+
 ```
     // 从数组里面过滤出已删除的博客
     this.blogs = this.blogs.filter(blog => blog.id != blogId)
 ```
+
 **vue 部分基本上和 user 一样**
 添加了可以 编辑 和 删除
+
 ```
 <div class="actions">
     <router-link :to="`/edit/${blog.id}`">编辑</router-link>
@@ -162,7 +179,9 @@ async onDelete(blogId) {
     <a href="#" @click.prevent="onDelete(blog.id)">删除</a>
 </div>
 ```
+
 **js 部分与 user 页面不同的除了 删除，还有 user 是通过 vuex 组件 加载**
+
 ```
 import blog from '@/api/blog.js'
 // 通过 vuex 组件获取 我的 的 user
@@ -176,7 +195,7 @@ export default {
       total: 0
     }
   },
-  
+
   computed: {
     ...mapGetters(['user'])
   },
@@ -229,10 +248,14 @@ export default {
   }
 }
 ```
+
 ---
-####edit 页面
-测试，编辑成功。但是展示到首页有问题：XML显示我们已经成功修改 atIndex 为 false![](https://upload-images.jianshu.io/upload_images/7094266-f62952df289b0861.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)但是后台显示atIndex 研究为 true![](https://upload-images.jianshu.io/upload_images/7094266-aeac263125266206.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+#### edit 页面
+
+测试，编辑成功。但是展示到首页有问题：XML 显示我们已经成功修改 atIndex 为 false![](https://upload-images.jianshu.io/upload_images/7094266-f62952df289b0861.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)但是后台显示 atIndex 研究为 true![](https://upload-images.jianshu.io/upload_images/7094266-aeac263125266206.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **edit 页面 vue 部分代码与 create 页面基本一致**
+
 ```
 <template>
   <div id="edit">
@@ -259,7 +282,9 @@ export default {
 <script src="./template.js"></script>
 <style src="./template.less" lang="less"></style>
 ```
+
 **Vue 部分同样与 create 部分相同，当然 edit 需要获取 create 的数据**
+
 ```
 import blog from "@/api/blog";
 
@@ -326,8 +351,11 @@ export default {
   }
 };
 ```
-####发布
-##dist 文件 
+
+#### 发布
+
+## dist 文件
+
 ```
 npm run build
 cd dist
@@ -338,8 +366,11 @@ git commit -v
 // git remote add origin
 // git push -u origin master
 ```
-可以用工程化的方式放到 package.json 里面 
-新建 ''upload'' 属性，注意最后用 -f 而不是 -u是因为不是源码![](https://upload-images.jianshu.io/upload_images/7094266-4cdad2bd0d46a439.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+可以用工程化的方式放到 package.json 里面
+新建 ''upload'' 属性，注意最后用 -f 而不是 -u 是因为不是源码![](https://upload-images.jianshu.io/upload_images/7094266-4cdad2bd0d46a439.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 服务端跨域限制：由于原接口为 http 而不是 https![](https://upload-images.jianshu.io/upload_images/7094266-e6049c1f52bbe0ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)那么我们可以改成 https（当然要后端已提供 https 数据）![https](https://upload-images.jianshu.io/upload_images/7094266-408fd9d778d87f82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ---
+
 data 判空

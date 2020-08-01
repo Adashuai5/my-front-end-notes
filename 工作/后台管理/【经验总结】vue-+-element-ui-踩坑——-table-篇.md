@@ -178,6 +178,7 @@ demo 代码的目录结构
 ### tableData.js
 
 将要展示的字段按顺序，以一定参数形式的数组结构放在 `TABLE_DATA_MAP` 对象内，如目前仅有的 tableDemo 即表示为我们上面代码的表结构数组。
+
 ```
 /**
  *  参数作用说明：
@@ -710,6 +711,7 @@ export default {
 };
 </script>
 ```
+
 ### store/index.js
 
 这里使用 vuex 存储 currentTableData（现在所配置的列表字段），如果是实际工作中，该数据应该存储于后端数据（后端保存当前用户对该页面的设置，而后在 tableColumn.vue 页获取）
@@ -904,10 +906,11 @@ doExport2Excel() {
 与此同时其解决了后端导出数据会与展示数据不一致的问题，在主动性和灵活性上更胜一筹。
 
 ---
+
 花了快一天时间写 demo + 整理，暂时先写这么多
 
 不定时更新。。。
 
 以上完整代码看 [这里](https://github.com/Adashuai5/vue-element-plus)
 
-整理不易，别忘了点个赞😄！
+整理不易，别忘了点个赞 😄！

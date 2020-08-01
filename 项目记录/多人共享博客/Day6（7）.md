@@ -1,19 +1,27 @@
 ## 完善已登录状态
+
 新建两个跳转（绝对路径）
+
 ```
 // 1.返回首页 /
 <h1 :title="'回到首页'"><router-link to="/">Let's share</router-link></h1>
 // 2.新建博客 /create
 <router-link to="/create"><i class="edit el-icon-edit"  :title="'新建博客'"></i></router-link>
 ```
+
 并做一下优化
-如这里需要去掉 a 标签默认格式，在common.less 里
+如这里需要去掉 a 标签默认格式，在 common.less 里
+
 ```
 text-decoration:none;
 ```
+
 ## 继续页面完善
+
 #### create 页面
+
 主要用到 UI 组件
+
 ```
 <template>
   <div id="create">
@@ -39,7 +47,9 @@ text-decoration:none;
 <script src="./template.js"></script>
 <style src="./template.less" lang="less"></style>
 ```
+
 **tamplate.js 代码**
+
 ```
 // 博客间无联系，不用 vuex ，直接用 api
 import blog from "@/api/blog";
@@ -93,12 +103,14 @@ export default {
   }
 };
 ```
+
 输入框优化
 [实时记录](https://blog.csdn.net/aaa333qwe/article/details/80286247)
 
 ####优化 index 首页
 
-出现的问题：[v-for](https://vuejs.org/v2/guide/list.html#key)：key不是必须的，仅仅是warning [详情](https://blog.csdn.net/nongweiyilady/article/details/79065652)
+出现的问题：[v-for](https://vuejs.org/v2/guide/list.html#key)：key 不是必须的，仅仅是 warning [详情](https://blog.csdn.net/nongweiyilady/article/details/79065652)
+
 ```
 <template>
   <div id="index">
@@ -109,7 +121,7 @@ export default {
           <img :src="blog.user.avatar" :alt="blog.user.username">
           <figcaption>{{blog.user.username}}</figcaption>
         </figure>
-        <h3>{{blog.title}}<span> {{blog.createdAt}}</span></h3> 
+        <h3>{{blog.title}}<span> {{blog.createdAt}}</span></h3>
         <p>{{blog.user.description}}</p>
       </router-link>
     </section>
@@ -120,12 +132,14 @@ export default {
         :total="total">
       </el-pagination>
     </section>
-  </div> 
+  </div>
 </template>
 <script src="./template.js"></script>
 <style scoped lang="less" src="./template.less"></style>
 ```
+
 **js 部分代码**
+
 ```
 import blog from "@/api/blog.js"
 export default {
@@ -166,10 +180,13 @@ export default {
 ####完善 detail 页面
 
 [marked](https://www.npmjs.com/package/marked) markdown 编译器引入
+
 ```
 npm install --save marked
 ```
+
 **vue 部分**
+
 ```
 <template>
   <div id="detail">
@@ -186,7 +203,9 @@ npm install --save marked
 <script src="./template.js"></script>
 <style src="./template.less" lang="less"></style>
 ```
+
 **js 代码**
+
 ```
 // 引入 maked
 import marked from 'marked'
@@ -220,9 +239,10 @@ export default {
   }
 }
 ```
+
 ##添加 util.js 组件：通用信息
-在 helpers 目录（辅助）添加（之前helpers 里已经创建过一个 请求组件）
-####在 util.js 组件中新建一个显示友好日期的组件 friendlyDate
+在 helpers 目录（辅助）添加（之前 helpers 里已经创建过一个 请求组件） ####在 util.js 组件中新建一个显示友好日期的组件 friendlyDate
+
 ```
 function friendlyDate(datsStr) {
   // 判断是否需要 friendlyDate
@@ -256,19 +276,25 @@ export default {
   }
 }
 ```
+
 **在 main.js 里引入**
+
 ```
 import Util from '@/helpers/util.js'
 Vue.use(Util)
 ```
+
 **替换日期**
+
 ```
 // createdAt
 friendlyDate(createdAt)
 // blog.createdAt
 friendlyDate(blog.createdAt)
 ```
+
 发布时间成功变成相对时间![](https://upload-images.jianshu.io/upload_images/7094266-3e088fae192d9e03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ```
 import blog from "@/api/blog";
 
@@ -307,6 +333,7 @@ export default {
   }
 };
 ```
+
 ```
 <el-input v-model="title" @input="titleInput" placeholder=
 "输入您的标题" maxlength="20">

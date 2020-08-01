@@ -1,4 +1,4 @@
-# 单向数据流和 eventHub 
+# 单向数据流和 eventHub
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-f804b8629d3684af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -8,6 +8,7 @@
 [eventHub 版本](https://codesandbox.io/s/kind-hellman-bp1uq)
 
 # store
+
 多个如 money 出现时，每个共有数据单独传递十分不便，引入 store，作为这些数据的公用库
 [eventHub 引入 store](https://jsbin.com/decamay/1/edit?js,output)
 
@@ -25,11 +26,11 @@ reducer：数组 reduce 的形式，表示对数据的变化
 action(type,payload)：发布
 其作用是防呆：防止傻逼代码”
 
-1. 强制事件名字归类即 reducer，防止重复 store 
+1. 强制事件名字归类即 reducer，防止重复 store
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-f08b0b20e771cd05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-2. 强制数据只读：但是redux有这个想法却无法彻底解决（但是有一定的传递信息效果）          
+2. 强制数据只读：但是 redux 有这个想法却无法彻底解决（但是有一定的传递信息效果）
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-a7ba5ac83a7505ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

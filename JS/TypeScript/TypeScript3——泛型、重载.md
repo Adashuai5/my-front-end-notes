@@ -38,7 +38,7 @@ function returnIt<T extends HasLength>(arg: T): T{
 ```
 
 1. this 是上下文？那什么是上下文？
-this 就是靠猜的，怎么猜？联系上下文。上下文是什么？上下文是你需要知道的所有知识。
+   this 就是靠猜的，怎么猜？联系上下文。上下文是什么？上下文是你需要知道的所有知识。
 
 2. 规定 this 参数的类型
 
@@ -57,6 +57,7 @@ ada.call({ name: "ada", age: 18 });
 ```
 
 # 重载
+
 ```
  function add(n1: number, n2: number);
  function add(n1: string, n2: string);

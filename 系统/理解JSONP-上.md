@@ -1,9 +1,11 @@
-# 我们用node来做一个简易服务器理解JSONP，从而了解在没有Ajax的时代的前端是如何绞尽脑汁做好页面交互的
-有关node搭建服务器的学习可以参考我的[另一篇博客](https://www.jianshu.com/p/ba728fb4edb4)
+# 我们用 node 来做一个简易服务器理解 JSONP，从而了解在没有 Ajax 的时代的前端是如何绞尽脑汁做好页面交互的
+
+有关 node 搭建服务器的学习可以参考我的[另一篇博客](https://www.jianshu.com/p/ba728fb4edb4)
 **node 服务器及页面完整代码 [参考](https://github.com/Adashuai5/node-demo/tree/master/JSONP-demo)**
 
 **首先做一个简单的付款界面**
-点击按钮数字减1（点击按钮金额每次减少1）
+点击按钮数字减 1（点击按钮金额每次减少 1）
+
 ```
 <h5>您的余额是
     <span id="amount">100</span>
@@ -18,7 +20,9 @@
     })
 </script>
 ```
-Node代码：
+
+Node 代码：
+
 ```
 if(path == '/'){
     var string = fs.readFileSync('./index.html','utf8')
@@ -28,17 +32,18 @@ if(path == '/'){
   }else{
     response.statusCode = 404
     response.end()
-  }  
+  }
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-a1ec91f18d1456c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-这种方法没有后台数据，刷新页面就恢复100
-***数据库**是什么鬼
-**只要能长久地存数据，就是数据库**
-1.文件系统是一种数据库
-2.MySQL 是一种数据库*
+这种方法没有后台数据，刷新页面就恢复 100
+**\*数据库**是什么鬼
+**只要能长久地存数据，就是数据库** 1.文件系统是一种数据库
+2.MySQL 是一种数据库\*
 
 **那我们给它一个数据库来存储金额呗（命令行操作）**
+
 ```
 //创建一个名为db的文件作为数据库
 touch db
@@ -47,7 +52,9 @@ vi db
 //只写入100
 i 100 :wq
 ```
-用&&&amount&&&替代html里的100（这什么意思？没什么意思，不容易重复啊）这时前端就可以不管后端数据库里的具体内容了
+
+用&&&amount&&&替代 html 里的 100（这什么意思？没什么意思，不容易重复啊）这时前端就可以不管后端数据库里的具体内容了
+
 ```
 <h5>您的余额是
     <span id="amount">&&&amount&&&</span>
@@ -58,6 +65,7 @@ i 100 :wq
     <input type="submit" value="付款">
 </form>
 ```
+
 ```
 var string = fs.readFileSync('./index.html','utf8')
 //引入db，赋值给变量amout，文件都是字符串类型，所以amount得到的是一个字符串
@@ -68,7 +76,9 @@ var string = fs.readFileSync('./index.html','utf8')
     response.write(string)
     response.end()
 ```
-Node代码
+
+Node 代码
+
 ```
 //判断路径和post请求
 if (path === '/pay' && method.toUpperCase() === 'POST') {
@@ -87,21 +97,26 @@ if (path === '/pay' && method.toUpperCase() === 'POST') {
   response.end()
 }
 ```
-这种方法，由于有了后台数据库（db文件）就能每次得到的新的数值都会存在里面，即使页面刷新也不会变，缺点：需要返回上一个页面才能看到现在的数值
-原因是：form表单提交后一定会刷新当前页面，并且会打开一个新的页面
+
+这种方法，由于有了后台数据库（db 文件）就能每次得到的新的数值都会存在里面，即使页面刷新也不会变，缺点：需要返回上一个页面才能看到现在的数值
+原因是：form 表单提交后一定会刷新当前页面，并且会打开一个新的页面
+
 ### 想要不刷新当前页面的方法：
-**经典：用iframe**
+
+**经典：用 iframe**
+
 ```
 <form action="/pay" method="POST" target="result">
     <input type="submit" value="付款">
 </form>
 <iframe name="result" src="about:blank" frameborder="0" height="200"></iframe>
 ```
+
 这样做的好处是用户可以直接通过 iframe 看到是否付款成功，提升用户体验
 ![](https://upload-images.jianshu.io/upload_images/7094266-4bc794416aa7fcaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-**能不能不用iframe？**
-1.用图片造 get 请求
+**能不能不用 iframe？** 1.用图片造 get 请求
+
 ```
 <h5>您的余额是<span id="amount">&&&amount&&&</span></h5>
 <button id="button">打钱</button>
@@ -123,7 +138,9 @@ button.addEventListener('click',(e)=>{
 })
 </script>
 ```
-Node代码:
+
+Node 代码:
+
 ```
 //因为imgae只能是get请求，所以只需判断路径
 if(path==='/pay'){
@@ -145,12 +162,14 @@ if(path==='/pay'){
 }
 
 ```
-点击打钱按钮，若随机数大于0.5，则状态码显示200.并且返回dog.jpg，alert 打钱成功，点击确定，余额自动减一且页面不刷新。
+
+点击打钱按钮，若随机数大于 0.5，则状态码显示 200.并且返回 dog.jpg，alert 打钱成功，点击确定，余额自动减一且页面不刷新。
 ![](https://upload-images.jianshu.io/upload_images/7094266-8f026f51f1be16ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-缺点是这种办法不支持post请求，只能是get请求
+缺点是这种办法不支持 post 请求，只能是 get 请求
 
 2.用 script 造 get 请求
+
 ```
 <h5>您的余额是
   <span id="amount">&&&amount&&&</span>
@@ -172,7 +191,9 @@ if(path==='/pay'){
 })
 </script>
 ```
-Node代码：
+
+Node 代码：
+
 ```
 if (path === '/pay') {
     var amount = fs.readFileSync('./db', 'utf8')
@@ -190,10 +211,12 @@ if (path === '/pay') {
     }
     response.end()
 ```
-Script 请求需要放入页面中才有效，由于本身script会给页面添加效果，那何必用 onload ，直接在node端写代码。
-这种技术叫做 **SRJ （Server rendered javascript）**：服务器返回 javascript ，AJAX出现前的无刷新更新页面内容的方案。
-![](https://upload-images.jianshu.io/upload_images/7094266-b0040fe7c5d83bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)这样已经达到和第一种方法img一样的效果，而且不用返回图片
-一直给页面添加Script也不好，如何去除？用下面方法无论成功还是失败，script标签均去掉
+
+Script 请求需要放入页面中才有效，由于本身 script 会给页面添加效果，那何必用 onload ，直接在 node 端写代码。
+这种技术叫做 **SRJ （Server rendered javascript）**：服务器返回 javascript ，AJAX 出现前的无刷新更新页面内容的方案。
+![](https://upload-images.jianshu.io/upload_images/7094266-b0040fe7c5d83bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)这样已经达到和第一种方法 img 一样的效果，而且不用返回图片
+一直给页面添加 Script 也不好，如何去除？用下面方法无论成功还是失败，script 标签均去掉
+
 ```
 script.onload= function(e){
     e.currentTarget.remove()
@@ -203,9 +226,12 @@ script.onload= function(e){
     e.currentTarget.remove()
   }
 ```
+
 # 一个图片总结
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-ddef5ad56296599e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ---
+
 本文主要用于个人学习使用
-[理解JSONP 下](https://www.jianshu.com/p/38a72bd0e37d)
+[理解 JSONP 下](https://www.jianshu.com/p/38a72bd0e37d)

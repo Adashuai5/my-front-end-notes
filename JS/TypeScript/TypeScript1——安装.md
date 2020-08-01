@@ -1,10 +1,11 @@
-TypeScript：javascript 的类型超集，由于 javascript 是弱类型（变量类型不确定）的语言，因此有了微软的 TypeScript 
-[强类型 JavaScript 的解决方案](http://www.ruanyifeng.com/blog/2015/02/strong-typing-javascript.html) 
+TypeScript：javascript 的类型超集，由于 javascript 是弱类型（变量类型不确定）的语言，因此有了微软的 TypeScript
+[强类型 JavaScript 的解决方案](http://www.ruanyifeng.com/blog/2015/02/strong-typing-javascript.html)
 ![](https://upload-images.jianshu.io/upload_images/7094266-c333804c1f834140.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 node 无法直接运行 ts，需要用 ts-node
+
 ```
-npm install typescript@3 -g 
+npm install typescript@3 -g
 npm install ts-node@7.0.0 -g
 ```
 
@@ -41,5 +42,6 @@ npm i -D ts-node typescript
 ## 如何学 TS
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-0ad57e81e205e9ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 1. 初略浏览官方文档：看哪些 js 没有。
 2. 自己尝试写需求 demo，遇到问题再看文档，文档不懂搜索。

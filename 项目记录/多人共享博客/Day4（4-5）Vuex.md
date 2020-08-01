@@ -1,15 +1,21 @@
 ## 静态页面
+
 ![](https://upload-images.jianshu.io/upload_images/7094266-7167a8b2bb66ea1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 grid 布局技巧，下面三种写法等价
+
 ```
 grid-row: 1; // Less 语法 代表第一行
 grid-row: 1 / 2;   //  代表第一根横线到第二根横线之间
 grid-row: 1 /span 1; // 代表
 ```
-## [Vuex](https://vuex.vuejs.org/zh/guide/) 
+
+## [Vuex](https://vuex.vuejs.org/zh/guide/)
+
 是一个为 Vue.js 开发的状态管理模式：采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。（便于不同组件之间的数据沟通）
-#### 在 store (存储)内有下列核心概念 
+
+#### 在 store (存储)内有下列核心概念
+
 **State()：核心原始数据** 展示
 **Getter：计算属性，根据所依赖的数据的变化计算自身变化** 存储
 **Mutation(转变)：提交 mutation 才能改变存储状态**（devtools 会捕捉前一状态与后一状态的快照）
@@ -19,14 +25,16 @@ Action 可以包含任意**异步操作**。
 **Module：可以将将 store 分割**
 ![mapstate](https://upload-images.jianshu.io/upload_images/7094266-70f12af44765e745.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
 **安装 Vuex**
+
 ```
 npm install --save vuex
 ```
+
 #### 在 src 目录下 创建 store 文件夹，里面有![](https://upload-images.jianshu.io/upload_images/7094266-22ac1c10c66709b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **./src/store/index.js**
+
 ```
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -42,7 +50,9 @@ export default new Vuex.Store({
     }
 })
 ```
+
 **记得在 main.js 里面引入 store**
+
 ```
 import Vue from 'vue'
 import ElementUI from 'element-ui';
@@ -61,7 +71,9 @@ new Vue({
   template: '<App/>'
 })
 ```
+
 使用 vuex 完善 auth.js
+
 ```
 import auth from '@/api/auth'
 
@@ -100,7 +112,7 @@ const actions = {
     commit('setLogin', { isLogin: true })
     return res.data
   },
-  
+
   async logout({ commit, state }) {
     await auth.logout()
     commit('setUser', { user: null })
@@ -124,10 +136,9 @@ export default ({
   actions
 })
 ```
-**./src/components/header.vue 添加代码**
-1.添加 vuex ： auth.js 中组件
-2.头像登录个性化，并添加下拉菜单：我的 和 注销（跳转）
-3.添加 登录页面 和 注册页面 按钮跳转（链接包裹按钮）
+
+**./src/components/header.vue 添加代码** 1.添加 vuex ： auth.js 中组件 2.头像登录个性化，并添加下拉菜单：我的 和 注销（跳转） 3.添加 登录页面 和 注册页面 按钮跳转（链接包裹按钮）
+
 ```
 <template>
   <header :class="{login: isLogin, 'no-login': !isLogin}">
@@ -175,7 +186,7 @@ export default {
 
   methods: {
     ...mapActions([
-      "checkLogin", 
+      "checkLogin",
       'logout'
       ]),
 
@@ -188,6 +199,7 @@ export default {
 
 <style lang="less">
 ```
+
 ```
 @import "../assets/base.less";
 
@@ -244,7 +256,7 @@ header.login {
     border-radius: 50%;
     margin-left: 15px;
   }
-  
+
   .user {
     position: relative;
 
@@ -279,4 +291,5 @@ header.login {
 }
 </style>
 ```
+
 测试效果![](https://upload-images.jianshu.io/upload_images/7094266-be8050e1169a69f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

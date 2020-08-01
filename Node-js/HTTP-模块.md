@@ -1,6 +1,7 @@
 [HTTP 模块.pdf](chrome-extension://cdonnmffkdaoajfknoeeecmchibpmkmg/assets/pdf/web/viewer.html?file=https%3A%2F%2Fstatic.xiedaimala.com%2Fxdml%2Ffile%2F3ac7c224-c23d-491f-84b5-4fabfbeab9b8%2F2019-10-17-1-34-9.pdf)
 
 ## vscode 设置
+
 ```
 ctrl+shift+P
 
@@ -25,7 +26,7 @@ server.on("request", (request: IncomingMessage, response: ServerResponse) => {
   console.log(request.method);
   console.log(request.headers);
   console.log(request.url);
-  
+
   // 由于 TCP 协议原因，请求体是分多次上传的
   // 获取请求过程中的每一片 chunk ，请求结束时通过 Buffer 连接所有 chunk，获得完整请求体
   const array = [];

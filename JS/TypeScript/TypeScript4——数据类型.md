@@ -28,17 +28,17 @@ gender = Gender.Woman;
 console.log(gender);
 ```
 
-never 类型表示的是那些永不存在的值的类型。 
+never 类型表示的是那些永不存在的值的类型。
 
 - 总是会抛出异常或根本就不会有返回值的函数表达式
 - 箭头函数表达式的返回值类型
 - 当它们被永不为真的类型保护所约束时的变量。
 
-never 类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是 never的子类型或可以赋值给 never 类型（除了never 本身之外）。 即使 any 也不可以赋值给 never
+never 类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是 never 的子类型或可以赋值给 never 类型（除了 never 本身之外）。 即使 any 也不可以赋值给 never
 
 void 常用于表示函数无明确返回值
 
-默认情况下 null 和 undefined 是任何类型的子类型。 
+默认情况下 null 和 undefined 是任何类型的子类型。
 
 # 类型断言
 
@@ -49,6 +49,7 @@ let strLength: number = (<string>someValue).length;
 // as 语法
 let strLength: number = (someValue as string).length;
 ```
+
 当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的。
 
 # 变量声明
@@ -124,7 +125,7 @@ let mySquare = createSquare({ color: "red", width: 100, opacity: 0.5 }); // opac
 
 1. 使用类型断言
 
-``` 
+```
 let mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
 ```
 

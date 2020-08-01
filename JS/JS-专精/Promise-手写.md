@@ -12,7 +12,7 @@
 
 ## 2. 消灭 if(err)
 
-error 都放在 .then 的第二个参数 
+error 都放在 .then 的第二个参数
 
 # Promise 完整 API
 
@@ -27,7 +27,8 @@ error 都放在 .then 的第二个参数
 
 # 测试
 
-## chai 和 mocha 
+## chai 和 mocha
+
 ```
 import * as chai from "chai";
 

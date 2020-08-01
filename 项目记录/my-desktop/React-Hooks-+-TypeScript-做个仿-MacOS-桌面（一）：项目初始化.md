@@ -26,11 +26,12 @@ yarn create-react-app my-app --typescript
 
 ```
 yarn add node-sass
-``` 
+```
 
 ### 设置背景图片
 
 删除所有不必要的文件及代码后, 我使用上面教程中获取的文件中的 sierra-4K.jpg 作为 App 界面背景
+
 ```
 // App.scss
 .App {
@@ -101,6 +102,7 @@ jobs:
 选择 gh-pages branch 此时会出现如上图所示项目浏览链接，如我这个项目 [my-desktop](https://adashuai5.github.io/my-desktop/)
 
 另外，该项目 [代码](https://github.com/Adashuai5/my-desktop)，欢迎 watch 和 star。
+
 ### 小结
 
 至此，项目流程算是走了一遍。
