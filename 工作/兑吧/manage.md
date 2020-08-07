@@ -1,0 +1,11 @@
+ipconfig 查询本地 ip，8080端口
+
+```
+http://10.10.95.179:8080/#/
+```
+
+yarn dev 默认走 mock 地址，可能服务期有问题，可以通过 proxy 代理到测试地址
+
+```
+proxy=http://kjj-mng.duibatest.com.cn yarn dev
+```
