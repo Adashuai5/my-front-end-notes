@@ -1,4 +1,5 @@
 [链接](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449921138898cdeb7fc2214dc08c6c67827758cd2f000)
+
 （JavaScript）这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。例如 Java 是静态语言
 
 ```
@@ -28,7 +29,7 @@ s.substring(0, 5); // 从索引0开始到5（不包括5），返回'hello'
 s.substring(7); // 从索引7开始到结束，返回'world'
 ```
 
-##数组
+## 数组
 
 JavaScript 的 Array 可以包含任意数据类型，并通过索引来访问每个元素。
 
@@ -209,7 +210,7 @@ arr.join('-'); // 'A-B-C-1-2-3'
 var arr = [[1, 2, 3], [400, 500, 600], '-'];
 ```
 
-##对象
+## 对象
 由于 JavaScript 的对象是动态类型，你可以自由地给一个对象添加或删除属性
 
 ```
@@ -256,14 +257,16 @@ xiaoming.hasOwnProperty('name'); // true
 xiaoming.hasOwnProperty('toString'); // false
 ```
 
-###Map 和 Set
+### Map 和 Set
 ES6 引入 Map 是一组键值对的结构，Set 是一个成员的值都是唯一的数组
-###Iterable（遍历器）
+### Iterable（遍历器）
 具有 iterable 类型的集合可以通过新的 for ... of 循环来遍历。
 for ... of 循环是 ES6 引入的新的语法
 for ... in 循环由于历史遗留问题，它遍历的实际上是对象的属性名称
 更好的方式是直接使用 iterable 内置的 forEach 方法 #函数
-###arguments
+
+### arguments
+
 JavaScript 还有一个免费赠送的关键字 arguments，它只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。
 
 ```
@@ -278,9 +281,9 @@ foo(10, 20, 30);
 
 arguments 类似 Array 但它不是一个 Array】
 利用 arguments，你可以获得调用者传入的所有参数。也就是说，即使函数不定义任何参数，还是可以拿到参数的值
-###rest 参数
+### rest 参数
 ES6 标准引入了 rest 参数（形式为...变量名），用于获取函数的多余参数，这样就不需要使用 arguments 对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中
-####return
+#### return
 由于 JavaScript 引擎在行末自动添加分号的机制
 
 ```
@@ -310,7 +313,7 @@ function foo() {
 }
 ```
 
-###常量
+### 常量
 由于 var 和 let 申明的是变量，如果要申明一个常量，在 ES6 之前是不行的，我们通常用全部大写的变量来表示“这是一个常量，不要修改它的值”：
 
 ```
@@ -326,7 +329,7 @@ PI = 3; // 某些浏览器不报错，但是无效果！
 PI; // 3.14
 ```
 
-###装饰器
+### 装饰器
 利用 apply()，我们还可以动态改变函数的行为。
 
 JavaScript 的所有对象都是动态的，即使内置的函数，我们也可以重新指向新的函数。
@@ -348,11 +351,11 @@ parseInt('30');
 console.log('count = ' + count); // count = 3
 ```
 
-##高阶函数 Higher-order function
+## 高阶函数 Higher-order function
 **一个函数就接收另一个函数作为参数称为高阶函数**
 相关章节练习不错
 
-- ###map()
+- ### map()
 
 ```
 'use strict';
@@ -371,7 +374,7 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 arr.map(String); // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 ```
 
-- ###reduce
+- ### reduce
   再看 reduce 的用法。Array 的 reduce()把一个函数作用在这个 Array 的[x1, x2, x3...]上，这个函数必须接收两个参数，reduce()把结果继续和序列的下一个元素做累积计算，其效果就是：
 
 ```
@@ -387,7 +390,7 @@ arr.reduce(function (x, y) {
 }); // 25
 ```
 
-- ###filter
+- ### filter
   filter() 用于把 Array 的某些元素过滤掉，然后返回剩下的元素
 
 ```
@@ -403,7 +406,7 @@ function get_primes(arr) {
 }
 ```
 
-- ###sort
+- ### sort
   Array 的 sort() 默认把所有元素先转换为 String 根据 ASCII 码进行排序
   对于两个元素 x 和 y，如果认为 x < y，则返回-1，如果认为 x == y，则返回 0，如果认为 x > y，则返回 1，这样，排序算法就不用关心具体的比较过程，而是根据比较结果直接排序
   sort()方法会直接对 Array 进行修改，它返回的结果仍是当前 Array
@@ -423,9 +426,9 @@ a2; // ['A', 'B', 'C']
 （2）不可以当作构造函数，也就是说，不可以使用 new 命令，否则会抛出一个错误。
 （3）不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
 （4）不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数。
-###generator
+### generator
 generator（生成器）是 ES6 标准引入的新的数据类型 #标准对象
-###Date
+### Date
 在 JavaScript 中，Date 的月份范围用整数表示是 0~11，0 表示一月，1 表示二月……
 
 ```
