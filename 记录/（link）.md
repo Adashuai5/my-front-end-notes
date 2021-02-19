@@ -1,3 +1,5 @@
+[Surf_the_Internet](https://github.com/sun-shadow/Surf_the_Internet/blob/master/%E5%85%A5%E9%97%A8%E7%AF%87.md)
+
 保持好奇心
 **[软件架构入门](http://www.ruanyifeng.com/blog/2016/09/software-architecture.html)
 架构，又名软件架构，是有关软件整体结构与组件的抽象描述，用于指导大型软件系统各个方面的设计。
@@ -45,17 +47,15 @@ codelf：查询命名
 
 [互联网上的免费书籍](https://github.com/ruanyf/free-books)
 
-[现代 JavaScript 教程](https://zh.javascript.info/)
-
 [grep : 快速搜索](https://www.runoob.com/linux/linux-comm-grep.html)
 
-```
+```shell
 grep -r "要查找的内容" ./
 ```
 
 不支持交互式的命令行工具如何使用交互式应用：下载 winpty（git bash 自带）
 
-```
+```shell
 // 示例
 winpty vue.cmd create XXX
 ```
@@ -66,14 +66,11 @@ winpty vue.cmd create XXX
 
 [提问的艺术](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)
 
-[InterviewMap](https://github.com/KieSun)
-
-[大前端面试宝典 - 图解前端](https://lucifer.ren/fe-interview/#/?id=%e5%a4%a7%e5%89%8d%e7%ab%af%e9%9d%a2%e8%af%95%e5%ae%9d%e5%85%b8-%e5%9b%be%e8%a7%a3%e5%89%8d%e7%ab%af)
-
-[coding-interview-university（8 个月到亚马逊）](https://github.com/jwasham/coding-interview-university)
-
-```
+```shell
 // 网易云
 npx @nondanee/unblockneteasemusic
 ```
 
+[百度前端代码规范](https://www.bookstack.cn/read/ecomfe-spec/javascript-style-guide.md)
+
+[「颜值即正义」那些管UI小姐姐要来的网站](https://juejin.cn/post/6844904104150433799#heading-8)

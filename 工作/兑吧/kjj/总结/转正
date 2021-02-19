@@ -1,0 +1,89 @@
+# 1.试用期产出
+
+7.22-7.27  [领福利路径优化](http://cf.dui88.com/pages/viewpage.action?pageId=67161198)
+
+7.28 [红包限额](http://cf.dui88.com/pages/viewpage.action?pageId=69914263)[仅做提醒](http://cf.dui88.com/pages/viewpage.action?pageId=69914263)
+
+7.30-8.3 [代理人切换团队&退出公司](http://cf.dui88.com/pages/viewpage.action?pageId=69904903) 第一个[技术方案](http://cf.dui88.com/pages/viewpage.action?pageId=69922908)
+
+8.8 [管理后台生成推广链接](http://cf.dui88.com/pages/viewpage.action?pageId=69925609) canvas
+
+8.12 [管理员代替线索员回复咨询消息](http://cf.dui88.com/pages/viewpage.action?pageId=71868532)
+
+8.17 [订阅功能](http://cf.dui88.com/pages/viewpage.action?pageId=71873260)
+
+8.22 [业务员邀请列表优化](http://cf.dui88.com/pages/viewpage.action?pageId=71888198)
+
+8.24 [线索详情页增加裂变关系](http://cf.dui88.com/pages/viewpage.action?pageId=74257867)
+
+8.28 [管理后台业务员管理列表(切团队)](http://cf.dui88.com/pages/viewpage.action?pageId=74253674)
+
+9.3 [贴片资料](http://cf.dui88.com/pages/viewpage.action?pageId=74264350)
+
+9.11 [直播前抽奖](http://cf.dui88.com/pages/viewpage.action?pageId=74267210) (管理端和后台)
+
+9.16 福利弹层关闭，点红包，第一次点不动，要点好几次
+
+9.17 图片上传组件展示文案位置优化
+
+9.21-22 [新建直播公司优化](http://cf.dui88.com/pages/viewpage.action?pageId=76655984)、[业务员名单批量导入优化](http://cf.dui88.com/pages/viewpage.action?pageId=76667453)
+
+9.25 [管理后台复制推流地址](http://cf.dui88.com/pages/viewpage.action?pageId=76670902) [技术方案](http://cf.dui88.com/pages/viewpage.action?pageId=76677095)
+
+9.28 [团队支持二级机构关系](http://cf.dui88.com/pages/viewpage.action?pageId=78906068)
+
+10.10 进入直播间不显示贴片资料推送等
+
+10.12 自定义推送新增复制推送新建功能、解散团队、新建红包、免费福利等优化
+
+10.13 直播间store优化
+
+10.14-15 [日常优化](http://cf.dui88.com/pages/viewpage.action?pageId=78918810)、代理人跳转规则优化
+
+10.20-10.27 [资料包更新](http://cf.dui88.com/pages/viewpage.action?pageId=78932934)  [技术方案](http://cf.dui88.com/pages/viewpage.action?pageId=78932934)
+
+10.30 [首页banner优化](http://cf.dui88.com/pages/viewpage.action?pageId=81467686)
+
+11.03 [所属机构和代理人绑定](http://cf.dui88.com/pages/viewpage.action?pageId=81481971)、表单展示优化、[代理人激活码优化](http://cf.dui88.com/pages/viewpage.action?pageId=78935080)
+
+11.06 贴片和资料推送是公众号时去除代理人无法跳转提示
+
+11.10 [贴片位置&展示test](http://cf.dui88.com/pages/viewpage.action?pageId=81492780)
+
+11.11-11.20 [早晚安打卡](http://cf.dui88.com/pages/viewpage.action?pageId=81468138) [技术方案](http://cf.dui88.com/pages/viewpage.action?pageId=83695940)
+
+11.23 海报优化
+
+11.25 [开门红标签](http://cf.dui88.com/pages/viewpage.action?pageId=85825643)
+
+12.7 [新人引导流程](http://cf.dui88.com/pages/viewpage.action?pageId=83699613) [技术方案](http://cf.dui88.com/pages/viewpage.action?pageId=85824555)
+
+12.11 自定义公司默认不展示
+
+12.12 [投票选项和资料关联](http://cf.dui88.com/pages/viewpage.action?pageId=87826613)
+
+[中宏定制需求](http://cf.dui88.com/pages/viewpage.action?pageId=90647552)
+
+[日常优化15](http://cf.dui88.com/pages/viewpage.action?pageId=85835606)
+
+[工号激活不允许修改工号](http://cf.dui88.com/pages/viewpage.action?pageId=90651701)
+
+
+
+# 
+
+不足
+
+开发效率
+
+逻辑思路
+
+收获
+
+1. 流程规范、代码规范
+2. 移动端兼容性
+3. 组件开发
+4. 错误上报处理等
+5. 做事之前考虑清楚
+6. canvas 
+

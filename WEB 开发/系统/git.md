@@ -157,6 +157,7 @@ git push origin :refs/tags/<tagname> // 可以删除一个远程标签。
 ```
 git reflog
 git reset --hard
+git cherry-pick <commitHash> // 将指定的提交（commit）应用于其他分支
 ```
 
 代码强制推送远程
@@ -180,3 +181,4 @@ git push -f
 
 github-history 功能：快速浏览 git push 历史
 ref
+

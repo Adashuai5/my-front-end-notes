@@ -52,10 +52,18 @@ JSON 左边的代码就是左 padding，右边就是右 padding，所以 JSONP=J
 # 让我们理一下过程
 
 请求方：ada.com 的前端程序员（浏览器）
-响应方：jack.com 的后端程序员（服务器） 1.请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=yyy 2.响应方根据查询参数 callbackName，构造形如
+响应方：jack.com 的后端程序员（服务器） 
+
+1.请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=yyy 
+
+2.响应方根据查询参数 callbackName，构造形如
 yyy.call(undefined, '你要的数据')
 yyy('你要的数据')
-这样的响应 3.浏览器接收到响应，就会执行 yyy.call(undefined, '你要的数据') 4.那么请求方就知道了他要的数据
+这样的响应 
+
+3.浏览器接收到响应，就会执行 yyy.call(undefined, '你要的数据') 
+
+4.那么请求方就知道了他要的数据
 这就是 JSONP
 **约定：**
 callbackName -> callback
@@ -76,7 +84,7 @@ button.addEventListener('click', (e)=>{
         e.currentTarget.remove()
         delete window[functionName] // 请求完了就干掉这个随机函数
     }
-    script.onload = function(e){ // 状态码大于等于 400 则表示失败
+    script.onerror = function(e){ // 状态码大于等于 400 则表示失败
         e.currentTarget.remove()
         delete window[functionName] // 请求完了就干掉这个随机函数
     }
@@ -91,7 +99,7 @@ if (path === '/pay') {
     var newAmount = amount - 1
     fs.writeFileSync('./db', newAmount)
     response.setHeader('Content-Type', 'application/javascript')
-    response.write(`${query.callbackName}.call(undefined,
+    response.write(`${query.callback}.call(undefined,
       'success'`)
     response.end()
 ```

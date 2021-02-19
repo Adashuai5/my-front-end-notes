@@ -30,3 +30,45 @@ function fn(a,b) { return a+b }
 
 useEffect 执行副作用操作
 
+### `useMemo` vs `useCallback`
+
+`useCallback`是根据依赖(deps)缓存第一个入参的(callback)。`useMemo`是根据依赖(deps)缓存第一个入参(callback)执行后的值
+
+```
+// 注：为了方便理解我省去了一些flow语法
+
+function updateCallback(callback, deps) {
+  const hook = updateWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  const prevState = hook.memoizedState;
+  if (prevState !== null) {
+    if (nextDeps !== null) {
+      const prevDeps = prevState[1];
+      if (areHookInputsEqual(nextDeps, prevDeps)) {
+        return prevState[0];
+      }
+    }
+  }
+  hook.memoizedState = [callback, nextDeps];
+  return callback;
+}
+
+function updateMemo(nextCreate, deps) {
+  const hook = updateWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  const prevState = hook.memoizedState;
+  if (prevState !== null) {
+    if (nextDeps !== null) {
+      const prevDeps = prevState[1];
+      if (areHookInputsEqual(nextDeps, prevDeps)) {
+        return prevState[0];
+      }
+    }
+  }
+  const nextValue = nextCreate(); // 🤩
+  hook.memoizedState = [nextValue, nextDeps];
+  return nextValue;
+}
+
+```
+

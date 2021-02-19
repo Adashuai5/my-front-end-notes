@@ -14,7 +14,9 @@ ES6 之前没有 Promise
 
 ES6 引入 Promise 才有 微任务
 
-![](https://upload-images.jianshu.io/upload_images/7094266-5868499dce7f2e9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/7094266-991c7cfb6042ccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
 
 ![](https://upload-images.jianshu.io/upload_images/7094266-efa12525af0a72da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
