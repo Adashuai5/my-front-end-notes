@@ -69,6 +69,44 @@ var addTwoNumbers = function (l1, l2, k = 0) {
 };
 ```
 
+## [三数之和](https://leetcode-cn.com/problems/3sum/)
+
+```
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+    let len = nums.length
+    if (!nums || len < 3) return []
+    let arr = []
+    nums.sort((a, b) => a - b)
+    for (let i = 0; i < len; i++) {
+        let L = i + 1
+        let K = len - 1
+        if (nums[i] > 0) break
+        if (i > 0 && nums[i] === nums[i - 1]) continue
+        while (L < K) {
+            let sum = nums[i] + nums[L] + nums[K]
+            if (sum === 0) {
+                arr.push([nums[i], nums[L], nums[K]])
+                while (L < K && nums[L] == nums[L + 1]) L++;
+                while (L < K && nums[K] == nums[K - 1]) K--;
+                L++
+                K--
+            } else if (sum < 0) {
+                L++
+            } else if (sum > 0) {
+                K--
+            }
+        }
+    }
+    return arr
+};
+```
+
+
+
 ## [3\. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
 ### 暴力解法 O(n2)

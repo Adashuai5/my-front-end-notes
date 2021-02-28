@@ -1,0 +1,83 @@
+
+
+### react 15 生命周期
+
+![react 15 生命周期](D:\ada\脑图\pic\Ciqc1F-GZbGAGNcBAAE775qohj8453.png)
+
+[demo](https://codesandbox.io/s/react15shengmingzhouqi-0gzib?file=/src/index.js)
+
+### react 16.3 生命周期
+
+![react 16.3 生命周期](D:\ada\脑图\pic\CgqCHl-FVVeAaMJvAAKXOyLlUwM592.png)
+
+
+
+### 对比
+
+#### 1. 组件初始化阶段
+
+![组件初始化阶段](D:\ada\脑图\pic\Ciqc1F-Klv6AIeOPAADAZZgLu7U105.png)
+
+#### 2. 组件更新阶段
+
+![组件更新阶段](D:\ada\脑图\pic\CgqCHl-KlxyAB5MpAAFaH-Kgggo887.png)
+
+##### 通过 getDerivedStateFromProps 代替 componentWillReceiveProps
+
+- getDerivedStateFromProps 是作为一个**试图代替 componentWillReceiveProps** 的 API 而出现的；
+- getDerivedStateFromProps**不能完全和 componentWillReceiveProps 画等号**，其特性决定了我们曾经在 componentWillReceiveProps 里面做的事情，不能够百分百迁移到getDerivedStateFromProps 里
+
+##### 消失的 componentWillUpdate 与新增的 getSnapshotBeforeUpdate
+
+* getSnapshotBeforeUpdate 与 componentDidUpdate 一起，涵盖过时的 componentWillUpdate 的所有用例
+
+* getSnapshotBeforeUpdate 的返回值会作为第三个参数给到 componentDidUpdate
+
+（例子：实现一个内容会发生变化的滚动列表，要求根据滚动列表的内容是否发生变化，来决定是否要记录滚动条的当前位置）
+
+react 16.4 生命周期：
+
+- 在 React 16.4 中，**任何因素触发的组件更新流程**（包括由 this.setState 和 forceUpdate 触发的更新流程）都会触发 getDerivedStateFromProps；
+- 而在 v 16.3 版本时，**只有父组件的更新**会触发该生命周期
+
+![react 16.4 生命周期](D:\ada\脑图\pic\16.4.png)
+
+#### 3. Unmounting 阶段：组件的卸载
+
+与 React 15 完全一致，只涉及 componentWillUnmount
+
+### Fiber 架构
+
+React 16 之前，每触发一次组件的更新，React 都会构建一棵新的虚拟 DOM 树，通过与上一次的虚拟 DOM 树进行 diff，实现对 DOM 的定向更新。（递归的过程）
+
+![](D:\ada\脑图\pic\Ciqc1F-Kl0WAO2mzAABxddWHnXI121.png)
+
+**漫长且不可打断**
+
+***\*同步渲染一旦开始，便会牢牢抓住主线程不放，直到递归彻底完成。在这个过程中，浏览器没有办法处理任何渲染之外的事情，会进入一种\**无法处理用户交互**的状态。因此若渲染时间稍微长一点，页面就会面临卡顿甚至卡死的风险
+
+**Fiber 会将一个大的更新任务拆解为许多个小任务**
+
+每当执行完一个小任务时，**渲染线程都会把主线程交回去**，看看有没有优先级更高的工作要处理，确保不会出现其他任务被“饿死”的情况，进而避免同步渲染带来的卡顿
+
+![](D:\ada\脑图\pic\Ciqc1F-Kl1CAA6pwAADpyi-xSnM494.png)
+
+React 16
+
+三个阶段特征（翻译自16的生命周期图侧边）。
+
+- render 阶段：纯净且没有副作用，可能会被 React 暂停、终止或重新启动。
+- pre-commit 阶段：可以读取 DOM。
+- commit 阶段：可以使用 DOM，运行副作用，安排更新。
+
+由于 render 阶段的操作对用户来说其实是“不可见”的，所以就算打断再重启，对用户来说也是零感知。而 commit 阶段的操作则涉及真实 DOM 的渲染，所以这个过程必须用同步渲染来求稳
+
+### React 16 为何废弃“componentWill”开头的生命周期
+
+- componentWillMount；
+- componentWillUpdate；
+- componentWillReceiveProps
+
+在 Fiber 机制下，**render 阶段是允许暂停、终止和重启的**。当一个任务执行到一半被打断后，下一次渲染线程抢回主动权时，这个任务被重启的形式是“重复执行一遍整个任务”而非“接着上次执行到的那行代码往下走”。**这就导致 render 阶段的生命周期都是有可能被重复执行的**
+
+废弃后**确保了 Fiber 机制下数据和视图的安全性**，同时也**确保了生命周期方法的行为更加纯粹、可控、可预测**
