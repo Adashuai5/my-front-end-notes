@@ -74,3 +74,5 @@ npx @nondanee/unblockneteasemusic
 [百度前端代码规范](https://www.bookstack.cn/read/ecomfe-spec/javascript-style-guide.md)
 
 [「颜值即正义」那些管UI小姐姐要来的网站](https://juejin.cn/post/6844904104150433799#heading-8)
+
+[强迫症的 Mac 设置指南](https://github.com/macdao/ocds-guide-to-setting-up-mac)
