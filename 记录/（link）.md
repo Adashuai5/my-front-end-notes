@@ -43,8 +43,6 @@ codelf：查询命名
 [graphql](https://graphql.cn/): 用于 API 的查询语言
 [typingclub](https://www.typingclub.com/)
 
-[confluence:一个功能超多的在线编辑器](<[https://www.atlassian.com/software/confluence](https://www.atlassian.com/software/confluence)>)
-
 [互联网上的免费书籍](https://github.com/ruanyf/free-books)
 
 [grep : 快速搜索](https://www.runoob.com/linux/linux-comm-grep.html)
@@ -76,3 +74,5 @@ npx @nondanee/unblockneteasemusic
 [「颜值即正义」那些管UI小姐姐要来的网站](https://juejin.cn/post/6844904104150433799#heading-8)
 
 [强迫症的 Mac 设置指南](https://github.com/macdao/ocds-guide-to-setting-up-mac)
+
+[一个优秀的前端都应该阅读这些文章](https://github.com/Nealyang/PersonalBlog/issues/48)
